@@ -13,6 +13,8 @@ set cursorline
 set backspace=indent,eol,start
 set relativenumber
 set hlsearch
+set showcmd
+set wildmenu
 set scrolloff=5
 """"""""""""""
 "Key Mapping
