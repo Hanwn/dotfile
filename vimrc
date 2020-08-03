@@ -2,6 +2,7 @@
 "Set area
 """"""""""""
 let mapleader=" "
+set clipboard=uname
 set number
 set ts=4
 set shiftwidth=4
@@ -17,6 +18,13 @@ set relativenumber
 set hlsearch
 set scrolloff=5
 set smartcase
+
+
+let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+let &t_SR = "\<ESC>]50;CursorShape=2\x7"
+let &t_EI = "\<ESC>]50;CursorShape=0\x7"
+
+
 """"""""""""""
 "Key Mapping
 """"""""""""""
@@ -34,6 +42,7 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
+
 nnoremap <C-n> :vne<CR>
 nnoremap J 5j
 nnoremap K 5k
@@ -44,6 +53,10 @@ nnoremap <up> :res +5<CR>
 nnoremap <left> :vertical resize-5<CR>
 nnoremap <leader><CR> :nohlsearch<CR>
 nnoremap <right> :vertical resize+5<CR>
+
+nnoremap <tab>n :tabe<CR>
+nnoremap <tab>h :-tabnext<CR>
+nnoremap <tab>l :+tabnext<CR>
 inoremap jj <esc>
 
 
@@ -67,6 +80,7 @@ endfunc
 
 " call NERDTree
 autocmd vimenter * :call VimEnterFunc()
+autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree())| q |endif
 func! VimEnterFunc()
 	exec ":NERDTree"
 	exec "normal \<C-w>\<C-w>"
@@ -76,18 +90,19 @@ endfunc
 
 "pyfile title
 autocmd BufNewFile *.py :call SetTitle()
+
 func! SetTitle()
-	call setline(1,"#*** Author : hanwn")
-	call setline(2,"#*** Date : ".strftime("%m-%d-%Y"))
-	call setline(3,"#*** FileName : ".expand("%:t"))
-	call setline(4,"#*** Email : hanwn7721@gmail.com")
+	call setline(1,"'''")
+	call append(line(".")," - Author : hanwn")
+	call append(line(".") + 1," - Date : ".strftime("%m-%d-%Y"))
+	call append(line(".") + 2," - FileName : ".expand("%:t"))
+	call append(line(".") + 3," - Email : hanwn7721@gmail.com")
+	call append(line(".") + 4,"'''")
 	exec "normal G"
 endfunc
 
 
-
-
-""""""""""""""
+"""""""""""""""
 "Plug install postion
 """"""""""""""
 
