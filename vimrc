@@ -3,11 +3,13 @@
 """"""""""""
 let mapleader=" "
 set clipboard=uname
+set tags=tags;
+set autochdir
 set number
 set ts=4
 set shiftwidth=4
 syntax on
-set encoding=utf-8
+set encoding=UTF-8
 set nocompatible
 set background=dark
 set wildmenu
@@ -75,6 +77,8 @@ func! CompileRun()
 		exec "!time ./%<"
 	elseif &filetype == 'python'
 		exec "!time python %"
+	elseif &filetype == 'javascript'
+		exec "!time node %"
 	endif
 endfunc
 
@@ -114,16 +118,27 @@ Plug 'severin-lemaignan/vim-minimap'
 Plug 'SirVer/ultisnips'
 Plug 'Yggdroot/indentLine'
 Plug 'preservim/nerdtree'
+Plug 'jistr/vim-nerdtree-tabs'
+Plug 'majutsushi/tagbar'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'ycm-core/YouCompleteMe'
 Plug 'Xuyuanp/nerdtree-git-plugin'
+call plug#end()
+
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 let g:UltiSnipsEditSplit="vertical"
 let g:UltiSnipsSnippetDirectories=["mysnips"]
-call plug#end()
 
 
+
+
+
+
+let g:quickrun_no_default_key_mappings = 1
+nmap <leader>r <Plug><quickrun>
+map <F10> :QuickRun<CR>
 
 """""
 "test area
