@@ -2,6 +2,7 @@
 "Set area
 """"""""""""
 let mapleader=" "
+let autosave=5
 set clipboard=uname
 set tags=tags;
 set autochdir
@@ -49,13 +50,14 @@ nnoremap <C-n> :vne<CR>
 nnoremap J 5j
 nnoremap K 5k
 nnoremap tt :NERDTreeToggle<CR>
+nnoremap tag :TagbarToggle<CR>
 nnoremap mm :MinimapToggle<CR>
 nnoremap <down> :res -5<CR>
 nnoremap <up> :res +5<CR>
 nnoremap <left> :vertical resize-5<CR>
 nnoremap <leader><CR> :nohlsearch<CR>
 nnoremap <right> :vertical resize+5<CR>
-
+nnoremap zsh :bel term ++rows=10<CR>
 nnoremap <tab>n :tabe<CR>
 nnoremap <tab>h :-tabnext<CR>
 nnoremap <tab>l :+tabnext<CR>
@@ -88,12 +90,14 @@ autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 func! VimEnterFunc()
 	exec ":NERDTree"
 	exec "normal \<C-w>\<C-w>"
+	exec ":Tagbar"
 endfunc
 
 
 
 "pyfile title
 autocmd BufNewFile *.py :call SetTitle()
+autocmd BufWritePost * NERDTreeFocus | exec 'normal R' | wincmd p
 
 func! SetTitle()
 	call setline(1,"'''")
@@ -132,20 +136,22 @@ let g:UltiSnipsEditSplit="vertical"
 let g:UltiSnipsSnippetDirectories=["mysnips"]
 
 
-
+let g:TreeOnOpen=1
 
 
 
 let g:quickrun_no_default_key_mappings = 1
-nmap <leader>r <Plug><quickrun>
-map <F10> :QuickRun<CR>
 
 """""
 "test area
 """"""
 nnoremap ;; :call MU()<CR>
 func! MU()
-	exec "normal! mqA;\<esc>`q"
+	if &filetype == "python"
+		exec "normal! mqA:\<ESC>`q"
+	else
+		exec "normal! mqA;\<esc>`q"
+	endif
 endfunc
 
 
@@ -162,3 +168,20 @@ func! Comment()
 		exec "normal! i"
 	endif
 endfunc
+
+
+fun! BufWinEnterAutoCmd()
+    if g:TreeOnOpen
+        if exists('g:NERDTree')
+            if ! g:NERDTree.IsOpen()
+                NERDTreeMirror
+                wincmd p    " 移动到前一个 (previous) (上次访问的) 窗口
+            endif
+        else
+            NERDTreeMirror
+            wincmd p    " 移动到前一个 (previous) (上次访问的) 窗口
+        endif
+    endif
+endf
+autocmd BufWinEnter * call BufWinEnterAutoCmd()
+
