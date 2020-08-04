@@ -30,10 +30,9 @@ let &t_EI = "\<ESC>]50;CursorShape=0\x7"
 """"""""""""""
 "Key Mapping
 """"""""""""""
-map S <nop>
-map <C-s> :w<CR>
+map S :w<CR>
 map s <nop>
-map <C-q> :q<CR>
+map Q :q<CR>
 map <C-a> ggVG
 map R :NERDTreeRefreshRoot<CR>
 nnoremap sv :set splitright<CR>:vsplit<CR>
