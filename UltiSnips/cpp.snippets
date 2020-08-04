@@ -1,0 +1,43 @@
+snippet headfile "header file" b
+#include <unordered_map>
+#include <iostream>
+#include <algorithm>
+#include <cstring>
+#include <vector>
+#include <queue>
+#include <stack>
+#include <cmath>
+#include <map>
+#include <set>\n
+using namespace std;
+#define LL long long\n
+const int mod = 1e9 + 7;
+const int N = 1e4 + 1;\n
+int main() {
+	std::ios::sync_with_stdio(false);\n
+	${$0}
+
+	return 0;
+}
+
+endsnippet
+
+snippet class "define class"
+
+class ${1:class} {
+public:
+	$1();
+	$1(const $1&);
+	$1& operator=(const $1&);
+	~$1();
+	$2
+private:
+	$3
+};
+endsnippet
+
+snippet struct "define struct"
+struct ${1:structName} {
+	$2
+};
+endsnippet
