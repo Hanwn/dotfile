@@ -30,9 +30,11 @@ let &t_EI = "\<ESC>]50;CursorShape=0\x7"
 """"""""""""""
 "Key Mapping
 """"""""""""""
-map S :w<CR>
+map S <nop>
+map <C-s> :w<CR>
 map s <nop>
-map Q :q<CR>
+map <C-q> :q<CR>
+map <C-a> ggVG
 map R :NERDTreeRefreshRoot<CR>
 nnoremap sv :set splitright<CR>:vsplit<CR>
 nnoremap sh :set splitbelow<CR>:split<CR> 
@@ -45,7 +47,7 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
 
-nnoremap <C-n> :vne<CR>
+nnoremap <C-n> :set splitright<CR>:vne<CR>
 nnoremap J 5j
 nnoremap K 5k
 nnoremap tt :NERDTreeToggle<CR>
@@ -61,8 +63,6 @@ nnoremap <tab>n :tabe<CR>
 nnoremap <tab>h :-tabnext<CR>
 nnoremap <tab>l :+tabnext<CR>
 inoremap jj <esc>
-
-
 
 
 
@@ -130,21 +130,42 @@ Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 call plug#end()
 
+"""""
+"Snippets setting
+""""""
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-f>"
 let g:UltiSnipsJumpBackwardTrigger="<c-b>"
 
-
+"""""
+"NERDTree setting
+""""""
 let g:TreeOnOpen=1
 let g:NERDTreeWinSize=20
+
+"""""
+"airline setting
+""""""
+
+
+
+"""""
+"tagbar setting
+"""""""""
 let g:tagbar_width=25
 
 
 let g:quickrun_no_default_key_mappings = 1
 
+
+
 """""
 "test area
 """"""
+
+
+
+"add a : or ; at the end line of code.
 nnoremap ;; :call MU()<CR>
 func! MU()
 	if &filetype == "python"
@@ -159,6 +180,8 @@ endfunc
 imap <C-_> <ESC>:call Comment()<CR>
 nmap <C-_> :call Comment()<CR>
 
+
+"Used to comment code ,existing bug!
 func! Comment()
 	if &filetype == 'python'
 		exec "normal! mqI#\<ESC>'q"
@@ -170,6 +193,7 @@ func! Comment()
 endfunc
 
 
+"keep NERDTree plug stay left when create a new tab
 fun! BufWinEnterAutoCmd()
     if g:TreeOnOpen
         if exists('g:NERDTree')
