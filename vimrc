@@ -3,7 +3,6 @@
 """"""""""""
 let mapleader=" "
 let autosave=5
-set clipboard=uname
 set tags=tags;
 set autochdir
 set number
@@ -62,6 +61,8 @@ nnoremap <tab>n :tabe<CR>
 nnoremap <tab>h :-tabnext<CR>
 nnoremap <tab>l :+tabnext<CR>
 inoremap jj <esc>
+
+
 
 
 
@@ -125,19 +126,18 @@ Plug 'preservim/nerdtree'
 Plug 'jistr/vim-nerdtree-tabs'
 Plug 'majutsushi/tagbar'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-Plug 'ycm-core/YouCompleteMe'
+"Plug 'ycm-core/YouCompleteMe'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 call plug#end()
 
 let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-let g:UltiSnipsEditSplit="vertical"
-let g:UltiSnipsSnippetDirectories=["mysnips"]
+let g:UltiSnipsJumpForwardTrigger="<c-f>"
+let g:UltiSnipsJumpBackwardTrigger="<c-b>"
 
 
 let g:TreeOnOpen=1
-
+let g:NERDTreeWinSize=20
+let g:tagbar_width=25
 
 
 let g:quickrun_no_default_key_mappings = 1
