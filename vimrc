@@ -52,11 +52,15 @@ nnoremap K 5k
 nnoremap tt :NERDTreeToggle<CR>
 nnoremap tag :TagbarToggle<CR>
 nnoremap mm :MinimapToggle<CR>
-nnoremap <down> :res -5<CR>
-nnoremap <up> :res +5<CR>
-nnoremap <left> :vertical resize-5<CR>
+nnoremap <down> <nop>
+nnoremap <up> <nop>
+nnoremap <left> <nop>
+nnoremap <right> <nop>
+nnoremap <C-w><down> :res -5<CR>
+nnoremap <C-w><up> :res +5<CR>
+nnoremap <C-w><left> :vertical resize-5<CR>
+nnoremap <C-w><right> :vertical resize+5<CR>
 nnoremap <leader><CR> :nohlsearch<CR>
-nnoremap <right> :vertical resize+5<CR>
 nnoremap zsh :bel term ++rows=10<CR>
 nnoremap <tab>n :tabe<CR>
 nnoremap <tab>h :-tabnext<CR>
@@ -127,6 +131,7 @@ Plug 'majutsushi/tagbar'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 "Plug 'ycm-core/YouCompleteMe'
 Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'dense-analysis/ale'
 call plug#end()
 
 """""
@@ -141,6 +146,20 @@ let g:UltiSnipsJumpBackwardTrigger="<c-b>"
 """"""
 let g:TreeOnOpen=1
 let g:NERDTreeWinSize=20
+
+
+"""""
+"ale setting
+""""""
+let g:ale_sign_column=1
+let g:ale_sign_error='>>'
+let g:ale_sign_warning='!'
+let g:ale_linters={
+\	'c':['cppcheck'],
+\	'cpp':['cppcheck'],
+\	'javascript':['JSLint'],
+\	'python':['pylint']
+\}
 
 """""
 "airline setting
