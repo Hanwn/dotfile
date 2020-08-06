@@ -67,6 +67,13 @@ nnoremap <tab>h :-tabnext<CR>
 nnoremap <tab>l :+tabnext<CR>
 inoremap jj <esc>
 
+"""""
+"hight current line number
+"""""
+highlight LineNr ctermfg=grey
+highlight CursorLineNr ctermbg=yellow
+highlight CursorLineNr ctermfg=red
+highlight CursorLineNr cterm=bold
 
 
 """"""""""""""
@@ -131,6 +138,8 @@ Plug 'majutsushi/tagbar'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 "Plug 'ycm-core/YouCompleteMe'
 Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'ryanoasis/vim-devicons'
+Plug 'mhinz/vim-startify'
 Plug 'dense-analysis/ale'
 call plug#end()
 
