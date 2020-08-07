@@ -21,7 +21,6 @@ set hlsearch
 set scrolloff=5
 set smartcase
 
-
 let &t_SI = "\<Esc>]50;CursorShape=1\x7"
 let &t_SR = "\<ESC>]50;CursorShape=2\x7"
 let &t_EI = "\<ESC>]50;CursorShape=0\x7"
@@ -51,7 +50,6 @@ nnoremap J 5j
 nnoremap K 5k
 nnoremap tt :NERDTreeToggle<CR>
 nnoremap tag :TagbarToggle<CR>
-nnoremap mm :MinimapToggle<CR>
 nnoremap <down> <nop>
 nnoremap <up> <nop>
 nnoremap <left> <nop>
@@ -72,7 +70,7 @@ inoremap jj <esc>
 """""
 highlight LineNr ctermfg=grey
 highlight CursorLineNr ctermbg=yellow
-highlight CursorLineNr ctermfg=red
+highlight CursorLineNr ctermfg=Darkred
 highlight CursorLineNr cterm=bold
 
 
@@ -101,10 +99,11 @@ autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 func! VimEnterFunc()
 	exec ":NERDTree"
 	exec "normal \<C-w>\<C-w>"
-	exec ":Tagbar"
+	"exec ":Tagbar"
 endfunc
 
-
+""colorscheme
+colorscheme gruvbox
 
 "pyfile title
 autocmd BufNewFile *.py :call SetTitle()
@@ -129,14 +128,16 @@ call plug#begin('~/.vim/plugged')
 Plug 'vim-airline/vim-airline'
 Plug 'jiangmiao/auto-pairs'
 Plug 'honza/vim-snippets'
-Plug 'severin-lemaignan/vim-minimap'
 Plug 'SirVer/ultisnips'
+Plug 'Chiel92/vim-autoformat'
 Plug 'Yggdroot/indentLine'
 Plug 'preservim/nerdtree'
 Plug 'jistr/vim-nerdtree-tabs'
+Plug 'neoclide/coc.nvim'
 Plug 'majutsushi/tagbar'
+Plug 'morhetz/gruvbox'
+Plug 'itchyny/vim-cursorword'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-"Plug 'ycm-core/YouCompleteMe'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'ryanoasis/vim-devicons'
 Plug 'mhinz/vim-startify'
@@ -161,20 +162,35 @@ let g:NERDTreeWinSize=20
 "ale setting
 """"""
 let g:ale_sign_column=1
-let g:ale_sign_error='>>'
-let g:ale_sign_warning='!'
-let g:ale_linters={
-\	'c':['cppcheck'],
-\	'cpp':['cppcheck'],
-\	'javascript':['JSLint'],
-\	'python':['pylint']
+let g:ale_sign_error='✗'
+let g:ale_sign_warning='⚡'
+let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ ok']
+let g:airline#extensions#ale#enabled = 1
+let g:airline#extensions#ale#error_symbol = "✗"
+let g:airline#extensions#ale#warning_symbol = "⚡"
+let airline#extensions#coc#error_symbol="✗"
+let airline#extensions#coc#warning_symbol="⚡"
+
+
+let g:ale_lint_delay = 500
+let g:ale_linter={
+\	'c':['clang'],
+\	'cpp':['clang'],
+\	'javascript':['JSlint'],
+\	'python':['pylint'],
+\   'java':['javac']
 \}
+
+
 
 """""
 "airline setting
 """"""
-
-
+let g:airline#extensions#tabline#enabled=1
+let g:airline#extensions#tabline#formatter="jsformatter"
+let g:airline#extensions#tabline#show_tab_count=2
+let g:airline#extensions#tabline#show_tabs=1
+let g:airline#extensions#tabline#exclude_preview=1
 
 """""
 "tagbar setting
