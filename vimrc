@@ -188,6 +188,12 @@ let g:tagbar_width=25
 let g:quickrun_no_default_key_mappings = 1
 
 
+"""""
+"Indent line
+"""""
+let g:indentLine_setConceal = 0
+let g:indentLine_concealcursor = ""
+
 
 """""
 "test area
@@ -242,3 +248,9 @@ autocmd BufWinEnter * call BufWinEnterAutoCmd()
 "Used to select word by enter key
 inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
 				\: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
+"""""""
+"markdown short cut
+"""""""
+source ~/.vim/md-snippets.vim
+
