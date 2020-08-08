@@ -16,6 +16,7 @@ set wildmenu
 set showcmd
 set cursorline
 set backspace=indent,eol,start
+set shortmess-=S
 set relativenumber
 set hlsearch
 set scrolloff=5
@@ -45,6 +46,7 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
 
+noremap  <expr>0     col('.') == 1 ? '^': '0'
 nnoremap <C-n> :set splitright<CR>:vne<CR>
 nnoremap J 5j
 nnoremap K 5k
@@ -63,6 +65,9 @@ nnoremap zsh :bel term ++rows=10<CR>
 nnoremap <tab>n :tabe<CR>
 nnoremap <tab>h :-tabnext<CR>
 nnoremap <tab>l :+tabnext<CR>
+nnoremap { A {}<ESC>F{a
+
+
 inoremap jj <esc>
 
 """""
@@ -72,6 +77,10 @@ highlight LineNr ctermfg=grey
 highlight CursorLineNr ctermbg=yellow
 highlight CursorLineNr ctermfg=Darkred
 highlight CursorLineNr cterm=bold
+
+"""""
+"highlight python code
+"""""
 
 
 """"""""""""""
@@ -130,6 +139,7 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'honza/vim-snippets'
 Plug 'SirVer/ultisnips'
 Plug 'Chiel92/vim-autoformat'
+Plug 'sheerun/vim-polyglot'
 Plug 'Yggdroot/indentLine'
 Plug 'preservim/nerdtree'
 Plug 'jistr/vim-nerdtree-tabs'
@@ -141,7 +151,6 @@ Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'ryanoasis/vim-devicons'
 Plug 'mhinz/vim-startify'
-Plug 'dense-analysis/ale'
 call plug#end()
 
 """""
@@ -158,28 +167,6 @@ let g:TreeOnOpen=1
 let g:NERDTreeWinSize=20
 
 
-"""""
-"ale setting
-""""""
-let g:ale_sign_column=1
-let g:ale_sign_error='✗'
-let g:ale_sign_warning='⚡'
-let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ ok']
-let g:airline#extensions#ale#enabled = 1
-let g:airline#extensions#ale#error_symbol = "✗"
-let g:airline#extensions#ale#warning_symbol = "⚡"
-let g:airline#extensions#coc#error_symbol="✗"
-let g:airline#extensions#coc#warning_symbol="⚡"
-
-
-let g:ale_lint_delay = 500
-let g:ale_linter={
-\	'c':['clang'],
-\	'cpp':['clang'],
-\	'javascript':['JSlint'],
-\	'python':['pylint'],
-\   'java':['javac']
-\}
 
 
 
