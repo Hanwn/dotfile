@@ -168,8 +168,8 @@ let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ ok']
 let g:airline#extensions#ale#enabled = 1
 let g:airline#extensions#ale#error_symbol = "✗"
 let g:airline#extensions#ale#warning_symbol = "⚡"
-let airline#extensions#coc#error_symbol="✗"
-let airline#extensions#coc#warning_symbol="⚡"
+let g:airline#extensions#coc#error_symbol="✗"
+let g:airline#extensions#coc#warning_symbol="⚡"
 
 
 let g:ale_lint_delay = 500
@@ -252,3 +252,6 @@ fun! BufWinEnterAutoCmd()
 endf
 autocmd BufWinEnter * call BufWinEnterAutoCmd()
 
+"Used to select word by enter key
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
+				\: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
