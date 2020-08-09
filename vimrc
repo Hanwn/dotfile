@@ -47,11 +47,11 @@ nnoremap <C-l> <C-w>l
 
 
 noremap  <expr>0     col('.') == 1 ? '^': '0'
-nnoremap <C-n> :set splitright<CR>:vne<CR>
+nnoremap <C-N> :set splitright<CR>:vne<CR>
 nnoremap J 5j
 nnoremap K 5k
 nnoremap tt :NERDTreeToggle<CR>
-nnoremap tag :TagbarToggle<CR>
+nnoremap tag :Vista!!<CR>
 nnoremap <down> <nop>
 nnoremap <up> <nop>
 nnoremap <left> <nop>
@@ -137,6 +137,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'vim-airline/vim-airline'
 Plug 'jiangmiao/auto-pairs'
 Plug 'honza/vim-snippets'
+Plug 'liuchengxu/vista.vim'
 Plug 'SirVer/ultisnips'
 Plug 'Chiel92/vim-autoformat'
 Plug 'sheerun/vim-polyglot'
@@ -144,7 +145,7 @@ Plug 'Yggdroot/indentLine'
 Plug 'preservim/nerdtree'
 Plug 'jistr/vim-nerdtree-tabs'
 Plug 'neoclide/coc.nvim'
-Plug 'majutsushi/tagbar'
+Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 Plug 'morhetz/gruvbox'
 Plug 'itchyny/vim-cursorword'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
@@ -180,9 +181,7 @@ let g:airline#extensions#tabline#show_tabs=1
 let g:airline#extensions#tabline#exclude_preview=1
 
 """""
-"tagbar setting
 """""""""
-let g:tagbar_width=25
 
 
 let g:quickrun_no_default_key_mappings = 1
@@ -254,3 +253,23 @@ inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
 """""""
 source ~/.vim/md-snippets.vim
 
+
+""""
+"vista setting
+""""
+let g:vista_icon_indent = ["╰─▸ ", "├─▸ "]
+let g:vista_default_executive = 'ctags'
+let g:vista#renderer#enable_icon = 1
+let g:vista#renderer#icons = {
+\   "function": "\uf794",
+\   "variable": "\uf71b",
+\  }
+
+
+""""
+"vim visual multi setting
+
+""""
+let g:VM_maps = {}
+let g:VM_maps['Find Under'] = '<C-d>'
+let g:VM_maps['Find Subword Under'] = '<C-d>'
