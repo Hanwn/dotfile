@@ -36,6 +36,7 @@ This repo is used to save my vimrc file.
 - coc-java
 - coc-tsserver
 - coc-python 
+
 Their coc-settings.json file save config and detail info can refer to their repo perspactivly
 
 * plug set place
