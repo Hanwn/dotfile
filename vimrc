@@ -21,7 +21,7 @@ set relativenumber
 set hlsearch
 set scrolloff=5
 set smartcase
-
+set expandtab
 let &t_SI = "\<Esc>]50;CursorShape=1\x7"
 let &t_SR = "\<ESC>]50;CursorShape=2\x7"
 let &t_EI = "\<ESC>]50;CursorShape=0\x7"
@@ -90,15 +90,15 @@ map<F5> : call CompileRun()<CR>
 func! CompileRun()
 	exec "w"
 	if &filetype == 'c'
-		exec "!gcc % -o %<"
-		exec "!time ./%<"
+		exec "AsyncRun gcc % -o %<"
+		exec "AsyncRun  ./%<"
 	elseif &filetype == 'cpp'
-		exec "!g++ % -std=c++11 -o %<"
-		exec "!time ./%<"
+		exec "AsyncRun  g++ % -std=c++11 -o %<"
+		exec "AsyncRun /%<"
 	elseif &filetype == 'python'
-		exec "!time python %"
+		exec "AsyncRun time python %"
 	elseif &filetype == 'javascript'
-		exec "!time node %"
+		exec "AsyncRun node %"
 	endif
 endfunc
 
@@ -136,12 +136,17 @@ endfunc
 call plug#begin('~/.vim/plugged')
 Plug 'vim-airline/vim-airline'
 Plug 'jiangmiao/auto-pairs'
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 Plug 'honza/vim-snippets'
 Plug 'liuchengxu/vista.vim'
+Plug 'plasticboy/vim-markdown'
+Plug 'godlygeek/tabular'
 Plug 'SirVer/ultisnips'
 Plug 'Chiel92/vim-autoformat'
+Plug 'tpope/vim-surround'
 Plug 'sheerun/vim-polyglot'
 Plug 'Yggdroot/indentLine'
+Plug 'skywind3000/asyncrun.vim'
 Plug 'preservim/nerdtree'
 Plug 'jistr/vim-nerdtree-tabs'
 Plug 'neoclide/coc.nvim'
@@ -190,8 +195,11 @@ let g:quickrun_no_default_key_mappings = 1
 """""
 "Indent line
 """""
-let g:indentLine_setConceal = 0
-let g:indentLine_concealcursor = ""
+let g:indentLine_fileType = ['c','cpp','python','javascript','go','java']
+let g:indentLine_concealcursor = 'inc'
+let g:indentLine_conceallevel = 2
+let g:indentLine_char_list = ['|', '¦', '┆', '┊']
+
 
 
 """""
@@ -273,3 +281,9 @@ let g:vista#renderer#icons = {
 let g:VM_maps = {}
 let g:VM_maps['Find Under'] = '<C-d>'
 let g:VM_maps['Find Subword Under'] = '<C-d>'
+
+
+""""""
+"asyncrun setting
+""""""
+let g:asyncrun_open=8
