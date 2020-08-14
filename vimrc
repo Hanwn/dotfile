@@ -1,7 +1,7 @@
 """""""""""
 "Set area
 """"""""""""
-let mapleader=" "
+let mapleader=","
 let autosave=5
 set tags=tags;
 set autochdir
@@ -146,6 +146,7 @@ Plug 'Chiel92/vim-autoformat'
 Plug 'tpope/vim-surround'
 Plug 'sheerun/vim-polyglot'
 Plug 'Yggdroot/indentLine'
+Plug 'Yggdroot/LeaderF'
 Plug 'skywind3000/asyncrun.vim'
 Plug 'preservim/nerdtree'
 Plug 'jistr/vim-nerdtree-tabs'
@@ -287,3 +288,11 @@ let g:VM_maps['Find Subword Under'] = '<C-d>'
 "asyncrun setting
 """"""
 let g:asyncrun_open=8
+
+""""""
+"LeaderF setting
+""""""
+let g:Lf_ShortcutF = '<C-p>'
+noremap ,b :LeaderfBuffer<CR>
+noremap ,l :LeaderfLine<CR>
+noremap ,f :LeaderfFunction<CR>
