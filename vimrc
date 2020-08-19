@@ -12,6 +12,7 @@ syntax on
 set encoding=UTF-8
 set nocompatible
 set background=dark
+set t_Co=256
 set wildmenu
 set showcmd
 set cursorline
