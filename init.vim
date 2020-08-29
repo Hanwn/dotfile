@@ -14,6 +14,7 @@ set nocompatible
 set background=dark
 set t_Co=256
 set wildmenu
+set wildignorecase
 set showcmd
 set cursorline
 set backspace=indent,eol,start
@@ -181,7 +182,19 @@ let g:NERDTreeWinSize=20
 "cocsetting
 """
 nmap <silent> gd <Plug>(coc-definition)
-
+nmap <silent> [e <Plug>(coc-diagnostic-prev)
+nmap <silent> ]e <Plug>(coc-diagnostic-next)
+let g:coc_global_extensions = [
+    \ 'coc-python',
+    \ 'coc-tsserver',
+    \ 'coc-html',
+    \ 'coc-css',
+    \ 'coc-snippets',
+    \ 'coc-yank',
+    \ 'coc-vimlsp',
+    \ 'coc-json',
+    \ 'coc-clangd'
+  \ ]
 
 """""
 "airline setting
