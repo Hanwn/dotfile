@@ -1,7 +1,7 @@
 """""""""""
 "Set area
 """"""""""""
-let mapleader=" "
+let mapleader=","
 let autosave=5
 set tags=tags;
 set autochdir
@@ -12,6 +12,7 @@ syntax on
 set encoding=UTF-8
 set nocompatible
 set background=dark
+set t_Co=256
 set wildmenu
 set showcmd
 set cursorline
@@ -21,7 +22,7 @@ set relativenumber
 set hlsearch
 set scrolloff=5
 set smartcase
-
+set expandtab
 let &t_SI = "\<Esc>]50;CursorShape=1\x7"
 let &t_SR = "\<ESC>]50;CursorShape=2\x7"
 let &t_EI = "\<ESC>]50;CursorShape=0\x7"
@@ -137,8 +138,11 @@ Plug 'vim-airline/vim-airline'
 Plug 'jiangmiao/auto-pairs'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 Plug 'liuchengxu/vista.vim'
+Plug 'plasticboy/vim-markdown'
+Plug 'godlygeek/tabular'
 Plug 'SirVer/ultisnips'
 Plug 'Chiel92/vim-autoformat'
+Plug 'tpope/vim-surround'
 Plug 'sheerun/vim-polyglot'
 Plug 'Yggdroot/indentLine'
 Plug 'plasticboy/vim-markdown'
