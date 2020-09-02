@@ -53,6 +53,8 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
+noremap <A-u> <C-w>p<C-u><C-w>p
+noremap <A-d> <C-w>p<C-d><C-w>p
 
 noremap  <expr>0     col('.') == 1 ? '^': '0'
 nnoremap <C-N> :set splitright<CR>:vne<CR>
@@ -163,6 +165,7 @@ Plug 'jistr/vim-nerdtree-tabs'
 Plug 'neoclide/coc.nvim',{'branch':'release'}
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 Plug 'morhetz/gruvbox'
+Plug 'matze/vim-move'
 Plug 'itchyny/vim-cursorword'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'Xuyuanp/nerdtree-git-plugin'
@@ -306,8 +309,8 @@ let g:vista#renderer#icons = {
 
 """"
 let g:VM_maps = {}
-let g:VM_maps['Find Under'] = '<C-d>'
-let g:VM_maps['Find Subword Under'] = '<C-d>'
+let g:VM_maps['Find Under'] = '<C-m>'
+let g:VM_maps['Find Subword Under'] = '<C-m>'
 
 
 """"""
