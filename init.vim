@@ -238,18 +238,6 @@ let g:indentLine_char_list = ['|', '¦', '┆', '┊']
 
 
 
-"add a : or ; at the end line of code.
-nnoremap ;; :call MU()<CR>
-func! MU()
-	if &filetype == "python"
-		exec "normal! mqA:\<ESC>`q"
-	else
-		exec "normal! mqA;\<esc>`q"
-	endif
-endfunc
-
-
-
 imap <C-_> <ESC>:call Comment()<CR>
 nmap <C-_> :call Comment()<CR>
 
