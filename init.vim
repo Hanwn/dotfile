@@ -41,7 +41,6 @@ let &t_EI = "\<ESC>]50;CursorShape=0\x7"
 map S :w<CR>
 map s <nop>
 map Q :q<CR>
-map <C-a> ggVG
 map R :NERDTreeRefreshRoot<CR>
 nnoremap sv :set splitright<CR>:vsplit<CR>
 nnoremap sh :set splitbelow<CR>:split<CR> 
@@ -52,9 +51,6 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
-
-noremap <A-u> <C-w>p<C-u><C-w>p
-noremap <A-d> <C-w>p<C-d><C-w>p
 
 noremap  <expr>0     col('.') == 1 ? '^': '0'
 nnoremap <C-N> :set splitright<CR>:vne<CR>
@@ -75,7 +71,8 @@ nnoremap <tab>n :tabe<CR>
 nnoremap <tab>h :-tabnext<CR>
 nnoremap <tab>l :+tabnext<CR>
 nnoremap { A {}<ESC>F{a
-
+nnoremap + <C-a>
+nnoremap - <C-x>
 
 inoremap jj <esc>
 
@@ -114,6 +111,7 @@ endfunc
 " call NERDTree
 autocmd vimenter * :call VimEnterFunc()
 autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree())| q |endif
+autocmd BufWritePost * NERDTreeFocus | exec 'normal R' | wincmd p
 func! VimEnterFunc()
 	exec ":NERDTree"
 	exec "normal \<C-w>\<C-w>"
@@ -125,7 +123,6 @@ colorscheme gruvbox
 
 "pyfile title
 autocmd BufNewFile *.py :call SetTitle()
-autocmd BufWritePost * NERDTreeFocus | exec 'normal R' | wincmd p
 
 func! SetTitle()
 	call setline(1,"'''")
@@ -202,7 +199,8 @@ let g:coc_global_extensions = [
     \ 'coc-yank',
     \ 'coc-vimlsp',
     \ 'coc-json',
-    \ 'coc-clangd'
+    \ 'coc-clangd',
+    \ 'coc-todolist'
   \ ]
 
 """""
