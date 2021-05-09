@@ -119,8 +119,6 @@ func! VimEnterFunc()
 	"exec ":Tagbar"
 endfunc
 
-""colorscheme
-colorscheme gruvbox
 
 "pyfile title
 autocmd BufNewFile *.py :call SetTitle()
@@ -169,7 +167,11 @@ Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'ryanoasis/vim-devicons'
 Plug 'mhinz/vim-startify'
+Plug 'joshdick/onedark.vim'
 call plug#end()
+
+""colorscheme
+colorscheme gruvbox
 
 """""
 "Snippets setting
