@@ -1,4 +1,196 @@
 "
+" _____      _ _         _           
+"|_   _|    (_) |       (_)          
+"  | | _ __  _| |___   ___ _ __ ___  
+"  | || '_ \| | __\ \ / / | '_ ` _ \ 
+" _| || | | | | |_ \ V /| | | | | | |
+" \___/_| |_|_|\__(_)_/ |_|_| |_| |_|
+"""""""""""
+"Set area
+""""""""""""
+let mapleader=","
+let autosave=5
+set tags=tags;
+set autochdir
+set number
+syntax on
+set encoding=UTF-8
+set nocompatible
+set background=dark
+set t_Co=256
+set wildmenu
+set wildignorecase
+set showcmd
+set cursorline
+set backspace=indent,eol,start
+set shortmess-=S
+set relativenumber
+set hlsearch
+set scrolloff=5
+set smartcase
+set expandtab
+
+
+set ts=4
+set shiftwidth=2
+set nofoldenable
+let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+let &t_SR = "\<ESC>]50;CursorShape=2\x7"
+let &t_EI = "\<ESC>]50;CursorShape=0\x7"
+
+
+""""""""""""""
+"Key Mapping
+""""""""""""""
+map S :w<CR>
+map s <nop>
+map Q :q<CR>
+map R :NERDTreeRefreshRoot<CR>
+nnoremap sv :set splitright<CR>:vsplit<CR>
+nnoremap sh :set splitbelow<CR>:split<CR> 
+
+nnoremap < <<
+nnoremap > >>
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+
+noremap  <expr>0     col('.') == 1 ? '^': '0'
+nnoremap <C-N> :set splitright<CR>:vne<CR>
+nnoremap J 5j
+nnoremap K 5k
+nnoremap tt :NERDTreeToggle<CR>
+nnoremap tag :Vista!!<CR>
+nnoremap <down> <nop>
+nnoremap <up> <nop>
+nnoremap <left> <nop>
+nnoremap <right> <nop>
+nnoremap <C-w><down> :res -5<CR>
+nnoremap <C-w><up> :res +5<CR>
+nnoremap <C-w><left> :vertical resize-5<CR>
+nnoremap <C-w><right> :vertical resize+5<CR>
+nnoremap <leader><CR> :nohlsearch<CR>
+nnoremap <tab>n :tabe<CR>
+nnoremap <tab>h :-tabnext<CR>
+nnoremap <tab>l :+tabnext<CR>
+nnoremap { A {}<ESC>F{a
+nnoremap + <C-a>
+nnoremap - <C-x>
+
+inoremap jj <esc>
+
+"""""
+"hight current line number
+"""""
+highlight LineNr ctermfg=grey
+highlight CursorLineNr ctermbg=yellow
+highlight CursorLineNr ctermfg=Darkred
+highlight CursorLineNr cterm=bold
+
+"""""
+"highlight python code
+"""""
+
+
+""""""""""""""
+"Quickly Run
+""""""""""""
+map<F5> : call CompileRun()<CR>
+func! CompileRun()
+	exec "w"
+	if &filetype == 'c'
+		exec "AsyncRun gcc % -o %<"
+		exec "AsyncRun  ./%<"
+	elseif &filetype == 'cpp'
+		exec "AsyncRun  g++ % -std=c++11 -o %<"
+		exec "AsyncRun /%<"
+	elseif &filetype == 'python'
+		exec "AsyncRun time python %"
+	elseif &filetype == 'javascript'
+		exec "AsyncRun node %"
+	endif
+endfunc
+
+" call NERDTree
+autocmd vimenter * :call VimEnterFunc()
+autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree())| q |endif
+autocmd BufWritePost * NERDTreeFocus | exec 'normal R' | wincmd p
+func! VimEnterFunc()
+	exec ":NERDTree"
+	exec "normal \<C-w>\<C-w>"
+	"exec ":Tagbar"
+endfunc
+
+
+"pyfile title
+autocmd BufNewFile *.py :call SetTitle()
+
+func! SetTitle()
+	call setline(1,"'''")
+	call append(line(".")," - Author : hanwn")
+	call append(line(".") + 1," - Date : ".strftime("%m-%d-%Y"))
+	call append(line(".") + 2," - FileName : ".expand("%:t"))
+	call append(line(".") + 3," - Email : hanwn7721@gmail.com")
+	call append(line(".") + 4,"'''")
+	exec "normal G"
+endfunc
+
+
+"""""""""""""""
+"Plug install postion
+""""""""""""""
+
+call plug#begin('~/.vim/plugged')
+Plug 'vim-airline/vim-airline'
+Plug 'jiangmiao/auto-pairs'
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+Plug 'liuchengxu/vista.vim'
+Plug 'plasticboy/vim-markdown'
+Plug 'godlygeek/tabular'
+Plug 'SirVer/ultisnips'
+Plug 'Chiel92/vim-autoformat'
+Plug 'tpope/vim-surround'
+Plug 'sheerun/vim-polyglot'
+Plug 'Yggdroot/indentLine'
+Plug 'plasticboy/vim-markdown'
+Plug 'godlygeek/tabular'
+Plug 'tpope/vim-surround'
+Plug 'Yggdroot/LeaderF'
+Plug 'skywind3000/asyncrun.vim'
+Plug 'voldikss/vim-floaterm'
+Plug 'preservim/nerdtree'
+Plug 'jistr/vim-nerdtree-tabs'
+Plug 'neoclide/coc.nvim',{'branch':'release'}
+Plug 'mg979/vim-visual-multi', {'branch': 'master'}
+Plug 'morhetz/gruvbox'
+Plug 'matze/vim-move'
+Plug 'itchyny/vim-cursorword'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'ryanoasis/vim-devicons'
+Plug 'mhinz/vim-startify'
+Plug 'joshdick/onedark.vim'
+call plug#end()
+
+""colorscheme
+colorscheme gruvbox
+
+"""""
+"Snippets setting
+""""""
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-f>"
+let g:UltiSnipsJumpBackwardTrigger="<c-b>"
+
+"""""
+"NERDTree setting
+""""""
+let g:TreeOnOpen=1
+let g:NERDTreeWinSize=20
+
+
+"""
 "cocsetting
 """
 nmap <silent> gd <Plug>(coc-definition)
@@ -12,7 +204,8 @@ let g:coc_global_extensions = [
     \ 'coc-vimlsp',
     \ 'coc-json',
     \ 'coc-clangd',
-	\ 'coc-jedi'
+	\ 'coc-jedi',
+    \ 'coc-go'
   \ ]
 
 """""
@@ -131,4 +324,4 @@ noremap ,f :LeaderfFunction<CR>
 """"
 "floaterm setting
 """"
-nmap ter ::FloatermToggle<CR>
+        nmap ter ::FloatermToggle<CR>
