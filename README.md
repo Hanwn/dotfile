@@ -1,19 +1,51 @@
-This repo is used to save my vimrc file.
+# MyInitVim
 
-* dir
-	- colors :  save colors used by plug gruvbox
-	- UltiSnips : save snipet
+
+
+## Dir
+```dot
+├── App.md
+├── README.md
+├── UltiSnips
+│   ├── cpp.snippets
+│   ├── markdown.snippets
+│   ├── md-snippets.vim
+│   └── python.snippets
+├── coc-settings.json
+├── core
+│   ├── load.vim
+│   ├── mappings.vim
+│   ├── plugins.vim
+│   └── variables.vim
+├── init.vim
+└── plugconfig
+    ├── airline.vim
+    ├── asyncrun.vim
+    ├── coc.vim
+    ├── defx.vim
+    ├── floaterm.vim
+    ├── indentline.vim
+    ├── leaderf.vim
+    ├── lightline.vim
+    ├── nerdtree.vim
+    ├── snippets.vim
+    ├── vista.vim
+    └── visualmulti.vim
+```
+
 
 * file
 	- coc-settings.json : config file used to complete
-	- vimrc : vim config file
+	- init.vim : vim config file
 
 
 
-* key map
+## Key map
+
+
+## Plugin
 
 * My vimrc plug:
-	- :star: Plug 'vim-airline/vim-airline'
 	- Plug 'jiangmiao/auto-pairs'
 	- Plug 'honza/vim-snippets'
 	- Plug 'SirVer/ultisnips'
@@ -21,7 +53,7 @@ This repo is used to save my vimrc file.
 	- Plug 'Yggdroot/indentLine'
 	- Plug 'preservim/nerdtree'
 	- Plug 'jistr/vim-nerdtree-tabs'
-	- :star: Plug 'neoclide/coc.nvim'
+	- Plug 'neoclide/coc.nvim'
 	- Plug 'majutsushi/tagbar'
 	- Plug 'morhetz/gruvbox'
 	- Plug 'itchyny/vim-cursorword'
@@ -30,10 +62,25 @@ This repo is used to save my vimrc file.
 	- Plug 'ryanoasis/vim-devicons'
 	- Plug 'mhinz/vim-startify'
 	- Plug 'dense-analysis/ale'
+* table describe
+
+| Number | plug Name  | Desc                                       |
+|:------:|:----------:|:------------------------------------------:|
+| 1      | coc.vim    | complete plug, including cpp,js,python,etc |
+| 2      | auto-pairs | complete {} () [] automatically            |
+| <++>   | <++>       | <++>                                       |
+| <++>   | <++>       | <++>                                       |
+| <++>   | <++>       | <++>                                       |
+| <++>   | <++>       | <++>                                       |
+| <++>   | <++>       | <++>                                       |
+
+<++>
+
+
+<++>
 
 
 **Note** in coc managerment, install plug behind
-- coc-java
 - coc-tsserver
 - coc-python 
 
