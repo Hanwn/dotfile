@@ -117,11 +117,19 @@ endfunc
 """"""""""""""
 
 call plug#begin('~/.vim/plugged')
+"""layout {{{
 Plug 'itchyny/lightline.vim'
+Plug 'itchyny/vim-gitbranch'
 Plug 'jiangmiao/auto-pairs'
-Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 Plug 'liuchengxu/vista.vim'
+Plug 'voldikss/vim-floaterm'
+"""}}}
+
+""" markdown {{{
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 Plug 'plasticboy/vim-markdown'
+""" }}}
+
 Plug 'godlygeek/tabular'
 Plug 'SirVer/ultisnips'
 Plug 'Chiel92/vim-autoformat'
@@ -130,22 +138,30 @@ Plug 'sheerun/vim-polyglot'
 Plug 'Yggdroot/indentLine'
 Plug 'Yggdroot/LeaderF'
 Plug 'skywind3000/asyncrun.vim'
-Plug 'voldikss/vim-floaterm'
-Plug 'neoclide/coc.nvim',{'branch':'release'}
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
-Plug 'morhetz/gruvbox'
 Plug 'matze/vim-move'
 Plug 'itchyny/vim-cursorword'
+
+""" *********STAR********
+Plug 'neoclide/coc.nvim',{'branch':'release'}
+"""
+
+""" nerdtree {{{
 Plug 'preservim/nerdtree'
 Plug 'jistr/vim-nerdtree-tabs'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'ryanoasis/vim-devicons'
 Plug 'mhinz/vim-startify'
+"""}}}
+
+""" themes {{{
+Plug 'morhetz/gruvbox'
 Plug 'joshdick/onedark.vim'
+"""}}}
 call plug#end()
 
-""colorscheme
+""colorscheme setting
 "colorscheme gruvbox
 colorscheme onedark
 
@@ -160,13 +176,13 @@ let g:UltiSnipsJumpBackwardTrigger="<c-b>"
 "lightline setting
 """"
 let g:lightline = {
-      \ 'colorscheme': 'wombat',
+      \ 'colorscheme': 'onedark',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
       \ },
       \ 'component_function': {
-      \   'gitbranch': 'FugitiveHead'
+      \   'gitbranch': 'gitbranch#name'
       \ },
       \ }
 
