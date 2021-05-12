@@ -1,9 +1,10 @@
 # MyInitVim
 
+![initvim](initvim.png) 
 
 
 ## Dir
-```dot
+```
 ├── App.md
 ├── README.md
 ├── UltiSnips
