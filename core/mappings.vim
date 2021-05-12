@@ -21,7 +21,7 @@ nnoremap J 5j
 nnoremap K 5k
 "nnoremap tt :NERDTreeToggle<CR>
 nnoremap tt :Defx -columns=git:mark:indent:icons:filename:type -no-toggle -search=`expand('%:p')` `getcwd()`<CR>
-nnoremap tag :Vist
+nnoremap tag :Vist<CR>
 nnoremap <down> <nop>
 nnoremap <up> <nop>
 nnoremap <left> <nop>
