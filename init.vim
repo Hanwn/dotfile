@@ -71,9 +71,11 @@ nnoremap <C-w><up> :res +5<CR>
 nnoremap <C-w><left> :vertical resize-5<CR>
 nnoremap <C-w><right> :vertical resize+5<CR>
 nnoremap <leader><CR> :nohlsearch<CR>
-nnoremap <tab>n :tabe<CR>
-nnoremap <tab>h :-tabnext<CR>
-nnoremap <tab>l :+tabnext<CR>
+nnoremap tn :tabe<CR>
+nnoremap [t :-tabnext<CR>
+nnoremap ]t :+tabnext<CR>
+nnoremap [b :bp
+nnoremap ]b :bn
 nnoremap { A {}<ESC>F{a
 nnoremap + <C-a>
 nnoremap - <C-x>
@@ -93,34 +95,7 @@ highlight CursorLineNr cterm=bold
 """""
 
 
-""""""""""""""
-"Quickly Run
-""""""""""""
-map<F5> : call CompileRun()<CR>
-func! CompileRun()
-	exec "w"
-	if &filetype == 'c'
-		exec "AsyncRun gcc % -o %<"
-		exec "AsyncRun  ./%<"
-	elseif &filetype == 'cpp'
-		exec "AsyncRun  g++ % -std=c++11 -o %<"
-		exec "AsyncRun /%<"
-	elseif &filetype == 'python'
-		exec "AsyncRun time python %"
-	elseif &filetype == 'javascript'
-		exec "AsyncRun node %"
-	endif
-endfunc
 
-" call NERDTree
-autocmd vimenter * :call VimEnterFunc()
-autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree())| q |endif
-autocmd BufWritePost * NERDTreeFocus | exec 'normal R' | wincmd p
-func! VimEnterFunc()
-	exec ":NERDTree"
-	exec "normal \<C-w>\<C-w>"
-	"exec ":Tagbar"
-endfunc
 
 
 "pyfile title
@@ -142,7 +117,7 @@ endfunc
 """"""""""""""
 
 call plug#begin('~/.vim/plugged')
-Plug 'vim-airline/vim-airline'
+Plug 'itchyny/lightline.vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 Plug 'liuchengxu/vista.vim'
@@ -153,19 +128,16 @@ Plug 'Chiel92/vim-autoformat'
 Plug 'tpope/vim-surround'
 Plug 'sheerun/vim-polyglot'
 Plug 'Yggdroot/indentLine'
-Plug 'plasticboy/vim-markdown'
-Plug 'godlygeek/tabular'
-Plug 'tpope/vim-surround'
 Plug 'Yggdroot/LeaderF'
 Plug 'skywind3000/asyncrun.vim'
 Plug 'voldikss/vim-floaterm'
-Plug 'preservim/nerdtree'
-Plug 'jistr/vim-nerdtree-tabs'
 Plug 'neoclide/coc.nvim',{'branch':'release'}
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 Plug 'morhetz/gruvbox'
 Plug 'matze/vim-move'
 Plug 'itchyny/vim-cursorword'
+Plug 'preservim/nerdtree'
+Plug 'jistr/vim-nerdtree-tabs'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'ryanoasis/vim-devicons'
@@ -174,21 +146,86 @@ Plug 'joshdick/onedark.vim'
 call plug#end()
 
 ""colorscheme
-colorscheme gruvbox
+"colorscheme gruvbox
+colorscheme onedark
 
-"""""
+""""""
 "Snippets setting
 """"""
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-f>"
 let g:UltiSnipsJumpBackwardTrigger="<c-b>"
 
+""""
+"lightline setting
+""""
+let g:lightline = {
+      \ 'colorscheme': 'wombat',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+      \   'gitbranch': 'FugitiveHead'
+      \ },
+      \ }
+
+
 """""
 "NERDTree setting
 """"""
 let g:TreeOnOpen=1
 let g:NERDTreeWinSize=20
+"keep NERDTree plug stay left when create a new tab
+fun! BufWinEnterAutoCmd()
+    if g:TreeOnOpen
+        if exists('g:NERDTree')
+            if ! g:NERDTree.IsOpen()
+                NERDTreeMirror
+                wincmd p    " 移动到前一个 (previous) (上次访问的) 窗口
+            endif
+        else
+            NERDTreeMirror
+            wincmd p    " 移动到前一个 (previous) (上次访问的) 窗口
+        endif
+    endif
+endf
+" autocmd BufWinEnter * call BufWinEnterAutoCmd()
+" call NERDTree
+" autocmd vimenter * :call VimEnterFunc()
+" autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree())| q |endif
+" autocmd BufWritePost * NERDTreeFocus | exec 'normal R' | wincmd p
+func! VimEnterFunc()
+	exec ":NERDTree"
+	exec "normal \<C-w>\<C-w>"
+	"exec ":Tagbar"
+endfunc
 
+
+""""""""""""""
+" AsyncRun setting
+"Quickly AsyncRun
+""""""""""""
+map<F5> : call CompileRun()<CR>
+func! CompileRun()
+	exec "w"
+	if &filetype == 'c'
+		exec "AsyncRun gcc % -o %<"
+		exec "AsyncRun  ./%<"
+	elseif &filetype == 'cpp'
+		exec "AsyncRun  g++ % -std=c++11 -o %<"
+		exec "AsyncRun /%<"
+	elseif &filetype == 'python'
+		exec "AsyncRun time python %"
+	elseif &filetype == 'javascript'
+		exec "AsyncRun node %"
+	endif
+endfunc
+
+let g:asyncrun_open=8
+let g:LanguageClient_serverCommands = {
+       \ 'go': ['gopls']
+       \ }
 
 """
 "cocsetting
@@ -211,11 +248,11 @@ let g:coc_global_extensions = [
 """""
 "airline setting
 """"""
-let g:airline#extensions#tabline#enabled=1
-let g:airline#extensions#tabline#formatter="jsformatter"
-let g:airline#extensions#tabline#show_tab_count=2
-let g:airline#extensions#tabline#show_tabs=1
-let g:airline#extensions#tabline#exclude_preview=1
+"let g:airline#extensions#tabline#enabled=1
+"let g:airline#extensions#tabline#formatter="jsformatter"
+"let g:airline#extensions#tabline#show_tab_count=2
+"let g:airline#extensions#tabline#show_tabs=1
+"let g:airline#extensions#tabline#exclude_preview=1
 
 """""
 """""""""
@@ -235,9 +272,6 @@ let g:indentLine_conceallevel = 2
 let g:indentLine_char_list = ['|', '¦', '┆', '┊']
 
 
-"""""
-"test area
-""""""
 
 
 
@@ -257,30 +291,16 @@ func! Comment()
 endfunc
 
 
-"keep NERDTree plug stay left when create a new tab
-fun! BufWinEnterAutoCmd()
-    if g:TreeOnOpen
-        if exists('g:NERDTree')
-            if ! g:NERDTree.IsOpen()
-                NERDTreeMirror
-                wincmd p    " 移动到前一个 (previous) (上次访问的) 窗口
-            endif
-        else
-            NERDTreeMirror
-            wincmd p    " 移动到前一个 (previous) (上次访问的) 窗口
-        endif
-    endif
-endf
-autocmd BufWinEnter * call BufWinEnterAutoCmd()
 
 "Used to select word by enter key
 inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
 				\: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 """""""
-"markdown short cut
+"markdown snippets
 """""""
-source ~/.vim/md-snippets.vim
+" source ~/.vim/md-snippets.vim
+source ~/.config/nvim/UltiSnips/md-snippets.vim
 
 
 """"
@@ -297,20 +317,12 @@ let g:vista#renderer#icons = {
 
 """"
 "vim visual multi setting
-
 """"
 let g:VM_maps = {}
 let g:VM_maps['Find Under'] = '<C-m>'
 let g:VM_maps['Find Subword Under'] = '<C-m>'
 
 
-""""""
-"asyncrun setting
-""""""
-let g:asyncrun_open=8
-let g:LanguageClient_serverCommands = {
-       \ 'go': ['gopls']
-       \ }
 
 """"""
 "LeaderF setting
@@ -324,4 +336,11 @@ noremap ,f :LeaderfFunction<CR>
 """"
 "floaterm setting
 """"
-        nmap ter ::FloatermToggle<CR>
+nmap ter ::FloatermToggle<CR>
+
+
+"""""
+"test area
+""""""
+
+
