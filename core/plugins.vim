@@ -26,6 +26,8 @@ Plug 'sheerun/vim-polyglot'
 Plug 'Yggdroot/indentLine'
 Plug 'Yggdroot/LeaderF'
 Plug 'skywind3000/asyncrun.vim'
+" Plug 'preservim/nerdcommenter'
+Plug 'tyru/caw.vim'
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 Plug 'matze/vim-move'
 Plug 'ryanoasis/vim-devicons'

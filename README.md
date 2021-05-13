@@ -75,6 +75,7 @@
 	* Plug 'morhetz/gruvbox'
 	* Plug 'joshdick/onedark.vim'
 	* Plug 'airblade/vim-gitgutter'
+	* Plug 'tyru/caw.vim'
 
 * table describe
 
@@ -107,6 +108,7 @@
 | 25     | :star::star::star::star:       | [vim-gitgutter](https://www.github.com/morhetz/gruvbox)           | git staus shows                     |
 | 26     | :star::star::star:             | [gruvbox](https://www.github.com/joshdick/onedark.vim)            | theme                               |
 | 27     | :star::star::star::star:       | [onedark.vim](https://www.github.com/airblade/vim-gitgutter)      | theme                               |
+| 28     | :star::star::star::star:       | [caw.vim](https://www.github.com/tyru/caw.vim)                    | Annoatation                         |
 
 
 
