@@ -50,9 +50,12 @@ augroup defxsettings
     nnoremap <silent><buffer><expr> s defx#do_action('drop', 'split')
     nnoremap <silent><buffer><expr> v defx#do_action('drop', 'vsplit')
     nnoremap <silent><buffer><expr> t defx#do_action('drop', 'tabe')
-    nnoremap <silent><buffer><expr> o defx#do_action('open_tree')
+    nnoremap <silent><buffer><expr> o defx#do_action('open_tree_or_close_tree')
+    nnoremap <silent><buffer><expr> N 
+          \defx#do_action('new_file')
     "nnoremap <silent><buffer><expr> l defx#do_action('open_tree')
-    nnoremap <silent><buffer><expr> h defx#do_action('close_tree')
+    nnoremap <silent><buffer><expr> h 
+          \defx#do_action('close_tree')
     nnoremap <silent><buffer><expr> O defx#do_action('open_tree_recursive')
     nnoremap <silent><buffer><expr> C defx#do_action('copy')
     nnoremap <silent><buffer><expr> P defx#do_action('paste')
