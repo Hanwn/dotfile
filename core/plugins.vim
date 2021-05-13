@@ -10,6 +10,7 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'liuchengxu/vista.vim'
 Plug 'voldikss/vim-floaterm'
 Plug 'mhinz/vim-startify'
+Plug 'airblade/vim-gitgutter'
 """}}}
 
 """ markdown {{{

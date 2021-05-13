@@ -16,7 +16,7 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
 noremap  <expr>0     col('.') == 1 ? '^': '0'
-nnoremap vn :set splitright<CR>:vne<CR>
+"nnoremap vn :set splitright<CR>:vne<CR>
 nnoremap J 5j
 nnoremap K 5k
 vnoremap J 5j
