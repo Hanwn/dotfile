@@ -14,11 +14,11 @@ Plug 'airblade/vim-gitgutter'
 """}}}
 
 """ markdown {{{
+Plug 'godlygeek/tabular'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 Plug 'plasticboy/vim-markdown'
 """ }}}
 
-Plug 'godlygeek/tabular'
 Plug 'SirVer/ultisnips'
 Plug 'Chiel92/vim-autoformat'
 Plug 'tpope/vim-surround'

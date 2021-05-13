@@ -29,7 +29,7 @@ endfunction
 
 function! LightlineFugitive() 
 	let branch = gitbranch#name() 
-	return branch !=# '' ? ''.branch : '' 
+	return branch !=# '' ? ' '.branch : '' 
 endfunction 
 
 
@@ -71,7 +71,7 @@ function! LightLineModified()
   if &filetype == "help"
     return ""
   elseif &modified
-    return "➕"
+    return ""
   elseif &modifiable
     return ""
   else
