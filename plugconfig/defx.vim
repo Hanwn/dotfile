@@ -47,31 +47,22 @@ augroup defxsettings
         \ ? defx#do_action('open_or_close_tree')
         \ : defx#do_action('drop')
     "nnoremap <buffer><silent><expr> j defx#do_action('close_tree')
-    nnoremap <buffer><silent><expr> h defx#do_action('close_tree')
-    nnoremap <buffer><silent><expr> L defx#do_action('cd', defx#get_candidate().action__path)
-    nnoremap <buffer><silent><expr> u defx#do_action('cd', ['..'])
-    nnoremap <buffer><silent><expr> gh defx#do_action('cd', getcwd())
-    nnoremap <buffer><silent><expr> ~ defx#do_action('open_tree_recursive')
-
-    " Selection
-    nnoremap <silent><buffer><expr><nowait> <Space>
-      \ defx#do_action('toggle_select') . 'j'
-    "nnoremap <buffer><silent><expr> uv defx#do_action('clear_select_all')
-
-    " Operations
-    nnoremap <buffer><silent><expr> yy defx#do_action('copy')
-    nnoremap <silent><buffer><expr> yp defx#do_action('yank_path')
-    nnoremap <buffer><silent><expr> dd defx#do_action('move')
-    nnoremap <buffer><silent><expr> DD defx#do_action('remove_trash')
-    nnoremap <buffer><silent><expr> pp defx#do_action('paste')
-    nnoremap <buffer><silent><expr> cw defx#do_action('rename')
-    nnoremap <buffer><silent><expr> a defx#do_action('new_multiple_files')
-	nnoremap <silent><buffer><expr> t defx#do_action('call', 'MyT')
-    " Other
-    nnoremap <buffer><silent><expr> <C-r> defx#do_action('redraw')
-    nnoremap <buffer><silent><expr> <C-g> defx#do_action('print')
-    nnoremap <buffer><silent><expr> zh defx#do_action('toggle_ignored_files')
-    nnoremap <buffer><silent><expr> ypf defx#do_action('yank_path')
+    nnoremap <silent><buffer><expr> s defx#do_action('drop', 'split')
+    nnoremap <silent><buffer><expr> v defx#do_action('drop', 'vsplit')
+    nnoremap <silent><buffer><expr> t defx#do_action('drop', 'tabe')
+    nnoremap <silent><buffer><expr> o defx#do_action('open_tree')
+    nnoremap <silent><buffer><expr> l defx#do_action('open_tree')
+    nnoremap <silent><buffer><expr> h defx#do_action('close_tree')
+    nnoremap <silent><buffer><expr> O defx#do_action('open_tree_recursive')
+    nnoremap <silent><buffer><expr> C defx#do_action('copy')
+    nnoremap <silent><buffer><expr> P defx#do_action('paste')
+    nnoremap <silent><buffer><expr> M defx#do_action('rename')
+    nnoremap <silent><buffer><expr> D defx#do_action('remove_trash')
+    nnoremap <silent><buffer><expr> A defx#do_action('new_multiple_files')
+    nnoremap <silent><buffer><expr> U defx#do_action('cd', ['..'])
+    nnoremap <silent><buffer><expr> . defx#do_action('toggle_ignored_files')
+    nnoremap <silent><buffer><expr> <Space> defx#do_action('toggle_select')
+    nnoremap <silent><buffer><expr> R defx#do_action('redraw')  
   endfunction
 augroup end
 
