@@ -112,7 +112,7 @@
 
 
 
-**Note** in coc managerment, install plug behind
+:bell:**Note** in coc managerment, install plug behind
 - coc-clangd\
 	`install clangd`
 - coc-css
