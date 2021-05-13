@@ -57,15 +57,19 @@ augroup defxsettings
     nnoremap <silent><buffer><expr> h 
           \defx#do_action('close_tree')
     nnoremap <silent><buffer><expr> O defx#do_action('open_tree_recursive')
-    nnoremap <silent><buffer><expr> C defx#do_action('copy')
-    nnoremap <silent><buffer><expr> P defx#do_action('paste')
+    nnoremap <silent><buffer><expr> yy defx#do_action('copy')
+    nnoremap <silent><buffer><expr> p defx#do_action('paste')
     nnoremap <silent><buffer><expr> M defx#do_action('rename')
     nnoremap <silent><buffer><expr> D defx#do_action('remove_trash')
     nnoremap <silent><buffer><expr> A defx#do_action('new_multiple_files')
-    nnoremap <silent><buffer><expr> U defx#do_action('cd', ['..'])
+    nnoremap <silent><buffer><expr> B defx#do_action('cd', ['..'])
+    nnoremap <silent><buffer><expr> F defx#do_action('cd', defx#get_candidate().action__path)
     nnoremap <silent><buffer><expr> . defx#do_action('toggle_ignored_files')
     nnoremap <silent><buffer><expr> <Space> defx#do_action('toggle_select')
     nnoremap <silent><buffer><expr> R defx#do_action('redraw')  
+    autocmd BufEnter * if tabpagenr('$') > 1 && winnr('$') == 1 && exists('b:defx') | tabclose | endif
+    autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:defx') |
+    \ quit | endif
   endfunction
 augroup end
 
