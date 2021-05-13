@@ -4,7 +4,7 @@
 map S :w<CR>
 map s <nop>
 map Q :q<CR>
-map R :NERDTreeRefreshRoot<CR>
+" map R :NERDTreeRefreshRoot<CR>
 nnoremap sv :set splitright<CR>:vsplit<CR>
 nnoremap sh :set splitbelow<CR>:split<CR> 
 
@@ -20,7 +20,7 @@ nnoremap <C-N> :set splitright<CR>:vne<CR>
 nnoremap J 5j
 nnoremap K 5k
 "nnoremap tt :NERDTreeToggle<CR>
-nnoremap tt :Defx -columns=git:mark:indent:icons:filename:type -no-toggle -search=`expand('%:p')` `getcwd()`<CR>
+nnoremap tree :Defx -columns=git:mark:indent:icons:filename:type -toggle -search=`expand('%:p')` `getcwd()`<CR>
 nnoremap tag :Vist<CR>
 nnoremap <down> <nop>
 nnoremap <up> <nop>
