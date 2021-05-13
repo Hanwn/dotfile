@@ -23,7 +23,7 @@ vnoremap J 5j
 vnoremap K 5k
 "nnoremap tt :NERDTreeToggle<CR>
 nnoremap tree :Defx -columns=git:mark:indent:icons:filename:type -toggle -search=`expand('%:p')` `getcwd()`<CR>
-nnoremap tag :Vist<CR>
+nnoremap tag :Vista!!<CR>
 nnoremap <down> <nop>
 nnoremap <up> <nop>
 nnoremap <left> <nop>
