@@ -1,6 +1,6 @@
 # MyInitVim
 
-![initvim](initvim.png) 
+![initvim](./other/initvim.png) 
 
 
 ## Dir
