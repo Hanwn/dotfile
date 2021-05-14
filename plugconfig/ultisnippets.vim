@@ -1,1 +1,1 @@
-let g:UltiSnipsExpandTrigger = '<c-space>'
+let g:UltiSnipsExpandTrigger = '<s-tab>'
