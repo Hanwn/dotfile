@@ -36,8 +36,8 @@ nnoremap <leader><CR> :nohlsearch<CR>
 nnoremap tn :tabe<CR>
 nnoremap [t :-tabnext<CR>
 nnoremap ]t :+tabnext<CR>
-nnoremap [b :bp
-nnoremap ]b :bn
+nnoremap [b :bp<CR>
+nnoremap ]b :bn<CR>
 nnoremap { A {}<ESC>F{a
 nnoremap + <C-a>
 nnoremap - <C-x>
