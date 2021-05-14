@@ -129,6 +129,21 @@
 
 
 ### vim.markdown
+| Key          | function                |
+|:------------:|:-----------------------:|
+| :TableFormat | format table            |
+| :InsertToc   | insert table of content |
+| [[           | go to previous header   |
+| ]]           | go next header          |
+
+### vim.move
+| Key | function                               |
+|:---:|:---------------------------------------|
+| A-k | Move current line/selection up         |
+| A-j | Move current line/selection down       |
+| A-h | Move current character/selection left  |
+| A-l | Move current character/selection right |
+
 
 
 
