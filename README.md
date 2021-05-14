@@ -2,6 +2,21 @@
 
 ![initvim](./other/initvim.png) 
 
+## Table of Contents
+
+* [Table of Contents](#table-of-contents)
+* [Dir](#dir)
+* [Key map](#key-map)
+  * [caw.vim](#caw.vim)
+  * [ultisnippets](#ultisnippets)
+  * [coc.vim](#coc.vim)
+  * [defx.vim](#defx.vim)
+  * [floatterm](#floatterm)
+  * [Leaderf](#leaderf)
+  * [Vista.vim](#vista.vim)
+  * [visual-multi.vim](#visual-multi.vim)
+  * [vim.markdown](#vim.markdown)
+* [Plugin](#plugin)
 
 ## Dir
 ```
@@ -42,6 +57,79 @@
 
 
 ## Key map
+
+### caw.vim
+
+| key | function                                                      |
+|:---:|:--------------------------------------------------------------|
+| gci | insert comment in front of cursor                             |
+| gcI | insert comment mark in front of the line                      |
+| gca | intsert comment mark in back of cursor                        |
+| gcA | insert comment mark in back of the line                       |
+| gco | insert comment mark on the next line                          |
+| gcO | insert comment mark on the previous line                      |
+| gcw | insert comment mark wrap a word                               |
+| gcb | insert block comment mark warp code selected in visual module |
+
+### ultisnippets
+
+| Key      | function              |
+|:--------:|:---------------------:|
+| Ctrl+Tab | complete call snippet |
+
+### coc.vim
+
+
+| Key | function        |
+|:---:|:---------------:|
+| Tab | toggle complete |
+
+### defx.vim
+
+| Key   | fuction                       |
+|:-----:|:------------------------------|
+| :tree | toggle defx plugin            |
+| yy    | copy a file                   |
+| N     | new file or dir(end with '/') |
+| R     | redraw                        |
+| M     | rename a file or dir          |
+| D     | remove to trash               |
+| p     | paste                         |
+
+### floatterm
+
+
+| Key    | function                |
+|:------:|:-----------------------:|
+| Ctrl+t | toggle a float terminal |
+
+### Leaderf
+
+
+| Key | function          |
+|:---:|:-----------------:|
+| ,f  | find function     |
+| ,l  | find line content |
+|     |                   |
+
+### Vista.vim
+| Key | function        |
+|:---:|:---------------:|
+| tag | open a tag tree |
+
+### visual-multi.vim
+
+| Key    | function                   |
+|:------:|:--------------------------:|
+| Ctrl+n | activate multi cursor env  |
+| n      | next pattern in cursor     |
+| N      | previous pattern in cursor |
+| q      | quit in cursor             |
+
+
+
+### vim.markdown
+
 
 
 ## Plugin
