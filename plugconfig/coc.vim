@@ -11,7 +11,7 @@ nmap <silent> gr <Plug>(coc-references)
 nmap <silent> [e <Plug>(coc-diagnostic-prev)
 nmap <silent> ]e <Plug>(coc-diagnostic-next)
 let g:coc_global_extensions = [
-    \ 'coc-python',
+    \ 'coc-explorer',
     \ 'coc-tsserver',
     \ 'coc-snippets',
     \ 'coc-yank',

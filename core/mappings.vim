@@ -22,7 +22,8 @@ nnoremap K 5k
 vnoremap J 5j
 vnoremap K 5k
 "nnoremap tt :NERDTreeToggle<CR>
-nnoremap tree :Defx -columns=git:mark:indent:icons:filename:type -toggle -auto-cd -search=`expand('%:p')` `getcwd()`<CR>
+nnoremap tt :CocCommand explorer<CR>
+"nnoremap tree :Defx -columns=git:mark:indent:icons:filename:type -toggle -auto-cd -search=`expand('%:p')` `getcwd()`<CR>
 nnoremap tag :Vista!!<CR>
 nnoremap <down> <nop>
 nnoremap <up> <nop>

@@ -39,13 +39,12 @@ Plug 'neoclide/coc.nvim',{'branch':'release'}
 
 """
 "defx {{{
-Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'kristijanhusak/defx-icons'
-Plug 'kristijanhusak/defx-git'
+"Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
+"Plug 'kristijanhusak/defx-icons'
+"Plug 'kristijanhusak/defx-git'
 
 "}}}
 """
-
 
 """ nerdtree {{{
 " Plug 'preservim/nerdtree'
