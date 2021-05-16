@@ -28,7 +28,7 @@ endfunction
 
 function! LightlineFugitive() 
 	let branch = gitbranch#name() 
-	return branch !=# '' ? ' '.branch : '' 
+	return branch !=# '' ? ' '.branch.' '.LightLineGitGutter() : '' 
 endfunction 
 
 
@@ -93,3 +93,19 @@ endfunction
 fu! GetPlatFormFormat()
     return " " . WebDevIconsGetFileFormatSymbol()
 endf
+function! LightLineGitGutter()
+  if ! exists('*GitGutterGetHunkSummary')
+        \ || ! get(g:, 'gitgutter_enabled', 0)
+        \ || winwidth('.') <= 90
+    return ''
+  endif
+  let symbols = ['+','~','-']
+  let hunks = GitGutterGetHunkSummary()
+  let ret = []
+  for i in [0, 1, 2]
+    if hunks[i] > 0
+      call add(ret, symbols[i] . hunks[i])
+    endif
+  endfor
+  return join(ret, ' ')
+endfunction
