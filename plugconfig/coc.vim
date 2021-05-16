@@ -23,6 +23,7 @@ let g:coc_global_extensions = [
   \ ]
 inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
                 \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+autocmd BufEnter * if (winnr("$") == 1 && &filetype == 'coc-explorer') | q | endif
 
 let g:LanguageClient_serverCommands = {
        \ 'go': ['gopls']
