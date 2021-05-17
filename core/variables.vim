@@ -21,6 +21,7 @@ set shortmess-=S
 set relativenumber
 set hlsearch
 set scrolloff=5
+set ignorecase
 set smartcase
 set expandtab
 set fileformat=unix
