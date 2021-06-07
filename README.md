@@ -172,9 +172,6 @@
 	* Plug 'ryanoasis/vim-devicons'
 	* Plug 'itchyny/vim-cursorword'
 	* Plug 'neoclide/coc.nvim',{'branch':'release'}
-	* Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
-	* Plug 'kristijanhusak/defx-icons'
-	* Plug 'kristijanhusak/defx-git'
 	* Plug 'morhetz/gruvbox'
 	* Plug 'joshdick/onedark.vim'
 	* Plug 'airblade/vim-gitgutter'
@@ -205,13 +202,10 @@
 | 19     | :star::star::star:             | [vim-devicons](https://www.github.com/ryanoasis/vim-devicons)     | icons                               |
 | 20     | :star::star::star::star:       | [vim-cursorword](https://www.github.com/itchyny/vim-cursorword)   | highlight current word              |
 | 21     | :star::star::star::star::star: | [coc.nvim](https://www.github.com/neoclide/coc.nvim)              | Main function:complete              |
-| 22     | :star::star::star::star:       | [defx.nvim](https://www.github.com/Shougo/defx.nvim)              | tree file                           |
-| 23     | :star::star::star::star:       | [defx-icons](https://www.github.com/kristijanhusak/defx-icons)    | icon in defx                        |
-| 24     | :star::star::star::star:       | [defx-git](https://www.github.com/kristijanhusak/defx-git)        | git mark                            |
-| 25     | :star::star::star::star:       | [vim-gitgutter](https://www.github.com/morhetz/gruvbox)           | git staus shows                     |
-| 26     | :star::star::star:             | [gruvbox](https://www.github.com/joshdick/onedark.vim)            | theme                               |
-| 27     | :star::star::star::star:       | [onedark.vim](https://www.github.com/airblade/vim-gitgutter)      | theme                               |
-| 28     | :star::star::star::star:       | [caw.vim](https://www.github.com/tyru/caw.vim)                    | Annoatation                         |
+| 22     | :star::star::star::star:       | [vim-gitgutter](https://www.github.com/morhetz/gruvbox)           | git staus shows                     |
+| 23     | :star::star::star:             | [gruvbox](https://www.github.com/joshdick/onedark.vim)            | theme                               |
+| 24     | :star::star::star::star:       | [onedark.vim](https://www.github.com/airblade/vim-gitgutter)      | theme                               |
+| 25     | :star::star::star::star:       | [caw.vim](https://www.github.com/tyru/caw.vim)                    | Annoatation                         |
 
 
 
@@ -219,7 +213,7 @@
 - coc-clangd\
 	`install clangd`
 - coc-css
-- coc-explorer
+- :star:coc-explorer
 - coc-go\
 	`install gopls`
 - coc-html
