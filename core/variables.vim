@@ -25,6 +25,7 @@ set ignorecase
 set smartcase
 set expandtab
 set fileformat=unix
+set showtabline=2
 
 set ts=4
 set shiftwidth=4
