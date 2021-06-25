@@ -18,7 +18,7 @@ let g:coc_global_extensions = [
     \ 'coc-vimlsp',
     \ 'coc-json',
     \ 'coc-clangd',
-	\ 'coc-jedi',
+	\ 'coc-pyright',
     \ 'coc-go'
   \ ]
 inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
