@@ -36,12 +36,13 @@
 	"explorer.floating.position": "left-center",
 
 	"languageserver": {
-		 "golang": {
-      		"command": "/usr/bin/gopls",
-     	 	"rootPatterns": ["go.mod"],
-      		"disableWorkspaceFolders": true,
-      		"filetypes": ["go"]
-			
+		"golang": {
+		  "command": "gopls",
+		  "rootPatterns": ["go.mod", ".vim/", ".git/", ".hg/"],
+		  "filetypes": ["go"],
+		  "initializationOptions": {
+			"usePlaceholders": true
+		  }
 		}
 	}
 }

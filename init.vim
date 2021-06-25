@@ -20,7 +20,8 @@ func! SetTitle()
 	call append(line(".") + 1," - Date : ".strftime("%m-%d-%Y"))
 	call append(line(".") + 2," - FileName : ".expand("%:t"))
 	call append(line(".") + 3," - Email : hanwn7721@gmail.com")
-	call append(line(".") + 4,"'''")
+	call append(line(".") + 4," - Description : ") 
+	call append(line(".") + 5,"'''")
 	exec "normal G"
 endfunc
 
