@@ -22,6 +22,7 @@ func! SetTitle()
 	call append(line(".") + 3," - Email : hanwn7721@gmail.com")
 	call append(line(".") + 4," - Description : ") 
 	call append(line(".") + 5,"'''")
+	call append(line(".") + 6, "#/usr/bin/env python")
 	exec "normal G"
 endfunc
 
