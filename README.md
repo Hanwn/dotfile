@@ -144,8 +144,18 @@
 | A-h | Move current character/selection left  |
 | A-l | Move current character/selection right |
 
+### fzf
 
+fzf plugin not mapping key, but it need some config in `.zshrc` and other software.
 
+```shell
+# write in .zshrc file
+export FZF_DEFAULT_OPTS="--height 70% --layout=reverse --preview '(highlight -O ansi {} || cat {}) 2> /dev/null | head -500'"
+export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
+```
+
+software
+- **ag** `the_silver_searcher` 
 
 ## Plugin
 
@@ -176,6 +186,9 @@
 	* Plug 'joshdick/onedark.vim'
 	* Plug 'airblade/vim-gitgutter'
 	* Plug 'tyru/caw.vim'
+    * Plug 'junegunn/fzf', {'do':':UpdateRemotePlugins'}
+    * Plug 'junegunn/fzf.vim'
+
 
 * table describe
 
@@ -206,6 +219,7 @@
 | 23     | :star::star::star:             | [gruvbox](https://www.github.com/joshdick/onedark.vim)            | theme                               |
 | 24     | :star::star::star::star:       | [onedark.vim](https://www.github.com/airblade/vim-gitgutter)      | theme                               |
 | 25     | :star::star::star::star:       | [caw.vim](https://www.github.com/tyru/caw.vim)                    | Annoatation                         |
+| 25     | :star::star::star::star:star:  | [fzf.vim](https://www.github.com/junegunn/fzf.vim)                | search                              |
 
 
 
