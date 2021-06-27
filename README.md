@@ -219,7 +219,7 @@ software
 | 23     | :star::star::star:             | [gruvbox](https://www.github.com/joshdick/onedark.vim)            | theme                               |
 | 24     | :star::star::star::star:       | [onedark.vim](https://www.github.com/airblade/vim-gitgutter)      | theme                               |
 | 25     | :star::star::star::star:       | [caw.vim](https://www.github.com/tyru/caw.vim)                    | Annoatation                         |
-| 25     | :star::star::star::star:star:  | [fzf.vim](https://www.github.com/junegunn/fzf.vim)                | search                              |
+| 25     | :star::star::star::stars::tar: | [fzf.vim](https://www.github.com/junegunn/fzf.vim)                | search                              |
 
 
 
