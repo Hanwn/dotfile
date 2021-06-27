@@ -1,5 +1,5 @@
-# MyInitVim
 
+# MyInitVim
 ![initvim](./other/initvim.png) 
 
 ## Table of Contents
@@ -151,7 +151,7 @@ fzf plugin not mapping key, but it need some config in `.zshrc` and other softwa
 ```shell
 # write in .zshrc file
 export FZF_DEFAULT_OPTS="--height 70% --layout=reverse --preview '(highlight -O ansi {} || cat {}) 2> /dev/null | head -500'"
-export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
+export FZF_DEFAULT_COMMAND='ag --hidden --ignore={.git,.cache} -ignore-dir={node_modules,build} -g ""'
 ```
 
 software
