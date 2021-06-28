@@ -1,9 +1,8 @@
 """"""""""""""
 "Key Mapping
 """"""""""""""
-map S :w<CR>
-map s <nop>
-map Q :q<CR>
+map <C-q> <nop>
+map Q :bd<CR>
 " map R :NERDTreeRefreshRoot<CR>
 nnoremap sv :set splitright<CR>:vsplit<CR>
 nnoremap sh :set splitbelow<CR>:split<CR> 
