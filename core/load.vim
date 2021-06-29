@@ -18,5 +18,5 @@ source $root/plugconfig/snippets.vim
 source $root/plugconfig/floaterm.vim
 source $root/plugconfig/asyncrun.vim
 "source $root/plugconfig/nerdcommenter.vim
-source $root/plugconfig/ultisnippets.vim
+"source $root/plugconfig/ultisnippets.vim
 source $root/plugconfig/fzf.vim
