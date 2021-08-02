@@ -20,10 +20,6 @@ const int mod = 1e9 + 7;
 const int N = 1e4 + 1;
 
 
-
-
-
-
 int main() {
 	std::ios::sync_with_stdio(false);
 	std::cin.tie(0);
@@ -52,4 +48,19 @@ snippet struct "define struct"
 struct ${1:structName} {
 	$2
 };
+endsnippet
+
+snippet GTEST "test program" 
+#include <gtest/gtest.h>
+
+
+TEST(Mytest, X) {
+
+}
+
+int main(int argc, char* argv[]) {
+	::testing::InitGoogleTest(&argc, argv);
+	return RUN_ALL_TESTS();
+}
+
 endsnippet
