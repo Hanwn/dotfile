@@ -6,6 +6,7 @@ let mapleader=","
 let autosave=5
 set tags=tags;
 set autochdir
+set list
 set number
 syntax on
 set encoding=UTF-8
