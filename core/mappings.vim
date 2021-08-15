@@ -24,6 +24,7 @@ vnoremap K 5k
 nnoremap tt :CocCommand explorer<CR>
 "nnoremap tree :Defx -columns=git:mark:indent:icons:filename:type -toggle -auto-cd -search=`expand('%:p')` `getcwd()`<CR>
 nnoremap tag :Vista!!<CR>
+nnoremap Y y$
 nnoremap <down> <nop>
 nnoremap <up> <nop>
 nnoremap <left> <nop>
