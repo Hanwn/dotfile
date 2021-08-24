@@ -3,7 +3,7 @@
 """"
 let g:lightline#bufferline#enable_devicons=1
 let g:lightline = { 
-		\ 'colorscheme': 'onedark',
+		\ 'colorscheme': 'nord',
         \ 'active': {
         \ 'left': [ [ 'mode', 'paste' ],
         \ 			[ 'gitbranch', 'readonly', 'filename', 'cocerror','cocwarn' ] ],
