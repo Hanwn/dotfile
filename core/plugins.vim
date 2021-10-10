@@ -59,6 +59,7 @@ Plug 'neoclide/coc.nvim',{'branch':'release'}
 """ themes {{{
 Plug 'morhetz/gruvbox'
 Plug 'rakr/vim-one'
+Plug 'joshdick/onedark.vim'
 Plug 'arcticicestudio/nord-vim'
 """}}}
 call plug#end()
@@ -66,4 +67,4 @@ call plug#end()
 ""colorscheme setting
 "colorscheme nord
 "colorscheme gruvbox
-colorscheme one
+colorscheme onedark
