@@ -45,7 +45,7 @@ endfunction
 
 
 fu! GetCocError()
-    let error_sign = get(g:, 'coc_status_error_sign', " ")
+    let error_sign = get(g:, 'coc_status_error_sign', " ")
     let info       = get(b:, 'coc_diagnostic_info', {})
     if !empty(info) && get(info, 'error')
         return error_sign . info['error']
@@ -54,7 +54,7 @@ fu! GetCocError()
 endf
 
 fu! GetCocWarn() abort
-    let warning_sign = get(g:, 'coc_status_warning_sign', "❗")
+    let warning_sign = get(g:, 'coc_status_warning_sign', "")
     let info         = get(b:, 'coc_diagnostic_info', {})
     if !empty(info) && get(info, 'warning')
         return warning_sign . info['warning']
