@@ -6,7 +6,7 @@ let g:lightline = {
 		\ 'colorscheme': 'one',
         \ 'active': {
         \ 'left': [ [ 'mode', 'paste' ],
-        \ 			[ 'gitbranch', 'readonly', 'filename', 'cocerror','cocwarn' ] ],
+        \ 			[ 'gitbranch', 'readonly' ,'filename', 'method','cocerror','cocwarn' ] ],
         \ 'right':[['lineinfo'],['percent'],['fileencoding'],['platform']]
         \ },
  		\ 'component': { 
@@ -16,6 +16,7 @@ let g:lightline = {
 		\   'gitbranch': 'LightlineFugitive',
 		\ 	'readonly':'LightlineReadonly',
         \   'filename':'LightLineFname',
+        \   'method':'NearestMethodOrFunction',
 		\	'cocerror':'GetCocError',
         \   'cocwarn':'GetCocWarn',
         \   'platform':'GetPlatFormFormat',
@@ -119,4 +120,8 @@ function! LightLineGitGutter()
     endif
   endfor
   return join(ret, ' ')
+endfunction
+
+function! NearestMethodOrFunction() abort
+  return ' ' . get(b:, 'vista_nearest_method_or_function', '')
 endfunction
