@@ -32,6 +32,7 @@ set showtabline=2
 set ts=4
 set shiftwidth=4
 set ma
+set foldmethod=indent
 set nofoldenable
 let &t_SI = "\<Esc>]50;CursorShape=1\x7"
 let &t_SR = "\<ESC>]50;CursorShape=2\x7"
