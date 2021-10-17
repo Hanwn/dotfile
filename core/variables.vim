@@ -2,7 +2,7 @@
 "Set area
 """"""""""""
 
-let mapleader=","
+let mapleader=" "
 let autosave=5
 set tags=tags;
 set autochdir

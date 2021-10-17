@@ -14,6 +14,8 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
+noremap <leader>x :bp<cr>:bd #<cr>
+
 noremap  <expr>0     col('.') == 1 ? '^': '0'
 "nnoremap vn :set splitright<CR>:vne<CR>
 nnoremap J 5j
