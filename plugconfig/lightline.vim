@@ -6,7 +6,7 @@ let g:lightline = {
 		\ 'colorscheme': 'one',
         \ 'active': {
         \ 'left': [ [ 'mode', 'paste' ],
-        \ 			[ 'gitbranch', 'readonly' ,'filename', 'method','cocerror','cocwarn' ] ],
+        \ 			[ 'gitbranch', 'readonly' ,'filename', 'method','cocerrorandwarn'] ],
         \ 'right':[['lineinfo'],['percent'],['fileencoding'],['platform']]
         \ },
  		\ 'component': { 
@@ -17,8 +17,7 @@ let g:lightline = {
 		\ 	'readonly':'LightlineReadonly',
         \   'filename':'LightLineFname',
         \   'method':'NearestMethodOrFunction',
-		\	'cocerror':'GetCocError',
-        \   'cocwarn':'GetCocWarn',
+		\	'cocerrorandwarn':'GetCocErrorAndWarn',
         \   'platform':'GetPlatFormFormat',
  		\ }, 
  		\ 'separator': { 'left': '', 'right': '' }, 
@@ -43,12 +42,17 @@ function! LightlineFugitive()
 	return branch !=# '' ? ' '.branch.' '.LightLineGitGutter() : '' 
 endfunction 
 
+fu! GetCocErrorAndWarn()
+  let err = GetCocError()
+  let warn = GetCocWarn()
+  return err . warn
+endf
 
 fu! GetCocError()
-    let error_sign = get(g:, 'coc_status_error_sign', " ")
+    let error_sign = get(g:, 'coc_status_error_sign', "")
     let info       = get(b:, 'coc_diagnostic_info', {})
     if !empty(info) && get(info, 'error')
-        return error_sign . info['error']
+        return error_sign . info['error'] . ''
     endif
     return ""
 endf
