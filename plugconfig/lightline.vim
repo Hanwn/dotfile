@@ -45,14 +45,20 @@ endfunction
 fu! GetCocErrorAndWarn()
   let err = GetCocError()
   let warn = GetCocWarn()
-  return err . warn
+  if !empty(err) && !empty(warn)
+    return err . '' . warn
+  elseif !empty(err)
+    return err
+  else
+    return warn
+  endif
 endf
 
 fu! GetCocError()
     let error_sign = get(g:, 'coc_status_error_sign', "")
     let info       = get(b:, 'coc_diagnostic_info', {})
     if !empty(info) && get(info, 'error')
-        return error_sign . info['error'] . ''
+        return error_sign . info['error']
     endif
     return ""
 endf
