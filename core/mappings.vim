@@ -44,6 +44,8 @@ nnoremap <leader>n :bn<CR>
 nnoremap { A {}<ESC>F{a
 nnoremap + <C-a>
 nnoremap - <C-x>
+nnoremap H 0
+nnoremap L $
 
 inoremap jj <esc>
 
