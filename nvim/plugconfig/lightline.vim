@@ -20,8 +20,8 @@ let g:lightline = {
 		\	'cocerrorandwarn':'GetCocErrorAndWarn',
         \   'platform':'GetPlatFormFormat',
  		\ }, 
- 		\ 'separator': { 'left': '', 'right': '' }, 
- 		\ 'subseparator': { 'left': '', 'right': '' } ,
+ 		\ 'separator': { 'left': '', 'right': '' }, 
+ 		\ 'subseparator': { 'left': '', 'right': '' } ,
         \ 'tabline': {
         \   'left': [ ['buffers'] ],
         \   'right': [ ['close'] ]
@@ -79,7 +79,7 @@ function! LightLineFilename()
 endfunction
 
 function! LightLineFname() 
-  let icon = (strlen(&filetype) ? ' ' . WebDevIconsGetFileTypeSymbol() : 'no ft') 
+  let icon = (strlen(&filetype) ? ' ' . WebDevIconsGetFileTypeSymbol() : ' ') 
   let filename = LightLineFilename()
   let modified = LightLineModified()
   let ret = filename . icon
