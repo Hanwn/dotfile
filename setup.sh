@@ -27,7 +27,7 @@ function make_git_link() {
             ln -s ${HOME}/dotfiles/git/gitconfig ${git_link}
         fi
     else
-        ln -s $HOME/dotfiles/nvim $HOME/.config/nvim
+        ln -s $HOME/dotfiles/git/gitconfig $HOME/.gitconfig
     fi
 }
 
