@@ -1,0 +1,8 @@
+[user]
+	name = Hanwn
+	email = hw@hanwn.dev
+[core]
+	pager = delta
+[delta]
+	syntax-theme=Onedark
+	features=side-by-side line-number
