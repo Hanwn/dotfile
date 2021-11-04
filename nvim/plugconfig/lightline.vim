@@ -20,8 +20,8 @@ let g:lightline = {
 		\	'cocerrorandwarn':'GetCocErrorAndWarn',
         \   'platform':'GetPlatFormFormat',
  		\ }, 
- 		\ 'separator': { 'left': '', 'right': '' }, 
- 		\ 'subseparator': { 'left': '', 'right': '' } ,
+ 		\ 'separator': { 'left': '', 'right': '' }, 
+ 		\ 'subseparator': { 'left': '', 'right': '' } ,
         \ 'tabline': {
         \   'left': [ ['buffers'] ],
         \   'right': [ ['close'] ]
