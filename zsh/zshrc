@@ -1,0 +1,14 @@
+
+alias vim="nvim"
+alias vi="nvim"
+
+
+plugins=(git
+		 zsh-autosuggestions
+		 zsh-syntax-highlighting
+         z
+)
+
+export FZF_DEFAULT_OPTS='--height 90% --layout=reverse --preview "(highlight -0 ansi {} || bat {}) 2>/dev/null | head -500" --preview-window=down'
+export FZF_DEFAULT_COMMAND='ag --hidden --ignore-dir={node_modules,build,.vscode,.git,.idea} -g ""'
+source $ZSH/oh-my-zsh.sh
