@@ -1,6 +1,7 @@
 """"
 "lightline setting
 """"
+
 let g:lightline#bufferline#enable_devicons=1
 let g:lightline = { 
 		\ 'colorscheme': 'one',
@@ -21,17 +22,11 @@ let g:lightline = {
         \   'platform':'GetPlatFormFormat',
  		\ }, 
  		\ 'separator': { 'left': '', 'right': '' }, 
- 		\ 'subseparator': { 'left': '', 'right': '' } ,
-        \ 'tabline': {
-        \   'left': [ ['buffers'] ],
-        \   'right': [ ['close'] ]
-        \ },
-        \ 'component_expand': {
-        \   'buffers': 'lightline#bufferline#buffers'
-        \ },
-        \ 'component_type': {
-        \   'buffers': 'tabsel'
-        \ }
+ 		\ 'subseparator': { 'left': '', 'right': '' },
+        \ 'tabline':{
+        \ 'left':[['tabs']],
+        \ 'right':[['']],
+        \},
  		\ } 
 function! LightlineReadonly()
 	return &readonly ? '' : ''
