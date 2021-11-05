@@ -14,7 +14,8 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
-noremap <leader>x :bp<cr>:bd #<cr>
+" noremap <leader>x :bp<cr>:bd #<cr>
+noremap <leader>x :wq<CR>
 
 noremap  <expr>0     col('.') == 1 ? '^': '0'
 "nnoremap vn :set splitright<CR>:vne<CR>
@@ -23,9 +24,10 @@ nnoremap K 5k
 vnoremap J 5j
 vnoremap K 5k
 "nnoremap tt :NERDTreeToggle<CR>
-nnoremap tt :CocCommand explorer<CR>
+nnoremap <leader>t :CocCommand explorer<CR>
 "nnoremap tree :Defx -columns=git:mark:indent:icons:filename:type -toggle -auto-cd -search=`expand('%:p')` `getcwd()`<CR>
-nnoremap tag :Vista!!<CR>
+nnoremap <leader>v :Vista!!<CR>
+nnoremap <leader>f :Ag<CR>
 nnoremap Y y$
 nnoremap <down> <nop>
 nnoremap <up> <nop>
@@ -36,7 +38,7 @@ nnoremap <C-w><up> :res +5<CR>
 nnoremap <C-w><left> :vertical resize-5<CR>
 nnoremap <C-w><right> :vertical resize+5<CR>
 nnoremap <leader><CR> :nohlsearch<CR>
-nnoremap tn :tabe<CR>
+nnoremap <leader>n :tabe<CR>
 nnoremap [t :-tabnext<CR>
 nnoremap ]t :+tabnext<CR>
 nnoremap <leader>1 :tabn 1<CR>
