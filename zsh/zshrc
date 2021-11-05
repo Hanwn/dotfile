@@ -12,3 +12,15 @@ plugins=(git
 export FZF_DEFAULT_OPTS='--height 90% --layout=reverse --preview "(highlight -0 ansi {} || bat {}) 2>/dev/null | head -500" --preview-window=down'
 export FZF_DEFAULT_COMMAND='ag --hidden --ignore-dir={node_modules,build,.vscode,.git,.idea} -g ""'
 source $ZSH/oh-my-zsh.sh
+
+pasteinit() {
+  OLD_SELF_INSERT=${${(s.:.)widgets[self-insert]}[2,3]}
+  zle -N self-insert url-quote-magic # I wonder if you'd need `.url-quote-magic`?
+}
+
+pastefinish() {
+  zle -N self-insert $OLD_SELF_INSERT
+}
+zstyle :bracketed-paste-magic paste-init pasteinit
+zstyle :bracketed-paste-magic paste-finish pastefinish
+

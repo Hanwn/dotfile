@@ -23,6 +23,13 @@ let g:lightline = {
  		\ }, 
  		\ 'separator': { 'left': '', 'right': '' }, 
  		\ 'subseparator': { 'left': '', 'right': '' },
+        \ 'tab_component_function' : {
+        \   'fiticon':'LightlineTabFiletypeIcon',
+        \ },
+        \ 'tab' : {
+        \  'active': [ 'filename', 'fiticon' ],
+        \  'inacive':['tabnum', 'filename']
+        \},
         \ 'tabline':{
         \ 'left':[['tabs']],
         \ 'right':[['']],
@@ -74,7 +81,7 @@ function! LightLineFilename()
 endfunction
 
 function! LightLineFname() 
-  let icon = (strlen(&filetype) ? ' ' . WebDevIconsGetFileTypeSymbol() : ' ') 
+  let icon = ''
   let filename = LightLineFilename()
   let modified = LightLineModified()
   let ret = filename . icon
@@ -129,4 +136,9 @@ endfunction
 
 function! NearestMethodOrFunction() abort
   return ' ' . get(b:, 'vista_nearest_method_or_function', '')
+endfunction
+
+function! LightlineTabFiletypeIcon(n)
+  let fticon = WebDevIconsGetFileTypeSymbol()
+  return fticon !=# '' ? fticon : ''
 endfunction
