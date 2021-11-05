@@ -39,8 +39,18 @@ nnoremap <leader><CR> :nohlsearch<CR>
 nnoremap tn :tabe<CR>
 nnoremap [t :-tabnext<CR>
 nnoremap ]t :+tabnext<CR>
-nnoremap <leader>b :bp<CR>
-nnoremap <leader>n :bn<CR>
+nnoremap <leader>1 :tabn 1<CR>
+nnoremap <leader>2 :tabn 2<CR>
+nnoremap <leader>3 :tabn 3<CR>
+nnoremap <leader>4 :tabn 4<CR>
+nnoremap <leader>5 :tabn 5<CR>
+nnoremap <leader>6 :tabn 6<CR>
+nnoremap <leader>7 :tabn 7<CR>
+nnoremap <leader>8 :tabn 8<CR>
+nnoremap <leader>9 :tabn 9<CR>
+nnoremap <leader>0 :tabn 10<CR>
+nnoremap [b :bp<CR>
+nnoremap ]n :bn<CR>
 nnoremap { A {}<ESC>F{a
 nnoremap + <C-a>
 nnoremap - <C-x>
