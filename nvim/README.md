@@ -56,7 +56,7 @@
 
 
 
-## Key map
+## plug Key map
 
 ### caw.vim
 
@@ -73,9 +73,9 @@
 
 ### ultisnippets
 
-| Key      | function              |
-|:--------:|:---------------------:|
-| Ctrl+Tab | complete call snippet |
+| Key   | function              |
+|:-----:|:---------------------:|
+| Ctrl+j| complete call snippet |
 
 ### coc.vim
 
@@ -99,9 +99,9 @@
 ### floatterm
 
 
-| Key    | function                |
-|:------:|:-----------------------:|
-| Ctrl+t | toggle a float terminal |
+| Key       | function                |
+|:---------:|:-----------------------:|
+| <leader>t | toggle a float terminal |
 
 ### Leaderf
 
@@ -110,14 +110,18 @@
 |:---:|:-----------------:|
 | ,f  | find function     |
 | ,l  | find line content |
-|     |                   |
 
 ### Vista.vim
-| Key | function        |
-|:---:|:---------------:|
-| tag | open a tag tree |
+
+> show file structure
+
+| Key       | function        |
+|:---------:|:---------------:|
+| <leader>v | open a tag tree |
 
 ### visual-multi.vim
+
+> multi-cursor
 
 | Key    | function                   |
 |:------:|:--------------------------:|
@@ -129,6 +133,9 @@
 
 
 ### vim.markdown
+
+> write markdown in vim
+
 | Key          | function                |
 |:------------:|:-----------------------:|
 | :TableFormat | format table            |
@@ -137,6 +144,9 @@
 | ]]           | go next header          |
 
 ### vim.move
+
+> move whole line up or down
+
 | Key | function                               |
 |:---:|:---------------------------------------|
 | A-k | Move current line/selection up         |
@@ -145,6 +155,12 @@
 | A-l | Move current character/selection right |
 
 ### fzf
+
+> find file fuzzy
+
+| key       | function  |
+|:---------:|:---------:|
+| <leader>f | equal :Ag |
 
 fzf plugin not mapping key, but it need some config in `.zshrc` and other software.
 
@@ -156,6 +172,16 @@ export FZF_DEFAULT_COMMAND='ag --hidden --ignore={.git,.cache} -ignore-dir={node
 
 software
 - **ag** `the_silver_searcher` 
+
+
+### gitgutter
+
+> mark change in a git repo.
+
+| key | function                                       |
+|:---:|:----------------------------------------------:|
+| [c  | previous changes                               |
+| ]c  | next changes which conflict with markdown plug |
 
 ## Plugin
 
