@@ -30,7 +30,7 @@ vnoremap K 5k
 nnoremap <leader>t :CocCommand explorer<CR>
 "nnoremap tree :Defx -columns=git:mark:indent:icons:filename:type -toggle -auto-cd -search=`expand('%:p')` `getcwd()`<CR>
 nnoremap <leader>v :Vista!!<CR>
-nnoremap <leader>f :Ag<CR>
+nnoremap <c-f> :Ag<CR>
 nnoremap Y y$
 nnoremap <down> <nop>
 nnoremap <up> <nop>
@@ -55,7 +55,7 @@ nnoremap <leader>8 :tabn 8<CR>
 nnoremap <leader>9 :tabn 9<CR>
 nnoremap <leader>0 :tabn 10<CR>
 nnoremap [b :bp<CR>
-nnoremap ]n :bn<CR>
+nnoremap ]b :bn<CR>
 nnoremap { A {}<ESC>F{a
 nnoremap + <C-a>
 nnoremap - <C-x>
