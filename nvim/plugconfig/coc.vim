@@ -13,6 +13,9 @@ nmap <silent> ]e <Plug>(coc-diagnostic-next)
 " Use <C-k> for jump to previous placeholder, it's default of coc.nvim
 let g:coc_snippet_prev = '<c-k>'
 
+autocmd FileType python let b:coc_root_patterns = ['setup.py', 'main.py', 'train.py']
+autocmd FileType go let b:coc_root_patterns = ['go.mod', 'main.go']
+
 " Use <C-j> for both expand and jump (make expand higher priority.)
 imap <C-j> <Plug>(coc-snippets-expand-jump)
 
@@ -25,7 +28,8 @@ let g:coc_global_extensions = [
     \ 'coc-json',
     \ 'coc-clangd',
 	\ 'coc-pyright',
-    \ 'coc-go'
+    \ 'coc-go',
+    \ 'coc-rust-analyzer'
   \ ]
 inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
                 \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
