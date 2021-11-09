@@ -27,7 +27,9 @@ set smartcase
 set expandtab
 set fileformat=unix
 set showtabline=2
-"set termguicolors
+if (has("termguicolors"))
+    set termguicolors
+endif
 
 set ts=4
 set shiftwidth=4
