@@ -34,6 +34,7 @@
 	"explorer.icon.enableNerdfont": true,
 	"explorer.floating.position": "left-center",
 	"clangd.fallbackFlags":["-std=c++17"],
+	"workspace.workspaceFolderCheckCwd": false,
 
 	"languageserver": {
 		"golang": {

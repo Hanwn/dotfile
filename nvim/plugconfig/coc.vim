@@ -13,8 +13,8 @@ nmap <silent> ]e <Plug>(coc-diagnostic-next)
 " Use <C-k> for jump to previous placeholder, it's default of coc.nvim
 let g:coc_snippet_prev = '<c-k>'
 
-autocmd FileType python let b:coc_root_patterns = ['setup.py', 'main.py', 'train.py']
-autocmd FileType go let b:coc_root_patterns = ['go.mod', 'main.go']
+autocmd FileType python let b:coc_root_patterns = ['.git', '.env', 'setup.py', 'main.py', 'train.py']
+autocmd FileType go let b:coc_root_patterns = ['.git', 'go.mod', 'main.go']
 
 " Use <C-j> for both expand and jump (make expand higher priority.)
 imap <C-j> <Plug>(coc-snippets-expand-jump)
