@@ -8,6 +8,7 @@
 
 import os
 import shutil
+from git.repo import Repo
 
 
 def check_is_symbol_link_and_not_broken(filename:str) -> tuple:
@@ -80,36 +81,54 @@ def create_symbol_link(src :list, target :list) -> None:
         os.symlink(s, t)
 
 
+def git_clone() -> None:
+    """ clone some repoes the project needed"""
+
+    git_src_dir = ['https://github.com/alexanderjeurissen/ranger_devicons.git']
+    git_target_dir = ["./ranger/plugins/ranger_devicons/"]
+    for src, target in zip(git_src_dir, git_target_dir):
+        if os.path.exists(target):
+            continue
+        Repo.clone_from(src, target)
+
+
+def target_prepare(user_target:str) -> list:
+    """prepare target list
+    @Parameter:
+    user_target: create a symlink where we want
+
+    @Return: None
+    """
+    ret = []
+    target_list = [".config/nvim", ".tmux.conf", ".gitconfig", ".config/ranger"]
+    for _, item in enumerate(target_list):
+        ret.append(os.path.join(user_target, item))
+    
+    return ret
+
+
+def src_prepare(user_src) -> list:
+    """prepare source list
+    @Parameter:
+    user_src: the source file in dotfiles dir
+    """
+    ret = []
+    src_list = ["nvim", 'tmux/tmux.conf', 'git/gitconfig', 'ranger']
+    for _, item in enumerate(src_list):
+        ret.append(os.path.join(user_src, item))
+
+    return ret
+
+
 def main() -> None:
-    # user_src representes dotfiles directory
+    # user_src represents dotfiles directory
+    git_clone()
     user_src :str = os.getcwd()
     user_target = '/'.join(user_src.split('/')[:-1])
-    src_list, target_list = [], []
-
-    nvim_target_path :str = os.path.join(user_target, ".config/nvim")
-    tmux_target_path :str = os.path.join(user_target, '.tmux.conf')
-    # zsh_target_path :str = os.path.join(user_target, '.zshrc')
-    git_target_path :str = os.path.join(user_target, '.gitconfig')
-
-    target_list.append(nvim_target_path)
-    target_list.append(tmux_target_path)
-    # target_list.append(zsh_target_path)
-    target_list.append(git_target_path)
-
-
-    nvim_src_path :str = os.path.join(user_src, "nvim")
-    tmux_src_path :str = os.path.join(user_src, 'tmux/tmux.conf')
-    # zsh_src_path :str = os.path.join(user_src, 'zsh/zshrc')
-    git_src_path :str = os.path.join(user_src, 'git/gitconfig')
-
-    src_list.append(nvim_src_path)
-    src_list.append(tmux_src_path)
-    # src_list.append(zsh_src_path)
-    src_list.append(git_src_path)
+    src_list, target_list = src_prepare(user_src), target_prepare(user_target)
 
     create_symbol_link(src_list, target_list)
 
 
 if __name__ == "__main__":
     main()
-
