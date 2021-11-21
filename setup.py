@@ -7,6 +7,7 @@
 '''
 
 import os
+import yaml
 import shutil
 from git.repo import Repo
 
@@ -80,12 +81,23 @@ def create_symbol_link(src :list, target :list) -> None:
                     os.remove(t)
         os.symlink(s, t)
 
+def read_config(key:str):
+    with open('./config.yaml', 'r')as f:
+        data = f.read()
+    data = yaml.load(data, Loader=yaml.FullLoader)
+
+    return data[key]
+
 
 def git_clone() -> None:
     """ clone some repoes the project needed"""
 
-    git_src_dir = ['https://github.com/alexanderjeurissen/ranger_devicons.git']
-    git_target_dir = ["./ranger/plugins/ranger_devicons/"]
+    git_src_dir = []
+    for item in read_config("git_repo_from"):
+        url = "https://github.com/{}/{}.git".format(item['name'], item['repo'])
+        git_src_dir.append(url)
+
+    git_target_dir = read_config("git_repo_to")
     for src, target in zip(git_src_dir, git_target_dir):
         if os.path.exists(target):
             continue
@@ -100,7 +112,7 @@ def target_prepare(user_target:str) -> list:
     @Return: None
     """
     ret = []
-    target_list = [".config/nvim", ".tmux.conf", ".gitconfig", ".config/ranger"]
+    target_list = read_config('file_target')
     for _, item in enumerate(target_list):
         ret.append(os.path.join(user_target, item))
     
@@ -113,7 +125,7 @@ def src_prepare(user_src) -> list:
     user_src: the source file in dotfiles dir
     """
     ret = []
-    src_list = ["nvim", 'tmux/tmux.conf', 'git/gitconfig', 'ranger']
+    src_list = read_config('file_src')
     for _, item in enumerate(src_list):
         ret.append(os.path.join(user_src, item))
 
@@ -132,3 +144,4 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+    # print(read_config("git_repo_to"))

@@ -1,0 +1,21 @@
+git_repo_from:
+  - 
+    name: alexanderjeurissen
+    repo: ranger_devicons
+
+git_repo_to:
+  - './ranger/plugins/ranger_devicons'
+
+
+file_target:
+  - .config/nvim
+  - .tmux.conf
+  - .gitconfig
+  - .config/ranger
+
+file_src:
+  - nvim
+  - tmux/tmux.conf
+  - git/gitconfig
+  - ranger
+
