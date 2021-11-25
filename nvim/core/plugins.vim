@@ -28,13 +28,13 @@ Plug 'Yggdroot/indentLine'
 " Plug 'Yggdroot/LeaderF'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-Plug 'skywind3000/asyncrun.vim'
 " Plug 'preservim/nerdcommenter'
 Plug 'tyru/caw.vim'
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 Plug 'matze/vim-move'
 Plug 'ryanoasis/vim-devicons'
 Plug 'itchyny/vim-cursorword'
+Plug 'wakatime/vim-wakatime'
 
 """ *********STAR********
 Plug 'neoclide/coc.nvim',{'branch':'release'}

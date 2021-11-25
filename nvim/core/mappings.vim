@@ -61,6 +61,7 @@ nnoremap + <C-a>
 nnoremap - <C-x>
 nnoremap H 0
 nnoremap L $
+nnoremap U <C-r>
 
 inoremap jj <esc>
 
