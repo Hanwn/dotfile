@@ -4,19 +4,23 @@
 
 ## Table of Contents
 
-* [Table of Contents](#table-of-contents)
-* [Dir](#dir)
-* [Key map](#key-map)
-  * [caw.vim](#caw.vim)
-  * [ultisnippets](#ultisnippets)
-  * [coc.vim](#coc.vim)
-  * [defx.vim](#defx.vim)
-  * [floatterm](#floatterm)
-  * [Leaderf](#leaderf)
-  * [Vista.vim](#vista.vim)
-  * [visual-multi.vim](#visual-multi.vim)
-  * [vim.markdown](#vim.markdown)
-* [Plugin](#plugin)
+- [MyInitVim](#myinitvim)
+	- [Table of Contents](#table-of-contents)
+	- [Dir](#dir)
+	- [plug Key map](#plug-key-map)
+		- [caw.vim](#cawvim)
+		- [ultisnippets](#ultisnippets)
+		- [coc.vim](#cocvim)
+		- [defx.vim](#defxvim)
+		- [floatterm](#floatterm)
+		- [Leaderf](#leaderf)
+		- [Vista.vim](#vistavim)
+		- [visual-multi.vim](#visual-multivim)
+		- [vim.markdown](#vimmarkdown)
+		- [vim.move](#vimmove)
+		- [fzf](#fzf)
+		- [gitgutter](#gitgutter)
+	- [Plugin](#plugin)
 
 ## Dir
 ```
