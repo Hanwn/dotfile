@@ -45,9 +45,21 @@ func! AddOrUpdateSectionNumber()
 	let line = 1
 	let g:SEC = 6
 	let sec_num = [0,0,0,0,0,0]
+	let beg = 0
 
 	while line <= lines
 		let content = getline(line)
+		if StartWith(content, "```")
+			if beg == 1
+				let beg = 0
+			else
+				let beg = 1
+			endif
+		endif
+		if beg == 1
+			let line += 1
+			continue
+		endif
 		let st = 6
 		if StartWith(content, "######")
 			let st = 6
