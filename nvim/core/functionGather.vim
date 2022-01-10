@@ -17,6 +17,69 @@ func! SetTitle()
 endfunc
 
 
+func! StartWith(longer, shorter)
+	return a:longer[0:len(a:shorter) - 1] ==# a:shorter
+endfunc
+
+
+func! HandleTitleLogic(content, sec_num, st)
+	let cnt = a:st
+	let con_arr = split(a:content, " ")
+	while l:cnt < g:SEC
+		let a:sec_num[l:cnt] = 0
+		let l:cnt += 1
+	endwhile
+	let cnt = a:st
+	let a:sec_num[l:cnt - 1] += 1
+	let pendding_num = join(a:sec_num[:l:cnt - 1], '.')
+	if len(con_arr) == 2
+		return join([con_arr[0], pendding_num, con_arr[1]], ' ')
+	elseif len(con_arr) > 2
+		return join([con_arr[0]] + [pendding_num] + con_arr[2:-1], " ")
+	endif
+endfunc
+
+
+func! AddOrUpdateSectionNumber()
+	let lines = line("$")
+	let line = 1
+	let g:SEC = 6
+	let sec_num = [0,0,0,0,0,0]
+
+	while line <= lines
+		let content = getline(line)
+		let st = 6
+		if StartWith(content, "######")
+			let st = 6
+			let cur_line_content = HandleTitleLogic(content, sec_num, st)
+			call setline(line, cur_line_content)
+		elseif StartWith(content, "#####")
+			let st = 5
+			let l:cur_line_content = HandleTitleLogic(content, sec_num, st)
+			call setline(line, cur_line_content)
+		elseif StartWith(content, "####")
+			let st = 4
+			let l:cur_line_content = HandleTitleLogic(content, sec_num, st)
+			call setline(line, cur_line_content)
+		elseif StartWith(content, "###")
+			let st = 3
+			let l:cur_line_content = HandleTitleLogic(content, sec_num, st)
+			call setline(line, cur_line_content)
+		elseif StartWith(content, "##")
+			let st = 2
+			let l:cur_line_content = HandleTitleLogic(content, sec_num, st)
+			call setline(line, cur_line_content)
+		elseif StartWith(content, "#")
+			let st = 1
+			let l:cur_line_content = HandleTitleLogic(content, sec_num, st)
+			call setline(line, cur_line_content)
+		endif
+		let line += 1
+	endwhile
+endfunc
+
+
+
 """""
 "test area
 """"""
