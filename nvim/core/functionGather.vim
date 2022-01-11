@@ -35,7 +35,7 @@ func! HandleTitleLogic(content, sec_num, st)
 	if len(con_arr) == 2
 		return join([con_arr[0], pendding_num, con_arr[1]], ' ')
 	elseif len(con_arr) > 2
-		if match(con_arr[1], '\(\d\{1,9}\.\)\+\s') >= 0
+		if match(con_arr[1], '\(\d\{1,9}\.\)\+') >= 0
 			return join([con_arr[0]] + [pendding_num] + con_arr[2:-1], " ")
 		else
 			return join([con_arr[0]] + [pendding_num] + con_arr[1:-1], " ")
