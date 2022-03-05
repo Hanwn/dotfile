@@ -1,0 +1,44 @@
+local keymap = {
+    -- insert mode map
+    {'i', 'jj', "<ESC>", {noremap = true, silent = true}},
+
+    -- normal mode map
+    {'n', 'J', '5j', {noremap = true, silent = true}},
+    {'n', 'K', '5k', {noremap = true, silent = true}},
+    {'n', '>', '>>', {noremap = true, silent = true}},
+    {'n', '<', '<<', {noremap = true, silent = true}},
+    {'n', 'sv', ':set splitright<CR>:vsplit<CR>', {noremap = true, silent = true}},
+    {'n', 'sh', ':set splitbelow<CR>:split<CR>', {noremap = true, silent = true}},
+    {'n', '<C-w>h', '<C-h>', {noremap = true, silent = true}},
+    {'n', '<C-w>k', '<C-k>', {noremap = true, silent = true}},
+    {'n', '<C-w>j', '<C-j>', {noremap = true, silent = true}},
+    {'n', '<C-w>l', '<C-l>', {noremap = true, silent = true}},
+
+    {'n', '<leader>q', ':q!<CR>', {noremap = true, silent = true}},
+    {'n', '<leader>w', ':wq<CR>', {noremap = true, silent = true}},
+    {'n', 'Y', 'y$', {noremap = true, silent = true}},
+    {'n', 'H', '0', {noremap = true, silent = true}},
+    {'n', 'L', '$', {noremap = true, silent = true}},
+
+    {'n', '[t', ':-tabnext<CR>', {noremap = true, silent = true}},
+    {'n', ']t', ':+tabnext<CR>', {noremap = true, silent = true}},
+    {'n', '[b', ':bp<CR>', {noremap = true, silent = true}},
+    {'n', ']b', ':bn<CR>', {noremap = true, silent = true}},
+    {'n', '<leader>n', ':tabe<CR>', {noremap = true, silent = true}},
+    {'n', '<leader><CR>', ':nohlsearch<CR>', {noremap = true, silent = true}},
+    {'n', '<leader>1', ':tabn 1<CR>', {noremap = true, silent = true}},
+    {'n', '<leader>2', ':tabn 2<CR>', {noremap = true, silent = true}},
+    {'n', '<leader>3', ':tabn 3<CR>', {noremap = true, silent = true}},
+    {'n', '<leader>4', ':tabn 4<CR>', {noremap = true, silent = true}},
+    {'n', '<leader>5', ':tabn 5<CR>', {noremap = true, silent = true}},
+    {'n', '<leader>6', ':tabn 6<CR>', {noremap = true, silent = true}},
+    {'n', '<leader>7', ':tabn 7<CR>', {noremap = true, silent = true}},
+    {'n', '<leader>8', ':tabn 8<CR>', {noremap = true, silent = true}},
+    {'n', '<leader>9', ':tabn 9<CR>', {noremap = true, silent = true}},
+    {'n', '<leader>10', ':tabn 10<CR>', {noremap = true, silent = true}},
+    -- visual mode map
+    {'v', 'J', '5j', {noremap = true, silent = true}},
+    {'v', 'K', '5k', {noremap = true, silent = true}}
+}
+
+return keymap

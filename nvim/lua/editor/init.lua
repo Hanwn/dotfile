@@ -6,10 +6,10 @@ local init_editor = function()
     end
 end
 
-local init_keymap = function ()
+local init_keymap = function()
     local keymap = require("editor.keymap")
     for _, value in ipairs(keymap) do
-        vim.api.nvim_set_keymap(value)
+        vim.api.nvim_set_keymap(value[1], value[2], value[3], value[4])
     end
 end
 
