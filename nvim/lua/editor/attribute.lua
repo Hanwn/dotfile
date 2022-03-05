@@ -1,3 +1,7 @@
 
-vim.api.nvim_command("")
-vim.api.nvim_command("set number")
+local command = {
+    "set number",
+    "set relativenumber"
+}
+
+return command
