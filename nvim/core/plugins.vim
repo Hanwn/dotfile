@@ -35,6 +35,7 @@ Plug 'matze/vim-move'
 Plug 'ryanoasis/vim-devicons'
 Plug 'itchyny/vim-cursorword'
 Plug 'wakatime/vim-wakatime'
+Plug 'easymotion/vim-easymotion'
 
 """ *********STAR********
 Plug 'neoclide/coc.nvim',{'branch':'release'}
