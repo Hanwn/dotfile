@@ -9,7 +9,6 @@
 import os
 import yaml
 import shutil
-from git.repo import Repo
 
 
 def check_is_symbol_link_and_not_broken(filename:str) -> tuple:
@@ -89,21 +88,6 @@ def read_config(key:str):
     return data[key]
 
 
-def git_clone() -> None:
-    """ clone some repoes the project needed"""
-
-    git_src_dir = []
-    for item in read_config("git_repo_from"):
-        url = "https://github.com/{}/{}.git".format(item['name'], item['repo'])
-        git_src_dir.append(url)
-
-    git_target_dir = read_config("git_repo_to")
-    for src, target in zip(git_src_dir, git_target_dir):
-        if os.path.exists(target):
-            continue
-        Repo.clone_from(src, target)
-
-
 def target_prepare(user_target:str) -> list:
     """prepare target list
     @Parameter:
@@ -134,7 +118,6 @@ def src_prepare(user_src) -> list:
 
 def main() -> None:
     # user_src represents dotfiles directory
-    git_clone()
     user_src :str = os.getcwd()
     user_target = '/'.join(user_src.split('/')[:-1])
     src_list, target_list = src_prepare(user_src), target_prepare(user_target)
