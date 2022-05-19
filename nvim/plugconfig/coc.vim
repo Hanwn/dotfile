@@ -10,6 +10,16 @@ nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 nmap <silent> [e <Plug>(coc-diagnostic-prev)
 nmap <silent> ]e <Plug>(coc-diagnostic-next)
+
+nmap [g <Plug>(coc-git-prevchunk)
+nmap ]g <Plug>(coc-git-nextchunk)
+" navigate conflicts of current buffer
+nmap [c <Plug>(coc-git-prevconflict)
+nmap ]c <Plug>(coc-git-nextconflict)
+nmap gs <Plug>(coc-git-chunkinfo)
+" show commit contains current position
+nmap gc <Plug>(coc-git-commit) 
+
 " Use <C-k> for jump to previous placeholder, it's default of coc.nvim
 let g:coc_snippet_prev = '<c-k>'
 
@@ -19,6 +29,7 @@ autocmd FileType go let b:coc_root_patterns = ['.git', 'go.mod', 'main.go']
 " Use <C-j> for both expand and jump (make expand higher priority.)
 imap <C-j> <Plug>(coc-snippets-expand-jump)
 
+" 'coc-rust-analyzer'
 let g:coc_global_extensions = [
     \ 'coc-explorer',
     \ 'coc-tsserver',
@@ -29,8 +40,8 @@ let g:coc_global_extensions = [
     \ 'coc-clangd',
 	\ 'coc-pyright',
     \ 'coc-go',
-    \ 'coc-rust-analyzer'
-  \ ]
+    \ 'coc-git']
+
 inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
                 \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 autocmd BufEnter * if (winnr("$") == 1 && &filetype == 'coc-explorer') | q | endif
