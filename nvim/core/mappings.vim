@@ -32,8 +32,8 @@ nnoremap <leader>t :CocCommand explorer<CR>
 nnoremap <leader>v :Vista!!<CR>
 nnoremap <c-f> :Ag<CR>
 nnoremap Y y$
-nnoremap <down> <nop>
-nnoremap <up> <nop>
+nnoremap <down> gj
+nnoremap <up> gk
 nnoremap <left> <nop>
 nnoremap <right> <nop>
 nnoremap <C-w><down> :res -5<CR>
@@ -56,11 +56,10 @@ nnoremap <leader>9 :tabn 9<CR>
 nnoremap <leader>0 :tabn 10<CR>
 nnoremap [b :bp<CR>
 nnoremap ]b :bn<CR>
-nnoremap { A {}<ESC>F{a
 nnoremap + <C-a>
 nnoremap - <C-x>
-nnoremap H 0
-nnoremap L $
+nnoremap H g0
+nnoremap L g$
 nnoremap U <C-r>
 
 inoremap jj <esc>
