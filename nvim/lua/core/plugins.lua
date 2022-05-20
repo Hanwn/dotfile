@@ -8,6 +8,11 @@ return require('packer').startup(function()
     use 'shaunsingh/nord.nvim'
     use 'ful1e5/onedark.nvim'
 
+    use {
+        'nvim-lualine/lualine.nvim',
+        requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+    }
+
 
     use {
         'kyazdani42/nvim-tree.lua',
