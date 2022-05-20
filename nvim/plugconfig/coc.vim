@@ -12,6 +12,7 @@ nmap <silent> [e <Plug>(coc-diagnostic-prev)
 nmap <silent> ]e <Plug>(coc-diagnostic-next)
 
 nnoremap <leader>t :CocCommand explorer<CR>
+nnoremap <silent><nowait> <space>s  :<C-u>CocList -I symbols<cr>
 
 nmap [g <Plug>(coc-git-prevchunk)
 nmap ]g <Plug>(coc-git-nextchunk)

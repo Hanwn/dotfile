@@ -17,7 +17,6 @@ let g:lightline = {
 		\   'gitbranch': 'LightlineFugitive',
 		\ 	'readonly':'LightlineReadonly',
         \   'filename':'LightLineFname',
-        \   'method':'NearestMethodOrFunction',
 		\	'cocerrorandwarn':'GetCocErrorAndWarn',
         \   'platform':'GetPlatFormFormat',
  		\ }, 
@@ -41,7 +40,7 @@ endfunction
 
 function! LightlineFugitive() 
 	let branch = gitbranch#name() 
-	return branch !=# '' ? ' '.branch.' '.LightLineGitGutter() : '' 
+	return branch !=# '' ? ' '.branch . LightlineGitStatus() : '' 
 endfunction 
 
 fu! GetCocErrorAndWarn()
@@ -57,7 +56,7 @@ fu! GetCocErrorAndWarn()
 endf
 
 fu! GetCocError()
-    let error_sign = get(g:, 'coc_status_error_sign', "")
+    let error_sign = get(g:, 'coc_status_error_sign', "✘")
     let info       = get(b:, 'coc_diagnostic_info', {})
     if !empty(info) && get(info, 'error')
         return error_sign . info['error']
@@ -66,7 +65,7 @@ fu! GetCocError()
 endf
 
 fu! GetCocWarn() abort
-    let warning_sign = get(g:, 'coc_status_warning_sign', "")
+    let warning_sign = get(g:, 'coc_status_warning_sign', "")
     let info         = get(b:, 'coc_diagnostic_info', {})
     if !empty(info) && get(info, 'warning')
         return warning_sign . info['warning']
@@ -141,4 +140,10 @@ endfunction
 function! LightlineTabFiletypeIcon(n)
   let fticon = WebDevIconsGetFileTypeSymbol()
   return fticon !=# '' ? fticon : ''
+endfunction
+
+function! LightlineGitStatus() abort
+  let blame = get(b:, 'coc_git_status', '')
+  " return blame
+  return winwidth(0) > 120 ? blame : ''
 endfunction

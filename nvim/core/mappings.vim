@@ -17,7 +17,6 @@ nnoremap <C-l> <C-w>l
 " noremap <leader>x :bp<cr>:bd #<cr>
 noremap <leader>x :q<CR>
 noremap <leader>q :q!<CR>
-noremap <leader>s :w<CR>
 noremap <leader>w :wq<CR>
 
 noremap  <expr>0     col('.') == 1 ? '^': '0'

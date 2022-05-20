@@ -1,6 +1,15 @@
 {
-	"diagnostic.errorSign":"",
-	"diagnostic.warningSign":"",
+	// diagnostic
+	"diagnostic.errorSign":"✘",
+	"diagnostic.warningSign":"",
+	"diagnostic.infoSign": "",
+	"diagnostic.hintSign": "",
+
+	//git
+	"git.virtualTextPrefix": "❯❯❯",
+	"git.addGBlameToBufferVar": true,
+
+	// suggest
 	"suggest.completionItemKindLabels": {
 		"class": "\uf0e8",
 		"color": "\ue22b",
@@ -28,6 +37,7 @@
 		"value": "\uf89f",
 		"variable": "\ue71b"
 	},
+
 	"explorer.icon.source": "vim-devicons",
 	"explorer.icon.enableNerdfont": true,
 	"explorer.floating.position": "left-center",
@@ -42,6 +52,12 @@
 		  "initializationOptions": {
 			"usePlaceholders": true
 		  }
-		}
-	}
+		},
+		"clangd": {
+            "command": "clangd",
+            "rootPatterns": ["compile_flags.txt", "compile_commands.json", ".git/", ".hg/"],
+            "filetypes": ["c", "cc", "cpp", "c++", "objc", "objcpp"]
+        }
+  },
+  "git.enableGutters": true
 }
