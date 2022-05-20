@@ -11,6 +11,8 @@ nmap <silent> gr <Plug>(coc-references)
 nmap <silent> [e <Plug>(coc-diagnostic-prev)
 nmap <silent> ]e <Plug>(coc-diagnostic-next)
 
+nnoremap <leader>t :CocCommand explorer<CR>
+
 nmap [g <Plug>(coc-git-prevchunk)
 nmap ]g <Plug>(coc-git-nextchunk)
 " navigate conflicts of current buffer
