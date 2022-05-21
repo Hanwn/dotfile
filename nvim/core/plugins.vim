@@ -6,7 +6,7 @@ call plug#begin('~/.vim/plugged')
 """layout {{{
 Plug 'itchyny/lightline.vim'
 " Plug 'mengelbrecht/lightline-bufferline'
-Plug 'itchyny/vim-gitbranch'
+"Plug 'itchyny/vim-gitbranch'
 Plug 'jiangmiao/auto-pairs'
 Plug 'liuchengxu/vista.vim'
 Plug 'voldikss/vim-floaterm'

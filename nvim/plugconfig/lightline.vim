@@ -39,8 +39,8 @@ function! LightlineReadonly()
 endfunction
 
 function! LightlineFugitive() 
-	let branch = gitbranch#name() 
-	return branch !=# '' ? ' '.branch . LightlineGitStatus() : '' 
+    let branch = get(g:, 'coc_git_status', '')
+	return branch !=# '' ? branch . LightlineGitStatus() : '' 
 endfunction 
 
 fu! GetCocErrorAndWarn()
