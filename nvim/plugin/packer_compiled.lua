@@ -74,6 +74,11 @@ _G.packer_plugins = {
     path = "/home/hanwn/.local/share/nvim/site/pack/packer/start/gruvbox.nvim",
     url = "https://github.com/ellisonleao/gruvbox.nvim"
   },
+  ["guihua.lua"] = {
+    loaded = true,
+    path = "/home/hanwn/.local/share/nvim/site/pack/packer/start/guihua.lua",
+    url = "https://github.com/ray-x/guihua.lua"
+  },
   ["lualine.nvim"] = {
     loaded = true,
     path = "/home/hanwn/.local/share/nvim/site/pack/packer/start/lualine.nvim",
@@ -84,10 +89,20 @@ _G.packer_plugins = {
     path = "/home/hanwn/.local/share/nvim/site/pack/packer/start/lush.nvim",
     url = "https://github.com/rktjmp/lush.nvim"
   },
+  ["navigator.lua"] = {
+    loaded = true,
+    path = "/home/hanwn/.local/share/nvim/site/pack/packer/start/navigator.lua",
+    url = "https://github.com/ray-x/navigator.lua"
+  },
   ["nord.nvim"] = {
     loaded = true,
     path = "/home/hanwn/.local/share/nvim/site/pack/packer/start/nord.nvim",
     url = "https://github.com/shaunsingh/nord.nvim"
+  },
+  ["nvim-lspconfig"] = {
+    loaded = true,
+    path = "/home/hanwn/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
+    url = "https://github.com/neovim/nvim-lspconfig"
   },
   ["nvim-tree.lua"] = {
     loaded = true,
