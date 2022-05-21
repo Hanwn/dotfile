@@ -7,6 +7,10 @@ return require('packer').startup(function()
     }
     use 'shaunsingh/nord.nvim'
     use 'ful1e5/onedark.nvim'
+    use 'windwp/nvim-autopairs'
+    use "numToStr/FTerm.nvim"
+
+    use "lukas-reineke/indent-blankline.nvim"
 
     use {
         'nvim-lualine/lualine.nvim',
@@ -21,9 +25,17 @@ return require('packer').startup(function()
         },
     })
 
+    use("williamboman/nvim-lsp-installer")
+    use("neovim/nvim-lspconfig")
+
     use {
         'lewis6991/gitsigns.nvim',
         -- tag = 'release' -- To use the latest release
+    }
+
+    use {
+        'nvim-treesitter/nvim-treesitter',
+        run = ':TSUpdate'
     }
 
 
@@ -35,9 +47,9 @@ return require('packer').startup(function()
         tag = 'nightly' -- optional, updated every week. (see issue #1193)
     }
 
+
     use {
         'nvim-telescope/telescope.nvim',
-        commit='80cdb00b221f69348afc4fb4b701f51eb8dd3120',
         requires = { {'nvim-lua/plenary.nvim'} }
     }
 end)

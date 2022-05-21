@@ -4,10 +4,8 @@ require("plugin.telescope-cfg")
 require("plugin.lualine-cfg")
 require("plugin.navigator-cfg")
 require("plugin.gitgutter-cfg")
-
-require("nvim-tree").setup{
-    vim.api.nvim_set_keymap('n', '<leader>t', ':NvimTreeToggle<CR>', { noremap = true, silent = true })
-}
-
-
-
+require("plugin.treesitter-cfg")
+require("plugin.autopairs-cfg")
+require("plugin.fterm-cfg")
+require("plugin.indent-blankline-cfg")
+require("plugin.lsp.lsp-installer")
