@@ -2,7 +2,7 @@
 require("core.plugins")
 
 local init_editor = function()
-    local command = require("core.attribute")
+    local command = require("core.options")
     for _, value in ipairs(command) do
         vim.api.nvim_command(value)
     end
