@@ -23,11 +23,33 @@ nmap gs <Plug>(coc-git-chunkinfo)
 " show commit contains current position
 nmap gc <Plug>(coc-git-commit) 
 
+inoremap <C-P> <C-\><C-O>:call CocActionAsync('showSignatureHelp')<cr>
+
 " Use <C-k> for jump to previous placeholder, it's default of coc.nvim
 let g:coc_snippet_prev = '<c-k>'
 
 autocmd FileType python let b:coc_root_patterns = ['.git', '.env', 'setup.py', 'main.py', 'train.py']
 autocmd FileType go let b:coc_root_patterns = ['.git', 'go.mod', 'main.go']
+
+nnoremap <silent> <leader>k :call ShowDocumentation()<CR>
+
+function! ShowDocumentation()
+  if CocAction('hasProvider', 'hover')
+    call CocActionAsync('doHover')
+  else
+    call feedkeys('K', 'in')
+  endif
+endfunction
+
+nmap <leader>rn <Plug>(coc-rename)
+
+xmap <leader>a  <Plug>(coc-codeaction-selected)
+nmap <leader>a  <Plug>(coc-codeaction-selected)
+
+" Remap keys for applying codeAction to the current buffer.
+nmap <leader>ac  <Plug>(coc-codeaction)
+" Apply AutoFix to problem on the current line.
+nmap <leader>af  <Plug>(coc-fix-current)
 
 " Use <C-j> for both expand and jump (make expand higher priority.)
 imap <C-j> <Plug>(coc-snippets-expand-jump)
@@ -47,6 +69,7 @@ let g:coc_global_extensions = [
 
 inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
                 \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
 autocmd BufEnter * if (winnr("$") == 1 && &filetype == 'coc-explorer') | q | endif
 
 let g:LanguageClient_serverCommands = {
