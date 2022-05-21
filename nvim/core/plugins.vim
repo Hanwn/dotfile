@@ -23,8 +23,8 @@ Plug 'plasticboy/vim-markdown'
 " Plug 'SirVer/ultisnips'
 Plug 'Chiel92/vim-autoformat'
 Plug 'tpope/vim-surround'
-"Plug 'sheerun/vim-polyglot'
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
+Plug 'sheerun/vim-polyglot'
+"Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
 Plug 'Yggdroot/indentLine'
 " Plug 'lukas-reineke/indent-blankline.nvim'
 " Plug 'Yggdroot/LeaderF'
@@ -36,7 +36,7 @@ Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 Plug 'matze/vim-move'
 Plug 'ryanoasis/vim-devicons'
 Plug 'itchyny/vim-cursorword'
-Plug 'wakatime/vim-wakatime'
+" Plug 'wakatime/vim-wakatime'
 Plug 'easymotion/vim-easymotion'
 
 """ *********STAR********
