@@ -21,3 +21,4 @@ source $root/plugconfig/floaterm.vim
 "source $root/plugconfig/nerdcommenter.vim
 "source $root/plugconfig/ultisnippets.vim
 source $root/plugconfig/fzf.vim
+source $root/plugconfig/treesitter.vim
