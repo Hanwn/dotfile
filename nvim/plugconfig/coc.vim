@@ -9,6 +9,10 @@ set hidden
 set updatetime=100
 set shortmess+=c
 
+set hidden
+set updatetime=100
+set shortmess+=c
+
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gD :tab sp<CR><Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
@@ -39,7 +43,7 @@ xmap <leader>a  <Plug>(coc-codeaction-selected)
 
 inoremap <C-P> <C-\><C-O>:call CocActionAsync('showSignatureHelp')<cr>
 inoremap <silent><expr> <c-o> coc#refresh()
-inoremap <silent><expr> <CR> pumvisible() ? "\<C-y><CR>" : "\<CR>"
+inoremap <silent><expr> <CR> My_mapping()
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
       \ <SID>check_back_space() ? "\<TAB>" :
@@ -91,3 +95,12 @@ function! s:check_back_space() abort
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
+function! My_mapping()
+  if pumvisible() && complete_info()["selected"] == -1
+    return "\<C-y>\<CR>"
+  elseif pumvisible()
+    return coc#_select_confirm()
+  else
+    return "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+  endif
+endfunction
