@@ -4,15 +4,24 @@
 
 let g:coc_config_home = $root . '/core/'
 
+set hidden
+set updatetime=100
+set shortmess+=c
+
 nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gD :tab sp<CR><Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 nmap <silent> [e <Plug>(coc-diagnostic-prev)
 nmap <silent> ]e <Plug>(coc-diagnostic-next)
 
-nnoremap <leader>t :CocCommand explorer<CR>
-nnoremap <silent><nowait> <space>s  :<C-u>CocList -I symbols<cr>
+nmap <leader>rn <Plug>(coc-rename)
+" Remap keys for applying codeAction to the current buffer.
+nmap <leader>ac  <Plug>(coc-codeaction)
+" Apply AutoFix to problem on the current line.
+nmap <leader>af  <Plug>(coc-fix-current)
+nmap <leader>a  <Plug>(coc-codeaction-selected)
 
 nmap [g <Plug>(coc-git-prevchunk)
 nmap ]g <Plug>(coc-git-nextchunk)
@@ -23,14 +32,27 @@ nmap gs <Plug>(coc-git-chunkinfo)
 " show commit contains current position
 nmap gc <Plug>(coc-git-commit) 
 
+" Use <C-j> for both expand and jump (make expand higher priority.)
+imap <C-j> <Plug>(coc-snippets-expand-jump)
+xmap <leader>a  <Plug>(coc-codeaction-selected)
+
 inoremap <C-P> <C-\><C-O>:call CocActionAsync('showSignatureHelp')<cr>
+inoremap <silent><expr> <c-o> coc#refresh()
+inoremap <silent><expr> <CR> pumvisible() ? "\<C-y><CR>" : "\<CR>"
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
 " Use <C-k> for jump to previous placeholder, it's default of coc.nvim
-let g:coc_snippet_prev = '<c-k>'
 
 autocmd FileType python let b:coc_root_patterns = ['.git', '.env', 'setup.py', 'main.py', 'train.py']
 autocmd FileType go let b:coc_root_patterns = ['.git', 'go.mod', 'main.go']
+autocmd BufEnter * if (winnr("$") == 1 && &filetype == 'coc-explorer') | q | endif
 
+nnoremap <leader>t :CocCommand explorer<CR>
+nnoremap <silent><nowait> <space>s  :<C-u>CocList -I symbols<cr>
 nnoremap <silent> <leader>k :call ShowDocumentation()<CR>
 
 function! ShowDocumentation()
@@ -41,18 +63,10 @@ function! ShowDocumentation()
   endif
 endfunction
 
-nmap <leader>rn <Plug>(coc-rename)
 
-xmap <leader>a  <Plug>(coc-codeaction-selected)
-nmap <leader>a  <Plug>(coc-codeaction-selected)
-
-" Remap keys for applying codeAction to the current buffer.
-nmap <leader>ac  <Plug>(coc-codeaction)
-" Apply AutoFix to problem on the current line.
-nmap <leader>af  <Plug>(coc-fix-current)
-
-" Use <C-j> for both expand and jump (make expand higher priority.)
-imap <C-j> <Plug>(coc-snippets-expand-jump)
+"let g:coc_snippet_next = '<tab>'
+let g:coc_snippet_prev = '<c-k>'
+let g:coc_snippet_next = '<c-j>'
 
 " 'coc-rust-analyzer'
 let g:coc_global_extensions = [
@@ -67,36 +81,12 @@ let g:coc_global_extensions = [
     \ 'coc-go',
     \ 'coc-git']
 
-inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
-                \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
-
-autocmd BufEnter * if (winnr("$") == 1 && &filetype == 'coc-explorer') | q | endif
-
 let g:LanguageClient_serverCommands = {
        \ 'go': ['gopls']
        \ }
-
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
 function! s:check_back_space() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
-"let g:coc_snippet_next = '<tab>'
-
-" remove coc.plug not in install list
-function! s:uninstall_unused_coc_extensions() abort
-    if has_key(g:, 'coc_global_extensions')
-        for e in keys(json_decode(join(readfile(expand(g:coc_data_home . '/extensions/package.json')), "\n"))['dependencies'])
-            if index(g:coc_global_extensions, e) < 0
-                execute 'CocUninstall ' . e
-            endif
-        endfor
-    endif
-endfunction
-autocmd User CocNvimInit call s:uninstall_unused_coc_extensions()
