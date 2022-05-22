@@ -44,6 +44,7 @@ if [ $? != 0 ];then
     sudo rm -rf /usr/local/go &&sudo tar -C /usr/local -xzf go1.18.2.linux-amd64.tar.gz
     echo "export PATH=$PATH:/usr/local/go/bin" >> $HOME/.env.zsh
     echo "export GO111MODULE=on" >> $HOME/.env.zsh
+    echo 'export PATH=$PATH:$(go env GOPATH)/bin' >> $HOME/.env.zsh
 fi
 
 ## install lazygit use golang
