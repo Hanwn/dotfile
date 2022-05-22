@@ -1,9 +1,9 @@
 " ===
 " === source file
 " ===
+source $root/core/plugins.vim
 source $root/core/variables.vim
 source $root/core/mappings.vim
-source $root/core/plugins.vim
 source $root/core/functionGather.vim
 "source $root/plugconfig/defx.vim
 source $root/plugconfig/coc.vim
