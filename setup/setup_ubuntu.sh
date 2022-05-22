@@ -4,22 +4,69 @@
 
 function install() {
     command sudo apt update
-    sudo apt install wget curl -y
-    sudo apt install git -y
-    sudo apt install tmux lazygit neovim vim ranger -y
-    sudo apt install nodejs  -y
-    sudo apt install make cmake gcc gdb g++ clang clangd -y
-    sudo apt install tree cloc -y
-    sudo apt install silversearcher-ag fzf fd-find -y
-    sudo apt install zsh -y
+    sudo apt install wget 
+    sudo apt install curl
+    sudo apt install git
+    sudo apt install tmux
+    sudo apt install neovim 
+    sudo apt install vim 
+    sudo apt install ranger
+    sudo apt install tldr
+    sudo apt install make 
+    sudo apt install cmake 
+    sudo apt install gcc 
+    sudo apt install gdb 
+    sudo apt install g++ 
+    sudo apt install clang 
+    sudo apt install cloc
+    sudo apt install clangd
+    sudo apt install silversearcher-ag 
+    sudo apt install fzf 
+    sudo apt install fd-find
+    sudo apt install tree 
+    sudo apt install zsh
+    sudo apt install python3-pip
+    sudo apt install lua5.3
+    sudo apt install bat
 }
+
+### add source for update nvim
+sudo add-apt-repository ppa:neovim-ppa/stable
+
+### install nodejs to latest
+curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
+sudo apt-get install -y nodejs
+
+### install golang 
+echo $(go version)
+if [ $? != 0 ];then
+    curl -LO https://go.dev/dl/go1.18.2.linux-amd64.tar.gz
+    sudo rm -rf /usr/local/go &&sudo tar -C /usr/local -xzf go1.18.2.linux-amd64.tar.gz
+    echo "export PATH=$PATH:/usr/local/go/bin" >> $HOME/.env.zsh
+    echo "export GO111MODULE=on" >> $HOME/.env.zsh
+fi
+
+## install lazygit use golang
+echo $(lazygit -v)
+if [ $? != 0 ]; then
+    command go install github.com/jesseduffield/lazygit@latest
+fi
 
 
 echo -e " \033[1;33m======= INSTALL SOFTWARE =======>\033[0m 🚀"
 install
 
-##### install vim-plug for nvim
+# alias for bat
+if [[ ! -e /usr/bin/bat && ! -s /usr/bin/bat ]]; then
+    sudo ln -s /usr/bin/batcat /usr/bin/bat
+fi
 
+# alias for python
+if [[ ! -e /usr/bin/python && ! -s /usr/bin/python ]]; then
+    sudo ln -s /ust/bin/python3 /usr/bin/python
+fi
+
+##### install vim-plug for nvim
 echo " Install vim plug"
 
 plugvim="${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim
