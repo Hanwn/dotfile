@@ -1,4 +1,5 @@
 {
+    "semanticTokens.filetypes": ["*"],
     "codeLens.enable": true,
 	// diagnostic
 	"diagnostic.errorSign":"✘",
@@ -42,7 +43,6 @@
 	"explorer.icon.source": "vim-devicons",
 	"explorer.icon.enableNerdfont": true,
 	"explorer.floating.position": "left-center",
-	"clangd.fallbackFlags":["-std=c++17", "-std=c11"],
 	"workspace.workspaceFolderCheckCwd": false,
 
 	"languageserver": {
@@ -53,12 +53,7 @@
 		  "initializationOptions": {
 			"usePlaceholders": true
 		  }
-		},
-		"clangd": {
-            "command": "clangd",
-            "rootPatterns": ["compile_flags.txt", "compile_commands.json", ".git/", ".hg/"],
-            "filetypes": ["c", "cc", "cpp", "c++", "objc", "objcpp"]
-        }
+		}
   },
   "git.enableGutters": true
 }

@@ -23,7 +23,7 @@ Plug 'plasticboy/vim-markdown'
 " Plug 'SirVer/ultisnips'
 Plug 'Chiel92/vim-autoformat'
 Plug 'tpope/vim-surround'
-Plug 'sheerun/vim-polyglot'
+"Plug 'sheerun/vim-polyglot'
 "Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
 Plug 'Yggdroot/indentLine'
 " Plug 'lukas-reineke/indent-blankline.nvim'
@@ -67,7 +67,3 @@ Plug 'arcticicestudio/nord-vim'
 """}}}
 call plug#end()
 
-""colorscheme setting
-"colorscheme nord
-"colorscheme gruvbox
-colorscheme onedark

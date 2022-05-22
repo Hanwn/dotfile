@@ -3,6 +3,7 @@
 """
 
 let g:coc_config_home = $root . '/core/'
+let g:coc_default_semantic_highlight_groups = 1
 
 set hidden
 set updatetime=100
