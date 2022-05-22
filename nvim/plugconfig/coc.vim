@@ -20,6 +20,15 @@ nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 nmap <silent> [e <Plug>(coc-diagnostic-prev)
 nmap <silent> ]e <Plug>(coc-diagnostic-next)
+nmap f <Plug>(coc-smartf-forward)
+nmap F <Plug>(coc-smartf-backward)
+nmap ; <Plug>(coc-smartf-repeat)
+nmap , <Plug>(coc-smartf-repeat-opposite)
+
+augroup Smartf
+  autocmd User SmartfEnter :hi Conceal ctermfg=20 guifg=#f1fa8c
+  autocmd User SmartfLeave :hi Conceal ctermfg=29 guifg=#504945
+augroup end
 
 nmap <leader>rn <Plug>(coc-rename)
 " Remap keys for applying codeAction to the current buffer.
@@ -84,7 +93,8 @@ let g:coc_global_extensions = [
     \ 'coc-clangd',
 	\ 'coc-pyright',
     \ 'coc-go',
-    \ 'coc-git']
+    \ 'coc-git',
+    \ 'coc-smartf']
 
 let g:LanguageClient_serverCommands = {
        \ 'go': ['gopls']
