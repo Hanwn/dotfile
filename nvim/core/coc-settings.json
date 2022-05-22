@@ -55,5 +55,8 @@
 		  }
 		}
   },
+  "go.goplsOptions": {
+      "semanticTokens": true
+  },
   "git.enableGutters": true
 }
