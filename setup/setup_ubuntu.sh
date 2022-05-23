@@ -31,7 +31,10 @@ function install() {
 }
 
 ### add source for update nvim
-sudo add-apt-repository ppa:neovim-ppa/stable
+command grep -rhE ^deb /etc/apt/sources.list* | grep neovim > /dev/null
+if [ $? != 0 ]; then
+    sudo add-apt-repository ppa:neovim-ppa/stable
+fi
 
 ### install nodejs to latest
 nodev=$(node -v | awk -F . {'print int(substr($1, 2, length($1)))'})
