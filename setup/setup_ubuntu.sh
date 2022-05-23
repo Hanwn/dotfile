@@ -38,7 +38,7 @@ curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
 sudo apt-get install -y nodejs
 
 ### install golang 
-echo $(go version)
+command -v go version > /dev/null
 if [ $? != 0 ];then
     curl -LO https://go.dev/dl/go1.18.2.linux-amd64.tar.gz
     sudo rm -rf /usr/local/go &&sudo tar -C /usr/local -xzf go1.18.2.linux-amd64.tar.gz
@@ -48,7 +48,7 @@ if [ $? != 0 ];then
 fi
 
 ## install lazygit use golang
-echo $(lazygit -v)
+command -v lazygit > /dev/null
 if [ $? != 0 ]; then
     command go install github.com/jesseduffield/lazygit@latest
 fi
