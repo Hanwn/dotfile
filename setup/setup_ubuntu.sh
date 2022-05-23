@@ -35,7 +35,7 @@ sudo add-apt-repository ppa:neovim-ppa/stable
 
 ### install nodejs to latest
 nodev=$(node -v | awk -F . {'print int(substr($1, 2, length($1)))'})
-if [ $nodev -ge 16 ]; then
+if [ $nodev -lt 16 ]; then
     curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
     sudo apt-get install -y nodejs
 fi
