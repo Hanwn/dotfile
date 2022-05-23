@@ -47,6 +47,10 @@ if [ $? != 0 ];then
     echo 'export PATH=$PATH:$(go env GOPATH)/bin' >> $HOME/.env.zsh
 fi
 
+#### install rust
+command -v rustup
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+
 ## install lazygit use golang
 command -v lazygit > /dev/null
 if [ $? != 0 ]; then
@@ -109,5 +113,21 @@ if [ ! -d "${HOME}/.tmux/plugins/tpm" ]; then
     tmux source ~/.tmux.conf
 fi
 
+#### install MODERN unix software
+# https://github.com/ibraheemdev/modern-unix
+command -v duf > /dev/null
+if [ $? !=0 ];then
+    command go install github.com/muesli/duf@latest
+fi
+
+command -v lsd > /dev/null
+if [ $? !=0 ];then
+    command cargo install lsd
+fi
+
+command -v procs > /dev/null
+if [ $? != 0 ]; then
+    command cargo install procs
+fi
 
 
