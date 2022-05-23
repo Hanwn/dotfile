@@ -34,8 +34,11 @@ function install() {
 sudo add-apt-repository ppa:neovim-ppa/stable
 
 ### install nodejs to latest
-curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
-sudo apt-get install -y nodejs
+nodev=$(node -v | awk -F . {'print int(substr($1, 2, length($1)))'})
+if [ $nodev -ge 16 ]; then
+    curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
+    sudo apt-get install -y nodejs
+fi
 
 ### install golang 
 command -v go version > /dev/null
@@ -48,8 +51,12 @@ if [ $? != 0 ];then
 fi
 
 #### install rust
-command -v rustup
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+echo " install RUST"
+command -v rustup > /dev/null
+if [ $? != 0 ]; then
+    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+    echo '. "$HOME/.cargo/env"' >> $HOME/.env.zsh
+fi
 
 ## install lazygit use golang
 command -v lazygit > /dev/null
