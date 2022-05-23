@@ -35,7 +35,7 @@ sudo add-apt-repository ppa:neovim-ppa/stable
 
 ### install nodejs to latest
 nodev=$(node -v | awk -F . {'print int(substr($1, 2, length($1)))'})
-if [ $nodev -ge 16 ]; then
+if [ $nodev -lt 16 ]; then
     curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
     sudo apt-get install -y nodejs
 fi
@@ -123,12 +123,12 @@ fi
 #### install MODERN unix software
 # https://github.com/ibraheemdev/modern-unix
 command -v duf > /dev/null
-if [ $? !=0 ];then
+if [ $? != 0 ];then
     command go install github.com/muesli/duf@latest
 fi
 
 command -v lsd > /dev/null
-if [ $? !=0 ];then
+if [ $? != 0 ];then
     command cargo install lsd
 fi
 
