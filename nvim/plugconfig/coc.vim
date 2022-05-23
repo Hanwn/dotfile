@@ -52,7 +52,9 @@ xmap <leader>a  <Plug>(coc-codeaction-selected)
 
 inoremap <C-P> <C-\><C-O>:call CocActionAsync('showSignatureHelp')<cr>
 inoremap <silent><expr> <c-o> coc#refresh()
-inoremap <silent><expr> <CR> My_mapping()
+" inoremap <silent><expr> <CR> My_mapping()
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
+                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
       \ <SID>check_back_space() ? "\<TAB>" :

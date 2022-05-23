@@ -12,6 +12,7 @@
 	"git.addGBlameToBufferVar": true,
 
 	// suggest
+    "suggest.noselect": false,
 	"suggest.completionItemKindLabels": {
 		"class": "\uf0e8",
 		"color": "\ue22b",
