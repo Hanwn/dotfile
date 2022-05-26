@@ -4,30 +4,37 @@
 
 function install() {
     command sudo apt update
-    sudo apt install wget 
-    sudo apt install curl
-    sudo apt install git
-    sudo apt install tmux
-    sudo apt install neovim 
-    sudo apt install vim 
-    sudo apt install ranger
-    sudo apt install tldr
-    sudo apt install make 
-    sudo apt install cmake 
-    sudo apt install gcc 
-    sudo apt install gdb 
-    sudo apt install g++ 
-    sudo apt install clang 
-    sudo apt install cloc
-    sudo apt install clangd
-    sudo apt install silversearcher-ag 
-    sudo apt install fzf 
-    sudo apt install fd-find
-    sudo apt install tree 
-    sudo apt install zsh
-    sudo apt install python3-pip
-    sudo apt install lua5.3
-    sudo apt install bat
+    softwares=(wget
+        curl
+        git
+        tmux
+        neovim
+        vim 
+        ranger
+        tldr
+        make 
+        cmake 
+        gcc 
+        gdb 
+        g++ 
+        clang 
+        cloc
+        clangd
+        silversearcher-ag 
+        fzf 
+        fd-find
+        tree 
+        zsh
+        python3-pip
+        lua5.3
+        bat
+        fd-find
+    )
+    for soft in "${softwares[@]}";
+    do
+        cli="sudo apt install ${soft}"
+        eval ${cli}
+    done
 }
 
 ### add source for update nvim
@@ -78,7 +85,12 @@ fi
 
 # alias for python
 if [[ ! -e /usr/bin/python && ! -s /usr/bin/python ]]; then
-    sudo ln -s /ust/bin/python3 /usr/bin/python
+    sudo ln -s /usr/bin/python3 /usr/bin/python
+fi
+
+# alias for fd
+if [[ ! -e /usr/bin/fd && ! -s /usr/bin/fd ]]; then
+    sudo ln -s /usr/bin/fdfind /usr/bin/fd
 fi
 
 ##### install vim-plug for nvim

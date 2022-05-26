@@ -9,6 +9,7 @@ plugins=(git
          sudo
          z
          vi-mode
+         fzf
 )
 
 # FZF setting
