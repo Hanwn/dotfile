@@ -9,10 +9,10 @@ local keymap = {
     {'n', '<', '<<', {noremap = true, silent = true}},
     {'n', 'sv', ':set splitright<CR>:vsplit<CR>', {noremap = true, silent = true}},
     {'n', 'sh', ':set splitbelow<CR>:split<CR>', {noremap = true, silent = true}},
-    -- {'n', '<C-w>h', '<C-h>', {noremap = true, silent = true}},
-    -- {'n', '<C-w>k', '<C-k>', {noremap = true, silent = true}},
-    -- {'n', '<C-w>j', '<C-j>', {noremap = true, silent = true}},
-    -- {'n', '<C-w>l', '<C-l>', {noremap = true, silent = true}},
+    {'n', '<C-h>', '<C-w>h', {noremap = true, silent = true}},
+    {'n', '<C-k>', '<C-w>k', {noremap = true, silent = true}},
+    {'n', '<C-j>', '<C-w>j', {noremap = true, silent = true}},
+    {'n', '<C-l>', '<C-w>l', {noremap = true, silent = true}},
 
     {'n', '<leader>q', ':q!<CR>', {noremap = true, silent = true}},
     {'n', '<leader>w', ':wq<CR>', {noremap = true, silent = true}},
@@ -35,7 +35,6 @@ local keymap = {
     {'n', '<leader>7', ':tabn 7<CR>', {noremap = true, silent = true}},
     {'n', '<leader>8', ':tabn 8<CR>', {noremap = true, silent = true}},
     {'n', '<leader>9', ':tabn 9<CR>', {noremap = true, silent = true}},
-    {'n', '<leader>10', ':tabn 10<CR>', {noremap = true, silent = true}},
     -- visual mode map
     {'v', 'J', '5j', {noremap = true, silent = true}},
     {'v', 'K', '5k', {noremap = true, silent = true}}
