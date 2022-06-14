@@ -74,6 +74,11 @@ _G.packer_plugins = {
     path = "/home/hanwn/.local/share/nvim/site/pack/packer/start/FTerm.nvim",
     url = "https://github.com/numToStr/FTerm.nvim"
   },
+  ["bufferline.nvim"] = {
+    loaded = true,
+    path = "/home/hanwn/.local/share/nvim/site/pack/packer/start/bufferline.nvim",
+    url = "https://github.com/akinsho/bufferline.nvim"
+  },
   ["cmp-buffer"] = {
     loaded = true,
     path = "/home/hanwn/.local/share/nvim/site/pack/packer/start/cmp-buffer",
