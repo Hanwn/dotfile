@@ -6,8 +6,12 @@ let g:lightline#bufferline#enable_devicons=1
 let g:lightline = { 
 		\ 'colorscheme': 'one',
         \ 'active': {
-        \ 'left': [ [ 'mode', 'paste' ],
-        \ 			[ 'gitbranch', 'readonly' ,'filename', 'method','cocerrorandwarn'] ],
+        \ 'left': [ ['mode', 'paste'],
+        \ 			['gitbranch'],
+        \           ['readonly'], 
+        \           ['filename'], 
+        \           ['method'],
+        \           ['cocerrorandwarn']],
         \ 'right':[['lineinfo'],['percent'],['fileencoding'],['platform']]
         \ },
  		\ 'component': { 
@@ -20,8 +24,6 @@ let g:lightline = {
 		\	'cocerrorandwarn':'GetCocErrorAndWarn',
         \   'platform':'GetPlatFormFormat',
  		\ }, 
- 		\ 'separator': { 'left': '', 'right': '' }, 
- 		\ 'subseparator': { 'left': '', 'right': '' },
         \ 'tab_component_function' : {
         \   'fiticon':'LightlineTabFiletypeIcon',
         \ },
@@ -95,7 +97,7 @@ function! LightLineModified()
   if &filetype == "help"
     return ""
   elseif &modified
-    return ""
+    return ""
   elseif &modifiable
     return ""
   else
