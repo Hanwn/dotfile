@@ -4,38 +4,42 @@
 
 let g:lightline#bufferline#enable_devicons=1
 let g:lightline = { 
-		\ 'colorscheme': 'one',
-        \ 'active': {
-        \ 'left': [ ['mode', 'paste'],
-        \ 			['gitbranch'],
-        \           ['readonly'], 
-        \           ['filename'], 
-        \           ['method'],
-        \           ['cocerrorandwarn']],
-        \ 'right':[['lineinfo'],['percent'],['fileencoding'],['platform']]
-        \ },
- 		\ 'component': { 
- 		\   'lineinfo': " %{line('.') . '/' . line('$')}", 
- 		\ }, 
- 		\ 'component_function': {
-		\   'gitbranch': 'LightlineFugitive',
-		\ 	'readonly':'LightlineReadonly',
-        \   'filename':'LightLineFname',
-		\	'cocerrorandwarn':'GetCocErrorAndWarn',
-        \   'platform':'GetPlatFormFormat',
- 		\ }, 
-        \ 'tab_component_function' : {
-        \   'fiticon':'LightlineTabFiletypeIcon',
-        \ },
-        \ 'tab' : {
-        \  'active': [ 'filename', 'fiticon' ],
-        \  'inacive':['tabnum', 'filename']
-        \},
-        \ 'tabline':{
-        \ 'left':[['tabs']],
-        \ 'right':[['']],
-        \},
- 		\ } 
+      \ 'colorscheme': 'one',
+      \ 'active': {
+      \   'left': [ ['mode', 'paste'],
+      \             ['gitbranch'],
+      \             ['readonly'], 
+      \             ['filename'], 
+      \             ['method'],
+      \             ['cocerrorandwarn']],
+      \   'right':[
+      \     ['lineinfo'],
+      \     ['percent'],
+      \     ['fileencoding'],
+      \     ['platform']]
+      \ },
+      \ 'component': { 
+      \   'lineinfo': " %{line('.') . '/' . line('$')}", 
+      \ },
+      \ 'component_function': {
+      \   'gitbranch': 'LightlineFugitive',
+      \   'readonly':'LightlineReadonly',
+      \   'filename':'LightLineFname',
+      \   'cocerrorandwarn':'GetCocErrorAndWarn',
+      \   'platform':'GetPlatFormFormat',
+      \ },
+      \ 'tab_component_function' : {
+      \   'fiticon':'LightlineTabFiletypeIcon',
+      \ },
+      \ 'tab' : {
+      \   'active': [ 'filename', 'fiticon' ],
+      \   'inacive':['tabnum', 'filename']
+      \ },
+      \ 'tabline':{
+      \   'left':[['tabs']],
+      \   'right':[['']],
+      \ },
+  \ } 
 function! LightlineReadonly()
 	return &readonly ? '' : ''
 endfunction
