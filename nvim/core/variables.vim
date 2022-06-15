@@ -31,8 +31,12 @@ if (has("termguicolors"))
     set termguicolors
 endif
 
-set ts=4
-set shiftwidth=4
+set ts=2
+set shiftwidth=2
+aug python
+  au FileType python setlocal ts=4 sw=4
+aug end
+
 set ma
 set foldmethod=indent
 set nofoldenable
