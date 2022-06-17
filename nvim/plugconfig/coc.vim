@@ -116,3 +116,5 @@ function! My_mapping()
     return "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
   endif
 endfunction
+
+command! -nargs=0 Format :call CocActionAsync('format')
