@@ -68,6 +68,12 @@ if [ $? != 0 ]; then
     echo '. "$HOME/.cargo/env"' >> $HOME/.env.zsh
 fi
 
+#### install typescript
+command -v tsc > /dev/null
+if [ $? !=0 ]; then
+    npm install -g typescript
+fi
+
 ## install lazygit use golang
 command -v lazygit > /dev/null
 if [ $? != 0 ]; then
