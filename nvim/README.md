@@ -23,34 +23,45 @@
 	- [Plugin](#plugin)
 
 ## Dir
+
 ```
-├── App.md
-├── README.md
-├── UltiSnips
-│   ├── cpp.snippets
-│   ├── markdown.snippets
-│   ├── md-snippets.vim
-│   └── python.snippets
-├── coc-settings.json
+.
 ├── core
+│   ├── coc-settings.json
+│   ├── functionGather.vim
 │   ├── load.vim
 │   ├── mappings.vim
 │   ├── plugins.vim
 │   └── variables.vim
 ├── init.vim
-└── plugconfig
-    ├── airline.vim
-    ├── asyncrun.vim
-    ├── coc.vim
-    ├── defx.vim
-    ├── floaterm.vim
-    ├── indentline.vim
-    ├── leaderf.vim
-    ├── lightline.vim
-    ├── nerdtree.vim
-    ├── snippets.vim
-    ├── vista.vim
-    └── visualmulti.vim
+├── other
+│   ├── App.md
+│   ├── gatherFunctionImplByPython.py
+│   └── initvim.png
+├── plugconfig
+│   ├── airline.vim
+│   ├── asyncrun.vim
+│   ├── coc.vim
+│   ├── defx.vim
+│   ├── floaterm.vim
+│   ├── fzf.vim
+│   ├── indentline.vim
+│   ├── leaderf.vim
+│   ├── lightline.vim
+│   ├── nerdcommenter.vim
+│   ├── nerdtree.vim
+│   ├── snippets.vim
+│   ├── treesitter.vim
+│   ├── ultisnippets.vim
+│   ├── vista.vim
+│   └── visualmulti.vim
+├── README.md
+└── UltiSnips
+    ├── cmake.snippets
+    ├── cpp.snippets
+    ├── markdown.snippets
+    ├── md-snippets.vim
+    └── python.snippets
 ```
 
 
@@ -84,36 +95,39 @@
 ### coc.vim
 
 
-| Key | function        |
-|:---:|:---------------:|
-| Tab | toggle complete |
-
-### defx.vim
-
-| Key   | fuction                       |
-|:-----:|:------------------------------|
-| :tree | toggle defx plugin            |
-| yy    | copy a file                   |
-| N     | new file or dir(end with '/') |
-| R     | redraw                        |
-| M     | rename a file or dir          |
-| D     | remove to trash               |
-| p     | paste                         |
+| Key        | function                          |
+|:----------:|:---------------------------------:|
+| Tab        | toggle complete                   |
+| <leader>k  | show doc                          |
+| <ctrl>o    | show function return              |
+| <ctrl>j    | next placeholder                  |
+| <ctrl>k    | previous placeholder              |
+| <leader>a  | selected code action              |
+| <leader>ac | code action                       |
+| <leader>af | fix code                          |
+| <leader>rn | refactor, rename variables        |
+| gd         | go definition                     |
+| gD         | go definition in new tab          |
+| gy         | go to type definition             |
+| gi         | go to implementation              |
+| gr         | go to reference                   |
+| gs         | show git chunkinfo                |
+| ]e         | go to next error                  |
+| [e         | go to previous error              |
+| [g         | go to next git chunk              |
+| ]g         | go to previous git chunk          |
+| f          | smartf forward                    |
+| F          | smartf backward                   |
+| ;          | smartf repeat                     |
+| :          | smartf repeat opposite            |
+| :Format    | use to format current buffer code |
 
 ### floatterm
 
 
-| Key       | function                |
-|:---------:|:-----------------------:|
-| <leader>t | toggle a float terminal |
-
-### Leaderf
-
-
-| Key | function          |
-|:---:|:-----------------:|
-| ,f  | find function     |
-| ,l  | find line content |
+| Key   | function                |
+|:-----:|:-----------------------:|
+| <F12> | toggle a float terminal |
 
 ### Vista.vim
 
@@ -162,9 +176,9 @@
 
 > find file fuzzy
 
-| key       | function  |
-|:---------:|:---------:|
-| <leader>f | equal :Ag |
+| key     | function  |
+|:-------:|:---------:|
+| <ctrl>f | equal :Ag |
 
 fzf plugin not mapping key, but it need some config in `.zshrc` and other software.
 
@@ -177,95 +191,82 @@ export FZF_DEFAULT_COMMAND='ag --hidden --ignore={.git,.cache} -ignore-dir={node
 software
 - **ag** `the_silver_searcher` 
 
+### markdown-preview
 
-### gitgutter
+| key              | function                            |
+|:----------------:|:-----------------------------------:|
+| :MarkdownPreview | for markdown preview in web broswer |
 
-> mark change in a git repo.
 
-| key | function                                       |
-|:---:|:----------------------------------------------:|
-| [c  | previous changes                               |
-| ]c  | next changes which conflict with markdown plug |
+### Vim-autopairs
+
+
 
 ## Plugin
 
 * My vimrc plug:
 
-	* Plug 'itchyny/lightline.vim'
-	* Plug 'itchyny/vim-gitbranch'
-	* Plug 'jiangmiao/auto-pairs'
-	* Plug 'liuchengxu/vista.vim'
-	* Plug 'voldikss/vim-floaterm'
-	* Plug 'mhinz/vim-startify'
-	* Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
-	* Plug 'plasticboy/vim-markdown'
-	* Plug 'godlygeek/tabular'
-	* Plug 'SirVer/ultisnips'
-	* Plug 'Chiel92/vim-autoformat'
-	* Plug 'tpope/vim-surround'
-	* Plug 'sheerun/vim-polyglot'
-	* Plug 'Yggdroot/indentLine'
-	* Plug 'Yggdroot/LeaderF'
-	* Plug 'skywind3000/asyncrun.vim'
-	* Plug 'mg979/vim-visual-multi', {'branch': 'master'}
-	* Plug 'matze/vim-move'
-	* Plug 'ryanoasis/vim-devicons'
-	* Plug 'itchyny/vim-cursorword'
-	* Plug 'neoclide/coc.nvim',{'branch':'release'}
-	* Plug 'morhetz/gruvbox'
-	* Plug 'joshdick/onedark.vim'
-	* Plug 'airblade/vim-gitgutter'
-	* Plug 'tyru/caw.vim'
-    * Plug 'junegunn/fzf', {'do':':UpdateRemotePlugins'}
-    * Plug 'junegunn/fzf.vim'
-
+- Plug 'itchyny/lightline.vim'
+- Plug 'jiangmiao/auto-pairs'
+- Plug 'liuchengxu/vista.vim'
+- Plug 'voldikss/vim-floaterm'
+- Plug 'mhinz/vim-startify'
+- Plug 'godlygeek/tabular'
+- Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+- Plug 'plasticboy/vim-markdown'
+ 
+- Plug 'tpope/vim-surround'
+- Plug 'Yggdroot/indentLine'
+- Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+- Plug 'junegunn/fzf.vim'
+- Plug 'tyru/caw.vim'
+- Plug 'mg979/vim-visual-multi', {'branch': 'master'}
+- Plug 'matze/vim-move'
+- Plug 'ryanoasis/vim-devicons'
+- Plug 'itchyny/vim-cursorword'
+- 
+- Plug 'neoclide/coc.nvim',{'branch':'release'}
+- Plug 'morhetz/gruvbox'
+- Plug 'rakr/vim-one'
+- Plug 'joshdick/onedark.vim'
+- Plug 'arcticicestudio/nord-vim'
 
 * table describe
 
-| Number | Rec                            | Plug Name                                                         | Desc                                |
-|:------:|:------------------------------:|:-----------------------------------------------------------------:|:------------------------------------|
-| 1      | :star::star::star::star:       | [lightline.vim](https://www.github.com/itchyny/lightline.vim)     | status column                       |
-| 2      | :star:                         | [vim-gitbranch](https://www.github.com/itchyny/vim-gitbranch)     | show git branch name                |
-| 3      | :star::star::star::star:       | [auto-pairs](https://www.github.com/jiangmiao/auto-pairs)         | auto complete {} () []              |
-| 4      | :star::star::star:             | [vista.vim](https://www.github.com/liuchengxu/vista.vim)          | show tags, acquired ctags support   |
-| 5      | :star::star::star::star::star: | [vim-floaterm](https://www.github.com/voldikss/vim-floaterm)      | float terminal                      |
-| 6      | :star::star:                   | [vim-startify](https://www.github.com/mhinz/vim-startify)         | start menu                          |
-| 7      | :star::star::star::star::star: | [markdown-preview.nvim](https://www.github.com/markdown)          | markdown preview using broswer      |
-| 8      | :star::star::star:             | [vim-markdown](https://www.github.com/plasticboy/vim-markdown)    | hihtlight markdown syntax           |
-| 9      | :star::star::star::star:       | [tabular](https://www.github.com/godlygeek/tabular)               | format table                        |
-| 10     | :star::star::star:             | [ultisnips](https://www.github.com/SirVer/ultisnips)              | code snippets                       |
-| 11     | :star::star::star:             | [vim-autoformat](https://www.github.com/Chiel92/vim-autoformat)   |                                     |
-| 12     | :star::star::star:             | [vim-surround](https://www.github.com/tpope/vim-surround)         | add sign between a word or sentence |
-| 13     | :star::star::star::star:       | [vim-polyglot](https://www.github.com/sheerun/vim-polyglot)       | choose plugin automatically         |
-| 14     | :star::star::star:             | [indentLine](https://www.github.com/Yggdroot/indentLine)          | indent line for python              |
-| 15     | :star::star::star::star:       | [LeaderF](https://www.github.com/Yggdroot/LeaderF)                | search content                      |
-| 16     | :star::star::star:             | [asyncrun.vim](https://www.github.com/skywind3000/asyncrun.vim)   | run code                            |
-| 17     | :star::star::star::star:       | [vim-visual-multi](https://www.github.com/mg979/vim-visual-multi) | multi cursor                        |
-| 18     | :star::star::star:             | [vim-move](https://www.github.com/matze/vim-move)                 | move code                           |
-| 19     | :star::star::star:             | [vim-devicons](https://www.github.com/ryanoasis/vim-devicons)     | icons                               |
-| 20     | :star::star::star::star:       | [vim-cursorword](https://www.github.com/itchyny/vim-cursorword)   | highlight current word              |
-| 21     | :star::star::star::star::star: | [coc.nvim](https://www.github.com/neoclide/coc.nvim)              | Main function:complete              |
-| 22     | :star::star::star::star:       | [vim-gitgutter](https://www.github.com/morhetz/gruvbox)           | git staus shows                     |
-| 23     | :star::star::star:             | [gruvbox](https://www.github.com/joshdick/onedark.vim)            | theme                               |
-| 24     | :star::star::star::star:       | [onedark.vim](https://www.github.com/airblade/vim-gitgutter)      | theme                               |
-| 25     | :star::star::star::star:       | [caw.vim](https://www.github.com/tyru/caw.vim)                    | Annoatation                         |
-| 25     | :star::star::star::stars::tar: | [fzf.vim](https://www.github.com/junegunn/fzf.vim)                | search                              |
+| Rec                            | Plug Name                                                         | Desc                                |
+|:------------------------------:|:-----------------------------------------------------------------:|:------------------------------------|
+| :star::star::star::star:       | [lightline.vim](https://www.github.com/itchyny/lightline.vim)     | status column                       |
+| :star::star::star::star:       | [auto-pairs](https://www.github.com/jiangmiao/auto-pairs)         | auto complete {} () []              |
+| :star::star::star:             | [vista.vim](https://www.github.com/liuchengxu/vista.vim)          | show tags, acquired ctags support   |
+| :star::star::star::star::star: | [vim-floaterm](https://www.github.com/voldikss/vim-floaterm)      | float terminal                      |
+| :star::star:                   | [vim-startify](https://www.github.com/mhinz/vim-startify)         | start menu                          |
+| :star::star::star::star::star: | [markdown-preview.nvim](https://www.github.com/markdown)          | markdown preview using broswer      |
+| :star::star::star:             | [vim-markdown](https://www.github.com/plasticboy/vim-markdown)    | hihtlight markdown syntax           |
+| :star::star::star::star:       | [tabular](https://www.github.com/godlygeek/tabular)               | format table                        |
+| :star::star::star:             | [vim-surround](https://www.github.com/tpope/vim-surround)         | add sign between a word or sentence |
+| :star::star::star:             | [indentLine](https://www.github.com/Yggdroot/indentLine)          | indent line for python              |
+| :star::star::star::star:       | [vim-visual-multi](https://www.github.com/mg979/vim-visual-multi) | multi cursor                        |
+| :star::star::star:             | [vim-move](https://www.github.com/matze/vim-move)                 | move code                           |
+| :star::star::star:             | [vim-devicons](https://www.github.com/ryanoasis/vim-devicons)     | icons                               |
+| :star::star::star::star:       | [vim-cursorword](https://www.github.com/itchyny/vim-cursorword)   | highlight current word              |
+| :star::star::star::star::star: | [coc.nvim](https://www.github.com/neoclide/coc.nvim)              | Main function:complete              |
+| :star::star::star::star:       | [vim-gitgutter](https://www.github.com/morhetz/gruvbox)           | git staus shows                     |
+| :star::star::star:             | [gruvbox](https://www.github.com/joshdick/onedark.vim)            | theme                               |
+| :star::star::star::star:       | [caw.vim](https://www.github.com/tyru/caw.vim)                    | Annoatation                         |
+| :star::star::star::stars::tar: | [fzf.vim](https://www.github.com/junegunn/fzf.vim)                | search                              |
 
 
 
 :bell:**Note** in coc managerment, install plug behind
 - coc-clangd\
 	`install clangd`
-- coc-css
 - :star:coc-explorer
 - coc-go\
 	`install gopls`
 - coc-html
-- coc-jedi
 - coc-json
-- coc-python
+- coc-pyright
 - coc-snippets
-- coc-texlab
 - coc-tsserver
 - coc-vimlsp
 - coc-yank
