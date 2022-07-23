@@ -5,7 +5,12 @@ local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protoco
 local on_attach = function(client, bufnr)
   -- Enable completion triggered by <c-x><c-o>
   vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
-  -- Mappings.
+  local opts = { noremap=true, silent=true }
+  vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, opts)
+  vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
+  vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
+  vim.keymap.set('n', '<space>dl', vim.diagnostic.setloclist, opts)
+      -- Mappings.
   -- See `:help vim.lsp.*` for documentation on any of the below functions
   local bufopts = { noremap=true, silent=true, buffer=bufnr }
   vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
@@ -31,7 +36,6 @@ local lsps = {
     "rust_analyzer",
     "cmake",
     "bashls",
-    "sumneko_lua"
 }
 
 local settings = {
@@ -44,3 +48,14 @@ for _, val in ipairs(lsps) do
         settings
     )
 end
+
+require'lspconfig'.sumneko_lua.setup {
+  settings = {
+    Lua = {
+      diagnostics = {
+        -- Get the language server to recognize the `vim` global
+        globals = {'vim'},
+      },
+    },
+  },
+}
