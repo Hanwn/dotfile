@@ -1,4 +1,5 @@
 require("plugin.lsp")
+require("plugin.plugins")
 
 function Setup(tab)
     require(tab.name).setup(tab.settings)
@@ -16,7 +17,8 @@ local plugings = {
     "telescope-cfg",
     "lualine-cfg",
     "project-cfg",
-    "notify-cfg"
+    "notify-cfg",
+    "hop"
 }
 
 for _, v in pairs(plugings) do

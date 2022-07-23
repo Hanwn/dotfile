@@ -1,3 +1,9 @@
+local fn = vim.fn
+local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+if fn.empty(fn.glob(install_path)) > 0 then
+  packer_bootstrap = fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
+end
+
 local packer = require('packer')
 
 return packer.startup(function(use)
@@ -76,5 +82,15 @@ return packer.startup(function(use)
             { 'neovim/nvim-lspconfig' },
         },
     }
+
+    use {
+        'phaazon/hop.nvim',
+        branch = 'v2', -- optional but strongly recommended
+        require('hop').setup()
+    }
+
+    if packer_bootstrap then
+        require('packer').sync()
+    end
 
 end)
