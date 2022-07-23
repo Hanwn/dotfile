@@ -24,35 +24,23 @@ local on_attach = function(client, bufnr)
   vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
 end
 
+local lsps = {
+    "gopls",
+    "clangd",
+    "pyright",
+    "rust_analyzer",
+    "cmake",
+    "bashls",
+    "sumneko_lua"
+}
 
--- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
-require('lspconfig')['gopls'].setup {
-    on_attach = on_attach,
-    capabilities = capabilities
-}
-require('lspconfig')['clangd'].setup {
-    on_attach = on_attach,
-    capabilities = capabilities
-}
-require('lspconfig')['pyright'].setup {
-    on_attach = on_attach,
-    capabilities = capabilities
-}
-require('lspconfig')['sumneko_lua'].setup {
+local settins = {
     on_attach = on_attach,
     capabilities = capabilities
 }
 
-require('lspconfig')['bashls'].setup {
-    on_attach = on_attach,
-    capabilities = capabilities
-}
-
-require('lspconfig')['rust_analyzer'].setup {
-    on_attach = on_attach,
-}
-
-require('lspconfig')['cmake'].setup {
-    on_attach = on_attach,
-    capabilities=capabilities
-}
+for _, val in ipairs(lsps) do
+    require("lspconfig")[val].setup{
+        settins
+    }
+end

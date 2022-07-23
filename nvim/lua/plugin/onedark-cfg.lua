@@ -1,4 +1,6 @@
-require('onedark').setup()
+local plugin = {}
+plugin.name = 'onedark'
+plugin.settings = {}
 
-
+return plugin
 
