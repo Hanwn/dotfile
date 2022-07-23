@@ -7,6 +7,8 @@ require('nvim-treesitter.configs').setup{
         "c",
         "cpp",
         "go",
-        "python"
+        "python",
+        "rust",
+        "cmake"
     },
 }
