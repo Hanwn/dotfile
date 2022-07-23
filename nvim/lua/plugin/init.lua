@@ -6,18 +6,18 @@ function Setup(tab)
 end
 
 local plugings = {
-    "onedark-cfg",
-    "treesitter-cfg",
-    "nvim-tree-cfg",
-    "autopairs-cfg",
-    "bufferline-cfg",
-    "fterm-cfg",
-    "gitgutter-cfg",
-    "indent-blankline-cfg",
-    "telescope-cfg",
-    "lualine-cfg",
-    "project-cfg",
-    "notify-cfg",
+    "onedark",
+    "treesitter",
+    "nvim-tree",
+    "autopairs",
+    "bufferline",
+    "fterm",
+    "gitgutter",
+    "indent-blankline",
+    "telescope",
+    "lualine",
+    "project",
+    "notify",
     "hop"
 }
 

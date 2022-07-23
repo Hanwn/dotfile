@@ -86,7 +86,6 @@ return packer.startup(function(use)
     use {
         'phaazon/hop.nvim',
         branch = 'v2', -- optional but strongly recommended
-        require('hop').setup()
     }
 
     if packer_bootstrap then
