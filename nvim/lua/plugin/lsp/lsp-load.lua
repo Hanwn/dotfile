@@ -34,13 +34,13 @@ local lsps = {
     "sumneko_lua"
 }
 
-local settins = {
+local settings = {
     on_attach = on_attach,
     capabilities = capabilities
 }
 
 for _, val in ipairs(lsps) do
-    require("lspconfig")[val].setup{
-        settins
-    }
+    require("lspconfig")[val].setup (
+        settings
+    )
 end
