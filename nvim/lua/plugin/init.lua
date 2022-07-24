@@ -19,7 +19,8 @@ local plugings = {
     "lualine",
     "project",
     "notify",
-    "hop"
+    "hop",
+    "aerial"
 }
 
 for _, v in pairs(plugings) do

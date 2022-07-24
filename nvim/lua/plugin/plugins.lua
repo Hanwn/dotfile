@@ -92,6 +92,10 @@ return packer.startup(function(use)
         branch = 'v2', -- optional but strongly recommended
     }
 
+    use {
+      'stevearc/aerial.nvim',
+    }
+
     if packer_bootstrap then
         require('packer').sync()
     end
