@@ -1,5 +1,6 @@
 require("plugin.lsp")
 require("plugin.plugins")
+require("plugin.luasnip")
 
 function Setup(tab)
     require(tab.name).setup(tab.settings)
