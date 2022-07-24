@@ -74,7 +74,8 @@ return packer.startup(function(use)
     -- STYLE
     use {
         'nvim-lualine/lualine.nvim',
-        requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+        requires = { 'kyazdani42/nvim-web-devicons', opt = true },
+        Setup(require(path .. "lualine"))
     }
     use {
         'akinsho/bufferline.nvim',
