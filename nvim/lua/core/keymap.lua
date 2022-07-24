@@ -17,8 +17,8 @@ local keymap = {
     {'n', '<leader>q', ':q!<CR>', {noremap = true, silent = true}},
     {'n', '<leader>w', ':wq<CR>', {noremap = true, silent = true}},
     {'n', 'Y', 'y$', {noremap = true, silent = true}},
-    {'n', 'H', '0', {noremap = true, silent = true}},
-    {'n', 'L', '$', {noremap = true, silent = true}},
+    -- {'n', 'H', '0', {noremap = true, silent = true}},
+    -- {'n', 'L', '$', {noremap = true, silent = true}},
 
     {'n', '[t', ':-tabnext<CR>', {noremap = true, silent = true}},
     {'n', ']t', ':+tabnext<CR>', {noremap = true, silent = true}},
