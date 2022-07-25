@@ -68,7 +68,7 @@ return packer.startup(function(use)
     -- use('SirVer/ultisnips')
     -- use('quangnguyen30192/cmp-nvim-ultisnips')
     require("plugin.lsp")
-    require("plugin.lunsnip")
+    require("plugin.luasnip")
 
     -- STYLE
     use {
