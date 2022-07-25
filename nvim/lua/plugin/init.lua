@@ -68,6 +68,7 @@ return packer.startup(function(use)
     -- use('SirVer/ultisnips')
     -- use('quangnguyen30192/cmp-nvim-ultisnips')
     require("plugin.lsp")
+    require("plugin.lunsnip")
 
     -- STYLE
     use {
@@ -123,9 +124,9 @@ return packer.startup(function(use)
 
     use {
         'stevearc/aerial.nvim',
-         config = function () {
+         config = function ()
              Setup(require(path .. "aerial"))
-         }
+         end
     }
 
     if packer_bootstrap then
