@@ -1,6 +1,3 @@
-require("plugin.lsp")
-require("plugin.luasnip")
-
 function Setup(tab)
     require(tab.name).setup(tab.settings)
 end
@@ -70,6 +67,7 @@ return packer.startup(function(use)
     use { 'saadparwaiz1/cmp_luasnip' }
     -- use('SirVer/ultisnips')
     -- use('quangnguyen30192/cmp-nvim-ultisnips')
+    require("plugin.lsp")
 
     -- STYLE
     use {
@@ -125,7 +123,9 @@ return packer.startup(function(use)
 
     use {
         'stevearc/aerial.nvim',
-        Setup(require(path .. "aerial"))
+         config = function () {
+             Setup(require(path .. "aerial"))
+         }
     }
 
     if packer_bootstrap then
