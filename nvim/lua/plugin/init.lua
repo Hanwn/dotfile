@@ -135,19 +135,24 @@ return packer.startup(function(use)
     }
 
     use {
-        "AckslD/nvim-neoclip.lua",
-        requires = {
-            {'kkharji/sqlite.lua', module = 'sqlite'},
-          -- you'll need at least one of these
-          -- {'nvim-telescope/telescope.nvim'},
-          -- {'ibhagwan/fzf-lua'},
-        },
-        config = function()
-            Setup(path .. "neoclip")
-        --   require('neoclip').setup()
-        end,
-        require('telescope').load_extension('neoclip')
+        'glepnir/dashboard-nvim',
+        require("plugin.dashboard")
     }
+
+    -- use {
+    --     "AckslD/nvim-neoclip.lua",
+    --     requires = {
+    --       -- you'll need at least one of these
+    --       -- {'nvim-telescope/telescope.nvim'},
+    --       -- {'ibhagwan/fzf-lua'},
+    --     },
+    --     config = function()
+    --         -- Setup(path .. "neoclip")
+    --       require('neoclip').setup()
+    --     end,
+    --     require('telescope').load_extension('neoclip')
+    -- }
+
 
     if packer_bootstrap then
         require('packer').sync()
