@@ -123,17 +123,15 @@ return packer.startup(function(use)
     }
 
     use {
-        'stevearc/aerial.nvim',
-         config = function ()
-             Setup(require(path .. "aerial"))
-         end
+         'simrat39/symbols-outline.nvim',
+         require("symbols-outline").setup()
     }
 
     use {
         'numToStr/Comment.nvim',
-        config = function()
-            require('Comment').setup()
-        end
+        -- config = function()
+        require('Comment').setup()
+        -- end
     }
 
     use {
