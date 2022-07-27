@@ -14,7 +14,6 @@ local packer = require('packer')
 
 return packer.startup(function(use)
     local path = "plugin."
-    use {'plugin'}
     use 'wbthomason/packer.nvim'
 
     -- THEMES
@@ -24,8 +23,9 @@ return packer.startup(function(use)
     }
     use 'shaunsingh/nord.nvim'
     use {
-        'ful1e5/onedark.nvim',
-        Setup(require(path .. 'onedark'))
+        'navarasu/onedark.nvim',
+        Setup(require(path .. 'onedark')),
+        require("onedark").load()
     }
 
     -- TOOLS
@@ -127,6 +127,28 @@ return packer.startup(function(use)
          config = function ()
              Setup(require(path .. "aerial"))
          end
+    }
+
+    use {
+        'numToStr/Comment.nvim',
+        config = function()
+            require('Comment').setup()
+        end
+    }
+
+    use {
+        "AckslD/nvim-neoclip.lua",
+        requires = {
+            {'kkharji/sqlite.lua', module = 'sqlite'},
+          -- you'll need at least one of these
+          -- {'nvim-telescope/telescope.nvim'},
+          -- {'ibhagwan/fzf-lua'},
+        },
+        config = function()
+            Setup(path .. "neoclip")
+        --   require('neoclip').setup()
+        end,
+        require('telescope').load_extension('neoclip')
     }
 
     if packer_bootstrap then
