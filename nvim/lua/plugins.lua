@@ -196,6 +196,13 @@ return packer.startup(function(use)
         end
     }
 
+    use { 
+        "williamboman/mason.nvim",
+        config = function()
+            require("mason").setup()
+        end
+    }
+
     -- use {
     --     'ray-x/navigator.lua',
     --     requires = {
