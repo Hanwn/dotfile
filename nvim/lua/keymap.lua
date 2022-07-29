@@ -40,4 +40,12 @@ local keymap = {
     {'v', 'K', '5k', {noremap = true, silent = true}}
 }
 
-return keymap
+
+local init_keymap = function()
+    for _, value in ipairs(keymap) do
+        vim.api.nvim_set_keymap(value[1], value[2], value[3], value[4])
+    end
+end
+
+
+init_keymap()

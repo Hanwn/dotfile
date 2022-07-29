@@ -1,7 +1,5 @@
-local plugin = {}
 
-plugin.name = "nvim-tree"
-plugin.settings = {
+require("nvim-tree").setup {
     vim.api.nvim_set_keymap('n', '<leader>t', ':NvimTreeToggle<CR>', { noremap = true, silent = true }),
     update_cwd = true,
     update_focused_file = {
@@ -24,5 +22,4 @@ plugin.settings = {
         dotfiles = true,
     }
 }
-return plugin
 

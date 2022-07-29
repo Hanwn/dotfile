@@ -1,6 +1,4 @@
-local plugin = {}
-plugin.name = 'nvim-treesitter.configs' 
-plugin.settings = {
+require("nvim-treesitter.configs").setup {
     highlight = {
         enable=true,
         disable={}
@@ -14,4 +12,3 @@ plugin.settings = {
         "cmake"
     },
 }
-return plugin

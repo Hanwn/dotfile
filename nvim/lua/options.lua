@@ -20,6 +20,14 @@ local command = {
     "set showtabline=2",
     "set ts=4",
     "set shiftwidth=4",
+    "set termguicolors"
 }
 
-return command
+
+local init_editor = function()
+    for _, value in ipairs(command) do
+        vim.api.nvim_command(value)
+    end
+end
+
+init_editor()

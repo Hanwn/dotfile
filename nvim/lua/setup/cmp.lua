@@ -1,3 +1,4 @@
+require("nvim-lsp-installer").setup {}
 local cmp = require'cmp'
 
 local kind_icons = {

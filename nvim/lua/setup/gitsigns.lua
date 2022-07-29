@@ -1,8 +1,5 @@
 
-local plugin = {}
-
-plugin.name = "gitsigns"
-plugin.settings = {
+require("gitsigns").setup({
       on_attach = function(bufnr)
     local gs = package.loaded.gitsigns
 
@@ -36,6 +33,4 @@ plugin.settings = {
     -- Text object
     map({'o', 'x'}, 'ih', ':<C-U>Gitsigns select_hunk<CR>')
   end
-}
-
-return plugin
+})
