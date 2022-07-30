@@ -67,9 +67,7 @@ cmp.setup({
       ['<C-e>'] = cmp.mapping.abort(),
       ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
       ["<Tab>"] = cmp.mapping(function(fallback)
-        if cmp.visible() then
-            cmp.confirm({ behavior = cmp.ConfirmBehavior.Insert, select = true })
-        elseif require("luasnip").expand_or_jumpable() then
+       if require("luasnip").expand_or_jumpable() then
             vim.fn.feedkeys(vim.api.nvim_replace_termcodes("<Plug>luasnip-expand-or-jump", true, true, true), "")
         else
             fallback()
@@ -78,10 +76,8 @@ cmp.setup({
           "i",
           "s",
         }),
-    ["<S-Tab>"] = cmp.mapping(function(fallback)
-        if cmp.visible() then
-            cmp.select_prev_item()
-        elseif require("luasnip").jumpable(-1) then
+      ["<S-Tab>"] = cmp.mapping(function(fallback)
+        if require("luasnip").jumpable(-1) then
             vim.fn.feedkeys(vim.api.nvim_replace_termcodes("<Plug>luasnip-jump-prev", true, true, true), "")
         else
             fallback()
