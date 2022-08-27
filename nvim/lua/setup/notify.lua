@@ -1,5 +1,1 @@
-
-require("notify").setup {
-
-}
-
+require("notify").setup({})

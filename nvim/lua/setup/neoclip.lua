@@ -1,4 +1,3 @@
-require("neoclip").setup {
-    enable_persistent_history=true
-}
-
+require("neoclip").setup({
+	enable_persistent_history = true,
+})

@@ -4,7 +4,7 @@ dash.preview_file_height = 12
 dash.preview_file_width = 80
 
 dash.custom_center = {
-    {
+	{
 		icon = "  ",
 		desc = "New file                         ",
 		shortcut = "~",
@@ -30,9 +30,8 @@ dash.custom_center = {
 	},
 }
 
-
-local function repeat_str (str, times)
-	return times > 0 and str..repeat_str(str, times-1) or ""
+local function repeat_str(str, times)
+	return times > 0 and str .. repeat_str(str, times - 1) or ""
 end
 
 local function make_custom_footer()
