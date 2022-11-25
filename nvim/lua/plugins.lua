@@ -131,7 +131,6 @@ return packer.startup(function(use)
     -- --
     use({
         "neovim/nvim-lspconfig",
-        requires = { { "williamboman/nvim-lsp-installer" } },
         config = function()
             require("setup/lsp")
         end,
@@ -166,17 +165,6 @@ return packer.startup(function(use)
         run = ":TSUpdate",
         config = function()
             require("setup/treesitter")
-        end,
-    })
-
-    use({
-        "AckslD/nvim-neoclip.lua",
-        requires = {
-            { "kkharji/sqlite.lua", module = "sqlite" },
-        },
-        config = function()
-            -- Setup(path .. "neoclip")
-            require("setup/neoclip")
         end,
     })
 
