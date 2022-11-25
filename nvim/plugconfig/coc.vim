@@ -52,14 +52,8 @@ xmap <leader>a  <Plug>(coc-codeaction-selected)
 
 inoremap <C-P> <C-\><C-O>:call CocActionAsync('showSignatureHelp')<cr>
 inoremap <silent><expr> <c-o> coc#refresh()
-" inoremap <silent><expr> <CR> My_mapping()
-inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
+inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
                               \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
 " Use <C-k> for jump to previous placeholder, it's default of coc.nvim
 
@@ -107,14 +101,3 @@ function! s:check_back_space() abort
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
-function! My_mapping()
-  if pumvisible() && complete_info()["selected"] == -1
-    return "\<C-y>\<CR>"
-  elseif pumvisible()
-    return coc#_select_confirm()
-  else
-    return "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
-  endif
-endfunction
-
-command! -nargs=0 Format :call CocActionAsync('format')
