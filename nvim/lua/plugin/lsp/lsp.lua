@@ -51,6 +51,7 @@ end
 lspconfig["clangd"].setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
+	filetypes = { "c", "cpp", "objc", "objcpp", "cuda" },
 })
 
 lspconfig["gopls"].setup({
@@ -77,12 +78,22 @@ lspconfig["tsserver"].setup({
 	on_attach = on_attach,
 })
 
+lspconfig["quick_lint_js"].setup({
+	capabilities = capabilities,
+	on_attach = on_attach,
+})
+
 lspconfig["rust_analyzer"].setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
 })
 
 lspconfig["bashls"].setup({
+	capabilities = capabilities,
+	on_attach = on_attach,
+})
+
+lspconfig["cmake"].setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
 })
