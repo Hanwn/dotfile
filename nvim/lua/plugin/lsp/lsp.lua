@@ -13,7 +13,7 @@ end
 
 local keymap = vim.keymap
 
-local capabilities = require('cmp_nvim_lsp').default_capabilities()
+local capabilities = cmp_nvim_lsp.default_capabilities()
 
 local on_attach = function(client, bufnr)
     -- Enable completion triggered by <c-x><c-o>
