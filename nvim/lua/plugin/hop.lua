@@ -1,4 +1,8 @@
-require("hop").setup({
+local hop_status, hop = pcall(require, "hop")
+if not hop_status then
+    return
+end
+hop.setup({
 	-- place this in one of your configuration file(s)
 	vim.api.nvim_set_keymap(
 		"",

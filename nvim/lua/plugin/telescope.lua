@@ -1,4 +1,10 @@
-require("telescope").setup({
+local telescope_status, telescope = pcall(require, "telescope")
+
+if not telescope_status then
+    return
+end
+
+telescope.setup({
 	vim.api.nvim_set_keymap("n", "<leader>f", ":Telescope<CR>", { noremap = true, silent = true }),
 	defaults = {
 		mappings = {
@@ -10,4 +16,5 @@ require("telescope").setup({
 	pickers = {},
 	extensions = {},
 })
-require("telescope").load_extension("projects")
+
+telescope.load_extension("projects")

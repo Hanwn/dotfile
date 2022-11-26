@@ -1,4 +1,7 @@
-local dash = require("dashboard")
+local dash_status, dash = pcall(require, "dashboard")
+if not dash_status then
+    return
+end
 
 dash.preview_file_height = 12
 dash.preview_file_width = 80

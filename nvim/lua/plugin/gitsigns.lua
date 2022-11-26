@@ -1,4 +1,8 @@
-require("gitsigns").setup({
+local gitsigns_status, gitsigns = pcall(require, "gitsigns")
+if not gitsigns_status then
+    return
+end
+gitsigns.setup({
 	on_attach = function(bufnr)
 		local gs = package.loaded.gitsigns
 
@@ -42,4 +46,5 @@ require("gitsigns").setup({
 		-- Text object
 		map({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>")
 	end,
+
 })

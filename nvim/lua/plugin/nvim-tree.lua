@@ -1,4 +1,24 @@
-require("nvim-tree").setup({
+local tree_status, nvimtree = pcall(require, "nvim-tree")
+if not tree_status then
+    return
+end
+
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
+
+-- configure nvim-tree
+nvimtree.setup({
+    renderer = {
+        icons = {
+            glyphs = {
+                folder = {
+                    arrow_closed = "", -- arrow when folder is closed
+                    arrow_open = "", -- arrow when folder is open
+                },
+            },
+        },
+    },
 	vim.api.nvim_set_keymap("n", "<leader>t", ":NvimTreeToggle<CR>", { noremap = true, silent = true }),
 	update_cwd = true,
 	update_focused_file = {
@@ -21,3 +41,4 @@ require("nvim-tree").setup({
 		dotfiles = true,
 	},
 })
+
