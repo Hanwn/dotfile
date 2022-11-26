@@ -26,7 +26,7 @@ mason_lspconfig.setup({
 		"rust_analyzer",
 		"cmake",
 		"tsserver",
-		"pylsp",
+		"pyright",
 		"quick_lint_js",
 	},
 	-- auto-install configured servers (with lspconfig)
