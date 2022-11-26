@@ -72,12 +72,17 @@ lspconfig["pylsp"].setup({
 	},
 })
 
-lspconfig["eslint"].setup({
+lspconfig["tsserver"].setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
 })
 
 lspconfig["rust_analyzer"].setup({
+	capabilities = capabilities,
+	on_attach = on_attach,
+})
+
+lspconfig["bashls"].setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
 })
