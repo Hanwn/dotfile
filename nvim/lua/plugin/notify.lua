@@ -5,3 +5,4 @@ if not notify_status then
 end
 
 notify.setup()
+vim.notify = notify
