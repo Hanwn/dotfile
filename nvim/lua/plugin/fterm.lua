@@ -1,6 +1,6 @@
 local fterm_status, fterm = pcall(require, "FTerm")
 if not fterm_status then
-    return
+	return
 end
 
 fterm.setup({

@@ -1,7 +1,7 @@
 local surround_status, surround = pcall(require, "nvim-surround")
 
 if not surround_status then
-    return
+	return
 end
 
 surround.setup()

@@ -100,6 +100,9 @@ return packer.startup(function(use)
     use("saadparwaiz1/cmp_luasnip") -- for autocompletion
     use("rafamadriz/friendly-snippets") -- useful snippets
 
+    -- formatting
+    use ("jose-elias-alvarez/null-ls.nvim")
+    use("jayp0521/mason-null-ls.nvim")
 
     -- tressitter
     use({

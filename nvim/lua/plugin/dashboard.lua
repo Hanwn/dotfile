@@ -1,6 +1,6 @@
 local dash_status, dash = pcall(require, "dashboard")
 if not dash_status then
-    return
+	return
 end
 
 dash.preview_file_height = 12

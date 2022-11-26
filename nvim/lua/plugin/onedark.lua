@@ -1,10 +1,9 @@
 local ontedark_status, onedark = pcall(require, "onedark")
 if not ontedark_status then
-    return
+	return
 end
 
 onedark.setup({
-    style = "darker",
-    toggle_style_key = "<NOP>",
+	style = "darker",
+	toggle_style_key = "<NOP>",
 })
-

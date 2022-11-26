@@ -1,6 +1,6 @@
 local indent_blankline_staus, indent_blankline = pcall(require, "indent_blankline")
 if not indent_blankline_staus then
-    return
+	return
 end
 
 indent_blankline.setup({

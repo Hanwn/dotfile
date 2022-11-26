@@ -1,6 +1,6 @@
 local gitsigns_status, gitsigns = pcall(require, "gitsigns")
 if not gitsigns_status then
-    return
+	return
 end
 gitsigns.setup({
 	on_attach = function(bufnr)
@@ -46,5 +46,4 @@ gitsigns.setup({
 		-- Text object
 		map({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>")
 	end,
-
 })

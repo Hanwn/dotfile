@@ -1,6 +1,6 @@
 local hop_status, hop = pcall(require, "hop")
 if not hop_status then
-    return
+	return
 end
 hop.setup({
 	-- place this in one of your configuration file(s)

@@ -3,11 +3,11 @@ require("core/options")
 require("core/keymap")
 require("core/theme")
 
-
 require("plugin/cmp")
 require("plugin/lsp/lsp")
 require("plugin/lsp/lspsaga")
 require("plugin/lsp/mason")
+require("plugin/lsp/null-ls")
 -- require("plugin/onedark")
 require("plugin/nvim-tree")
 require("plugin/notify")
@@ -27,6 +27,5 @@ require("plugin/treesitter")
 require("plugin/autopairs")
 require("plugin/fterm")
 -- import config
-
 
 -- vim.cmd[[colorscheme nord]]
