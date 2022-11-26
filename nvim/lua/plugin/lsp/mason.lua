@@ -36,14 +36,13 @@ mason_lspconfig.setup({
 mason_null_ls.setup({
 	-- list of formatters & linters for mason to install
 	ensure_installed = {
-		"clang_format", -- c/cpp formatter
 		"stylua", -- lua formatter
 		"gofumpt", -- golang formater or golines
 		"protolint", -- protobuf
 		"autopep8", -- for python
 		"sqlfluff", -- for sql
-		"markdownlint", --for markdown
 		"jq", -- json
+		"prettier",
 	},
 	-- auto-install configured formatters & linters (with null-ls)
 	automatic_installation = true,
