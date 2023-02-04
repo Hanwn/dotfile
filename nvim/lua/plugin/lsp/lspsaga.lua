@@ -95,7 +95,7 @@ saga.setup({
 
 local keymap = vim.keymap.set
 keymap({ "n", "v" }, "<leader>ca", "<cmd>Lspsaga code_action<CR>", { silent = true })
-keymap("n", "<leader>rn", "<cmd>Lspsaga rename<CR>", { silent = true })
+keymap("n", "<leader>rf", "<cmd>Lspsaga rename<CR>", { silent = true })
 keymap("n", "<leader>k", "<cmd>Lspsaga hover_doc<CR>", { silent = true })
 keymap("n", "gd", "<cmd>Lspsaga peek_definition<CR>", { silent = true })
 keymap("n", "gd", "<cmd>Lspsaga goto_definition<CR>")

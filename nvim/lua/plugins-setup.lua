@@ -83,6 +83,7 @@ return packer.startup(function(use)
 
 	use({
 		"glepnir/dashboard-nvim",
+		event = "VimEnter",
 	})
 
 	-- -- LSP conig
