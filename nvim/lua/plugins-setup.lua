@@ -69,9 +69,9 @@ return packer.startup(function(use)
 		branch = "v2", -- optional but strongly recommended
 	})
 
-	use({
-		"simrat39/symbols-outline.nvim",
-	})
+	-- use({
+	-- 	"simrat39/symbols-outline.nvim",
+	-- })
 
 	use({
 		"numToStr/FTerm.nvim",

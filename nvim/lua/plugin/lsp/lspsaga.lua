@@ -4,13 +4,60 @@ if not saga_status then
 	return
 end
 
-saga.init_lsp_saga({
+saga.setup({
 	-- keybinds for navigation in lspsaga window
 	move_in_saga = { prev = "<C-k>", next = "<C-j>" },
 	-- use enter to open file with finder
-	finder_action_keys = {
-		open = "<CR>",
+	finder = {
+		--percentage
+		max_height = 0.5,
+		keys = {
+			jump_to = "p",
+			edit = { "o", "<CR>" },
+			vsplit = "s",
+			split = "i",
+			tabe = "t",
+			quit = { "q", "<ESC>" },
+			close_in_preview = "<ESC>",
+		},
 	},
+	definition = {
+		edit = "<C-c>o",
+		vsplit = "<C-c>v",
+		split = "<C-c>i",
+		tabe = "<C-c>t",
+		quit = "q",
+		close = "<Esc>",
+	},
+
+	code_action = {
+		num_shortcut = true,
+		show_server_name = false,
+		keys = {
+			-- string | table type
+			quit = "<Esc>",
+			exec = "<CR>",
+		},
+	},
+
+	callhierarchy = {
+		show_detail = false,
+		keys = {
+			edit = "e",
+			vsplit = "s",
+			split = "i",
+			tabe = "t",
+			jump = "o",
+			quit = "<Esc>",
+			expand_collapse = "u",
+		},
+	},
+
+	beacon = {
+		enable = true,
+		frequency = 7,
+	},
+
 	-- use enter to open file with definition preview
 	definition_action_keys = {
 		quit = "<ESC>",
@@ -44,12 +91,6 @@ saga.init_lsp_saga({
 		-- auto refresh when change buffer
 		auto_refresh = true,
 	},
-
-	rename_action_quit = "<ESC>",
-	code_action_keys = {
-		quit = "<ESC>",
-		exec = "<CR>",
-	},
 })
 
 local keymap = vim.keymap.set
@@ -57,7 +98,9 @@ keymap({ "n", "v" }, "<leader>ca", "<cmd>Lspsaga code_action<CR>", { silent = tr
 keymap("n", "<leader>rn", "<cmd>Lspsaga rename<CR>", { silent = true })
 keymap("n", "<leader>k", "<cmd>Lspsaga hover_doc<CR>", { silent = true })
 keymap("n", "gd", "<cmd>Lspsaga peek_definition<CR>", { silent = true })
-keymap("n", "<leader>v", ":LSoutlineToggle<CR>", { noremap = true, silent = true })
+keymap("n", "gd", "<cmd>Lspsaga goto_definition<CR>")
+-- keymap("n", "gr", "<cmd>Lspsaga lsp_finder<CR>")
+keymap("n", "<leader>v", "<cmd>Lspsaga outline<CR>", { noremap = true, silent = true })
 keymap("n", "[e", "<cmd>Lspsaga diagnostic_jump_prev<CR>", { silent = true })
 keymap("n", "]e", "<cmd>Lspsaga diagnostic_jump_next<CR>", { silent = true })
 
