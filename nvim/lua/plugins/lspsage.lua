@@ -1,3 +1,5 @@
+
+
 return {
   "glepnir/lspsaga.nvim",
   event = "LspAttach",
@@ -90,6 +92,24 @@ return {
 		auto_refresh = true,
 	},
     })
+    	local keymap = vim.keymap.set
+	keymap({ "n", "v" }, "<leader>ca", "<cmd>Lspsaga code_action<CR>", { silent = true })
+	keymap("n", "<leader>rn", "<cmd>Lspsaga rename<CR>", { silent = true })
+	keymap("n", "<leader>k", "<cmd>Lspsaga hover_doc<CR>", { silent = true })
+	keymap("n", "gd", "<cmd>Lspsaga peek_definition<CR>", { silent = true })
+	keymap("n", "gd", "<cmd>Lspsaga goto_definition<CR>")
+	keymap("n", "gr", "<cmd>Lspsaga lsp_finder<CR>")
+	keymap("n", "<leader>v", "<cmd>Lspsaga outline<CR>", { noremap = true, silent = true })
+	keymap("n", "[e", "<cmd>Lspsaga diagnostic_jump_prev<CR>", { silent = true })
+	keymap("n", "]e", "<cmd>Lspsaga diagnostic_jump_next<CR>", { silent = true })
+
+	-- Only jump to error
+	keymap("n", "[E", function()
+		require("lspsaga.diagnostic").goto_prev({ severity = vim.diagnostic.severity.ERROR })
+	end, { silent = true })
+	keymap("n", "]E", function()
+		require("lspsaga.diagnostic").goto_next({ severity = vim.diagnostic.severity.ERROR })
+	end, { silent = true })
   end,
   dependencies = {
       {"nvim-tree/nvim-web-devicons"},
