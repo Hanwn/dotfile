@@ -15,6 +15,8 @@ treesitter.setup({
 		"python",
 		"rust",
 		"cmake",
+        "markdown",
+        "markdown_inline",
 	},
 })
 vim.wo.foldmethod = "expr"

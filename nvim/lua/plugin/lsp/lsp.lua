@@ -14,44 +14,25 @@ end
 local keymap = vim.keymap
 local capabilities = cmp_nvim_lsp.default_capabilities()
 
-local on_attach = function(client, bufnr)
-	-- Enable completion triggered by <c-x><c-o>
-	vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
-	local opts = { noremap = true, silent = true }
-	keymap.set("n", "<space>e", vim.diagnostic.open_float, opts)
-	-- Mappings.
-	local bufopts = { noremap = true, silent = true, buffer = bufnr }
-	keymap.set("n", "gD", vim.lsp.buf.declaration, bufopts)
-	keymap.set("n", "gi", vim.lsp.buf.implementation, bufopts)
-	keymap.set("n", "<leader>D", vim.lsp.buf.type_definition, bufopts)
-	keymap.set("n", "gr", vim.lsp.buf.references, bufopts)
-	keymap.set("n", "<leader>F", function()
-		vim.lsp.buf.format({ async = true })
-	end, bufopts)
-	keymap.set("i", "<C-k>", vim.lsp.buf.signature_help, bufopts)
-end
-
 local signs = { Error = " ", Warn = " ", Hint = "ﴞ ", Info = " " }
 for type, icon in pairs(signs) do
 	local hl = "DiagnosticSign" .. type
 	vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
 end
+
 vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" }) -- show round border when <c-k> pressed
 
 lspconfig["clangd"].setup({
 	capabilities = capabilities,
-	on_attach = on_attach,
 	filetypes = { "c", "cpp", "objc", "objcpp", "cuda" },
 })
 
 lspconfig["gopls"].setup({
 	capabilities = capabilities,
-	on_attach = on_attach,
 })
 
 lspconfig["pyright"].setup({
 	capabilities = capabilities,
-	on_attach = on_attach,
 	settings = {
 		python = {
 			analysis = {
@@ -65,39 +46,42 @@ lspconfig["pyright"].setup({
 
 lspconfig["tsserver"].setup({
 	capabilities = capabilities,
-	on_attach = on_attach,
 })
 
 lspconfig["quick_lint_js"].setup({
 	capabilities = capabilities,
-	on_attach = on_attach,
 })
 
 lspconfig["rust_analyzer"].setup({
 	capabilities = capabilities,
-	on_attach = on_attach,
 })
 
 lspconfig["bashls"].setup({
 	capabilities = capabilities,
-	on_attach = on_attach,
 })
 
 lspconfig["cmake"].setup({
-	capabilities = capabilities,
-	on_attach = on_attach,
 })
 
--- configure lua server (with special settings)
-lspconfig["sumneko_lua"].setup({
-	capabilities = capabilities,
-	on_attach = on_attach,
-	settings = { -- custom settings for lua
-		Lua = {
-			-- make the language server recognize "vim" global
-			diagnostics = {
-				globals = { "vim" },
-			},
-		},
-	},
+lspconfig["lua_ls"].setup({
+  settings = {
+    Lua = {
+      runtime = {
+        -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
+        version = 'LuaJIT',
+      },
+      diagnostics = {
+        -- Get the language server to recognize the `vim` global
+        globals = {'vim'},
+      },
+      workspace = {
+        -- Make the server aware of Neovim runtime files
+        library = vim.api.nvim_get_runtime_file("", true),
+      },
+      -- Do not send telemetry data containing a randomized but unique identifier
+      telemetry = {
+        enable = false,
+      },
+    },
+  },
 })

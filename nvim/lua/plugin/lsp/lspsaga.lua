@@ -78,7 +78,7 @@ saga.setup({
 	},
 
 	-- show outline
-	show_outline = {
+	outline = {
 		win_position = "right",
 		--set special filetype win that outline window split.like NvimTree neotree
 		-- defx, db_ui
@@ -95,11 +95,11 @@ saga.setup({
 
 local keymap = vim.keymap.set
 keymap({ "n", "v" }, "<leader>ca", "<cmd>Lspsaga code_action<CR>", { silent = true })
-keymap("n", "<leader>rf", "<cmd>Lspsaga rename<CR>", { silent = true })
+keymap("n", "<leader>rn", "<cmd>Lspsaga rename<CR>", { silent = true })
 keymap("n", "<leader>k", "<cmd>Lspsaga hover_doc<CR>", { silent = true })
 keymap("n", "gd", "<cmd>Lspsaga peek_definition<CR>", { silent = true })
 keymap("n", "gd", "<cmd>Lspsaga goto_definition<CR>")
--- keymap("n", "gr", "<cmd>Lspsaga lsp_finder<CR>")
+keymap("n", "gr", "<cmd>Lspsaga lsp_finder<CR>")
 keymap("n", "<leader>v", "<cmd>Lspsaga outline<CR>", { noremap = true, silent = true })
 keymap("n", "[e", "<cmd>Lspsaga diagnostic_jump_prev<CR>", { silent = true })
 keymap("n", "]e", "<cmd>Lspsaga diagnostic_jump_next<CR>", { silent = true })
