@@ -1,10 +1,8 @@
--- import lspsaga safely
-local saga_status, saga = pcall(require, "lspsaga")
-if not saga_status then
-	return
-end
-
-saga.setup({
+return {
+  "glepnir/lspsaga.nvim",
+  event = "LspAttach",
+  config = function()
+    require("lspsaga").setup({
 	-- keybinds for navigation in lspsaga window
 	move_in_saga = { prev = "<C-k>", next = "<C-j>" },
 	-- use enter to open file with finder
@@ -91,24 +89,11 @@ saga.setup({
 		-- auto refresh when change buffer
 		auto_refresh = true,
 	},
-})
-
-local keymap = vim.keymap.set
-keymap({ "n", "v" }, "<leader>ca", "<cmd>Lspsaga code_action<CR>", { silent = true })
-keymap("n", "<leader>rn", "<cmd>Lspsaga rename<CR>", { silent = true })
-keymap("n", "<leader>k", "<cmd>Lspsaga hover_doc<CR>", { silent = true })
-keymap("n", "gd", "<cmd>Lspsaga peek_definition<CR>", { silent = true })
-keymap("n", "gd", "<cmd>Lspsaga goto_definition<CR>")
-keymap("n", "gr", "<cmd>Lspsaga lsp_finder<CR>")
-keymap("n", "<leader>v", "<cmd>Lspsaga outline<CR>", { noremap = true, silent = true })
-keymap("n", "[e", "<cmd>Lspsaga diagnostic_jump_prev<CR>", { silent = true })
-keymap("n", "]e", "<cmd>Lspsaga diagnostic_jump_next<CR>", { silent = true })
-
--- Only jump to error
-keymap("n", "[E", function()
-	require("lspsaga.diagnostic").goto_prev({ severity = vim.diagnostic.severity.ERROR })
-end, { silent = true })
-keymap("n", "]E", function()
-	require("lspsaga.diagnostic").goto_next({ severity = vim.diagnostic.severity.ERROR })
-end, { silent = true })
--- Diagnsotic jump can use `<c-o>` to jump back
+    })
+  end,
+  dependencies = {
+      {"nvim-tree/nvim-web-devicons"},
+      --Please make sure you install markdown and markdown_inline parser
+      {"nvim-treesitter/nvim-treesitter"}
+    }
+}
