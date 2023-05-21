@@ -1,6 +1,8 @@
 return {
   "neovim/nvim-lspconfig",
   config = function()
-	require("lspconfig").setup({})
+	local lspconfig = require("lspconfig")
+	lspconfig["cmake"].setup({})
+	
   end
 }
