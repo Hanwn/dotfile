@@ -15,6 +15,12 @@ return {
 	lspconfig.clangd.setup {
 	  capabilities = capabilities,
 	}
+	lspconfig.gopls.setup{
+	  capabilities = capabilities,
+	}
+	lspconfig.pyright.setup{
+	  capabilities = capabilities,
+	}
 	lspconfig.lua_ls.setup({
 	  settings = {
 	    Lua = {
