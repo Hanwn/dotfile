@@ -10,6 +10,19 @@ vim.api.nvim_create_autocmd("BufEnter", {
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
+local function on_attach(bufnr)
+  local api = require('nvim-tree.api')
+
+  local function opts(desc)
+    return { desc = 'nvim-tree: ' .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
+  end
+  vim.keymap.set('n', '?', api.tree.toggle_help, opts('Help'))
+  vim.keymap.set('n', 't', api.node.open.tab, opts('Open: New Tab'))
+  vim.keymap.set('n', 'h',  api.node.navigate.parent_close,        opts('Close Directory'))
+  vim.keymap.set('n', 'l',  api.node.open.edit,                    opts('Open'))
+end
+
+
 
 return {
   "nvim-tree/nvim-tree.lua",
@@ -19,6 +32,7 @@ return {
   },
   config = function()
     require("nvim-tree").setup ({
+	on_attach = on_attach,
 	renderer = {
 		icons = {
 			glyphs = {
@@ -34,18 +48,6 @@ return {
 	update_focused_file = {
 		enable = true,
 		update_cwd = true,
-	},
-	view = {
-		mappings = {
-			list = {
-				{ key = "l", action = "edit" },
-				{ key = "?", action = "toggle_help" },
-				{ key = "h", action = "close_node" },
-				{ key = "t", action = "tabnew" },
-				{ key = "[g", action = "prev_git_item" },
-				{ key = "]g", action = "next_git_item" },
-			},
-		},
 	},
 	filters = {
 		dotfiles = true,
