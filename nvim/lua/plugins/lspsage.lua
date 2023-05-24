@@ -110,6 +110,8 @@ return {
 	keymap("n", "]E", function()
 		require("lspsaga.diagnostic").goto_next({ severity = vim.diagnostic.severity.ERROR })
 	end, { silent = true })
+	keymap("n", "<C-k>", "<cmd>Lspsaga hover_doc<CR>")
+	keymap("i", "<C-k>","<cmd>lua vim.lsp.buf.signature_help()<CR>")
   end,
   dependencies = {
       {"nvim-tree/nvim-web-devicons"},
