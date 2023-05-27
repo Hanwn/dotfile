@@ -24,6 +24,12 @@ map("v", "<A-k>", ":m '<-2<cr>gv=gv", { desc = "Move up" })
 -- Clear search with <esc>
 map({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>", { desc = "Escape and clear hlsearch" })
 
+-- move tab and buffer
+map( "n", "[t", ":-tabnext<CR>", { noremap = true, silent = true } )
+map( "n", "]t", ":+tabnext<CR>", { noremap = true, silent = true } )
+map( "n", "[b", ":bp<CR>", { noremap = true, silent = true } )
+map( "n", "]b", ":bn<CR>", { noremap = true, silent = true } )
+
 
 -- ESC
 map("i", "jj" ,"<esc>", { desc = "Esc" })
