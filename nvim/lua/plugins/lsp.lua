@@ -12,7 +12,7 @@ return {
     local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
     local lspconfig = require("lspconfig")
-    local default_lsp = { "clangd", "gopls", "pyright", "tsserver" }
+    local default_lsp = { "clangd", "gopls", "pyright", "tsserver", "bashls" }
     for _, lsp in pairs(default_lsp) do
       lspconfig[lsp].setup{
         capabilities = capabilities

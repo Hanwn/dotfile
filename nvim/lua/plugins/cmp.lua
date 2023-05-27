@@ -27,7 +27,7 @@ return {
    -- import lspkind plugin safely
     local lspkind_status, lspkind = pcall(require, "lspkind")
     if not lspkind_status then
-	return
+	    return
     end
 
    cmp.setup({
