@@ -2,36 +2,6 @@
 
 set -x
 
-usage() {
-    echo "Usage: $0 [--update] [--user]"
-    echo "  --update: Install/update dependencies without checking ~/.gdbinit"
-    echo "  --user: Install pip dependencies to the user's home directory"
-}
-
-UPDATE_MODE=
-USER_MODE=
-for arg in "$@"; do
-    case $arg in
-        --update)
-            UPDATE_MODE=1
-            ;;
-        --user)
-            USER_MODE=1
-            ;;
-        -h | --help)
-            set +x
-            usage
-            exit 0
-            ;;
-        *)
-            set +x
-            echo "Unknown argument: $arg"
-            usage
-            exit 1
-            ;;
-    esac
-done
-
 
 # Helper functions
 linux() {
@@ -41,6 +11,8 @@ osx() {
     uname | grep -i Darwin &> /dev/null
 }
 
+# common plugin or software install
+
 
 # install area
 install_apt() {
@@ -49,7 +21,8 @@ install_apt() {
 
 install_dnf() {
     sudo dnf update || true
-    sudo dnf -y install git-delta \
+    sudo dnf -y install zsh \
+                        git-delta \
                         nodejs \
                         tmux \
                         neovim \
@@ -107,7 +80,6 @@ if linux; then
         "arch" | "archarm" | "endeavouros" | "manjaro" | "garuda")
             install_pacman
             echo "Logging off and in or conducting a power cycle is required to get debuginfod to work."
-            echo "Alternatively you can manually set the environment variable: DEBUGINFOD_URLS=https://debuginfod.archlinux.org"
             ;;
         "void")
             install_xbps
