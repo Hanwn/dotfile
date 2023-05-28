@@ -3,7 +3,13 @@ return {
 
   dependencies = {"hrsh7th/cmp-nvim-lsp"},
   config = function()
-    local signs = { Error = " ", Warn = " ", Hint = "ﴞ ", Info = " " }
+    local icons = require("config.icons")
+    local signs = {
+      Error = icons.diagnostics.Error,
+      Warn = icons.diagnostics.Warn,
+      Hint = icons.diagnostics.Hint,
+      Info = icons.diagnostics.Info
+    }
     for type, icon in pairs(signs) do
         local hl = "DiagnosticSign" .. type
         vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
