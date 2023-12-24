@@ -1,7 +1,10 @@
 return {
   "neovim/nvim-lspconfig",
 
-  dependencies = {"hrsh7th/cmp-nvim-lsp"},
+  dependencies = {
+    {"hrsh7th/cmp-nvim-lsp"},
+    {"williamboman/mason-lspconfig.nvim"},
+  },
   config = function()
     local icons = require("config.icons")
     local signs = {
@@ -18,13 +21,22 @@ return {
     local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
     local lspconfig = require("lspconfig")
-    local default_lsp = { "clangd", "gopls", "pyright", "tsserver", "bashls" }
-    for _, lsp in pairs(default_lsp) do
-      lspconfig[lsp].setup{
-        capabilities = capabilities
-      }
-    end
+    -- local default_lsp = { "clangd", "gopls", "pyright", "tsserver", "bashls" }
+    -- for _, lsp in pairs(default_lsp) do
+    --   lspconfig[lsp].setup{
+    --     capabilities = capabilities
+    --   }
+    -- end
 
+    require("mason-lspconfig").setup({
+        automatic_installation = true,
+    })
+
+    lspconfig.clangd.setup({})
+    lspconfig.rls.setup({})
+    lspconfig.gopls.setup({})
+    lspconfig.tsserver.setup({})
+    lspconfig.cmake.setup({})
     lspconfig.lua_ls.setup({
       settings = {
         Lua = {
